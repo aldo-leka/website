@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+  
+  body {
+    @apply text-black bg-white;
+  }
+  
+  a {
+    @apply hover:underline;
+  }
+  
+  pre {
+    @apply bg-gray-100 p-4 overflow-x-auto text-sm;
+  }
+  
+  code {
+    @apply bg-gray-100 px-1 py-0.5 text-sm;
+  }
+  
+  pre code {
+    @apply bg-transparent p-0;
+  }
+}

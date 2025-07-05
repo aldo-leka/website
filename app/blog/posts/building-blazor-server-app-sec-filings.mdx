@@ -1,0 +1,94 @@
+---
+title: "Building a Blazor Server App for SEC Filings"
+date: "2024-03-15"
+category: "programming"
+excerpt: "How I built SuperInvestor to help investors take notes on SEC filings with real-time collaboration features."
+---
+
+# Building a Blazor Server App for SEC Filings
+
+When I set out to build SuperInvestor, I had a clear goal: create a tool that would make it easier for investors to analyze SEC filings. After spending countless hours copying and pasting text from EDGAR into various note-taking apps, I knew there had to be a better way.
+
+## Why Blazor Server?
+
+I chose Blazor Server for several reasons:
+
+1. **Real-time updates**: Blazor Server's SignalR connection enables real-time collaboration features
+2. **Server-side rendering**: Perfect for text-heavy SEC filings without large client-side payloads
+3. **.NET ecosystem**: Leverages existing .NET libraries for parsing XBRL and other financial formats
+4. **Security**: Sensitive financial data stays on the server
+
+## Technical Architecture
+
+The application follows a clean architecture pattern with these main components:
+
+### Data Layer
+- SQL Server database for storing user notes and filing metadata
+- Entity Framework Core for data access
+- Background services for fetching new filings from EDGAR
+
+### Business Logic
+- Services for parsing SEC filings (10-K, 10-Q, 8-K, etc.)
+- Full-text search implementation using SQL Server Full-Text Search
+- Note synchronization logic for real-time collaboration
+
+### Presentation Layer
+- Blazor Server components for the UI
+- Custom JavaScript interop for highlighting and annotation features
+- Responsive design that works on tablets for reading on the go
+
+## Key Features Implementation
+
+### Shareable Links
+
+One of the most requested features was the ability to share annotated filings. I implemented this using:
+
+```csharp
+public class ShareService
+{
+    public string GenerateShareableLink(int filingId, List<int> noteIds)
+    {
+        var token = GenerateSecureToken();
+        // Store token with associated filing and notes
+        return $"https://app.getsuperinvestor.com/shared/{token}";
+    }
+}
+```
+
+### Real-time Collaboration
+
+Using Blazor's built-in SignalR connection, implementing real-time features was straightforward:
+
+```csharp
+protected override async Task OnInitializedAsync()
+{
+    hubConnection = new HubConnectionBuilder()
+        .WithUrl(NavigationManager.ToAbsoluteUri("/filinghub"))
+        .Build();
+        
+    hubConnection.On<Note>("ReceiveNote", (note) =>
+    {
+        notes.Add(note);
+        InvokeAsync(StateHasChanged);
+    });
+    
+    await hubConnection.StartAsync();
+}
+```
+
+## Lessons Learned
+
+1. **Blazor Server works great for document-heavy applications** - The server-side rendering is perfect for displaying large SEC filings without downloading megabytes to the client.
+
+2. **SignalR scaling requires planning** - As the user base grew, I had to implement Redis backplane for SignalR to work across multiple servers.
+
+3. **Background services are essential** - Fetching and processing SEC filings in the background keeps the UI responsive.
+
+## What's Next
+
+I'm currently working on:
+- AI-powered insights to highlight important sections
+- Export functionality for investment reports
+- Mobile app using .NET MAUI
+
+Building SuperInvestor has been an incredible journey. It's satisfying to create a tool that saves hours of manual work for investors. If you're interested in the technical details or want to contribute, check out the project at [getsuperinvestor.com](https://www.getsuperinvestor.com).
