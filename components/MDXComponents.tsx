@@ -1,4 +1,5 @@
 import type { MDXComponents } from 'mdx/types'
+import Image from 'next/image'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -13,6 +14,24 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <blockquote className="border-l-4 border-gray-300 pl-4 italic my-4">
         {children}
       </blockquote>
+    ),
+    img: ({ src, alt }) => (
+      <div className="my-6">
+        <img 
+          src={src} 
+          alt={alt || ''} 
+          className="max-w-full h-auto"
+        />
+      </div>
+    ),
+    Image: (props: any) => (
+      <div className="my-6">
+        <Image 
+          {...props}
+          className="max-w-full h-auto"
+          style={{ width: '100%', height: 'auto' }}
+        />
+      </div>
     ),
     ...components,
   }
