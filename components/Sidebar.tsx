@@ -1,11 +1,12 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 import { useState, useEffect } from 'react'
 
 export default function Sidebar() {
   const pathname = usePathname()
+  const searchParams = useSearchParams()
   const [isOpen, setIsOpen] = useState(false)
   
   const links = [
@@ -54,9 +55,22 @@ export default function Sidebar() {
         <div className="space-y-4">
           <h1 className="text-xl font-bold mb-8">Aldo's Site</h1>
           {links.map((link) => {
-            const isActive = link.href === '/' 
-              ? pathname === '/' 
-              : pathname.startsWith(link.href.split('?')[0])
+            let isActive = false
+            
+            if (link.href === '/') {
+              isActive = pathname === '/'
+            } else if (link.href.includes('?')) {
+              // For links with query params (blog categories)
+              const [linkPath, linkQuery] = link.href.split('?')
+              const linkParams = new URLSearchParams(linkQuery)
+              const linkCategory = linkParams.get('category')
+              const currentCategory = searchParams.get('category')
+              
+              isActive = pathname === linkPath && linkCategory === currentCategory
+            } else {
+              // For other links (projects, about)
+              isActive = pathname.startsWith(link.href)
+            }
             
             return (
               <Link

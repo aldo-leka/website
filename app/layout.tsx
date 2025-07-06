@@ -3,7 +3,7 @@ import './globals.css'
 import Sidebar from '@/components/Sidebar'
 
 export const metadata: Metadata = {
-  title: "Aldo's Portfolio",
+  title: "Aldo's Site",
   description: 'Personal portfolio and blog about programming and investing',
 }
 
