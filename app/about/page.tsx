@@ -54,6 +54,11 @@ export default function AboutPage() {
               Twitter/X
             </Link>
           </p>
+          <p>
+            <Link href="https://goodreads.com/aldo_leka" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
+              Goodreads
+            </Link>
+          </p>
         </div>
       </section>
     </div>
