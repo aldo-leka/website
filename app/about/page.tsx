@@ -55,6 +55,11 @@ export default function AboutPage() {
             </Link>
           </p>
           <p>
+            <Link href="https://www.boot.dev/u/aldo" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
+              Boot.devs
+            </Link>
+          </p>
+          <p>
             <Link href="https://goodreads.com/aldo_leka" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
               Goodreads
             </Link>
