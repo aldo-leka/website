@@ -56,7 +56,7 @@ export default function AboutPage() {
           </p>
           <p>
             <Link href="https://www.boot.dev/u/aldo" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
-              Boot.devs
+              Boot.dev
             </Link>
           </p>
           <p>
