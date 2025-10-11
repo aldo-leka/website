@@ -29,13 +29,13 @@ const projects = [
     {
         name: 'StockPortfolio.me',
         url: 'https://www.stockportfolio.me',
-        github: '',
         description: 'A stock portfolio sharing app that visualizes investment allocations using donut charts.',
         tech: ['Next.js', 'React', 'TypeScript', 'Chart.js', 'Claude Code'],
         features: [
             'Donut chart visualizations',
-            'Shareable portfolio links',
-            'Transfer of user data from not logged-in state via localStorage to database when logged-in'
+            'Shareable portfolio links like at X.com: url/username/portfolio',
+            'Transfer of user data from not logged-in state via localStorage to database when logged-in',
+            'Store images in an R2 bucket with Cloudflare',
         ],
     },
 ]

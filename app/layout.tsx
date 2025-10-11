@@ -4,7 +4,7 @@ import Sidebar from '@/components/Sidebar'
 
 export const metadata: Metadata = {
   title: "Aldo's Site",
-  description: 'Personal portfolio and blog about programming and investing',
+  description: 'Personal portfolio and blog',
 }
 
 export default function RootLayout({
