@@ -2,6 +2,19 @@ import Link from 'next/link'
 
 const projects = [
     {
+        name: 'Christmas Blackjack',
+        url: 'https://blackjack.aldo.al',
+        github: 'https://github.com/aldo-leka/blackjack.js',
+        description: 'A game I built for fun in 2 weeks which features authorative server multiplayer logic and in-game purchases.',
+        tech: ['Next.js', 'Node.js', 'Express.js', 'SocketIO'],
+        features: [
+            'Complex Blackjack rules and matchmaking made with authorative server',
+            'Secure data transmission to not allow players to cheat',
+            'Christmas-themed Blackjack and UI / UX made with Figma',
+            'In-game chip package purchases via polar.sh',
+        ],
+    },
+    {
         name: 'QuizPlus',
         url: 'https://www.quizplus.io',
         description: 'A quiz game that currently features a Who Wants to Be a Millionaire quiz and a multi-player quiz with AI-generated content.',
@@ -53,7 +66,7 @@ export default function ProjectsPage() {
                             <h2 className="text-xl font-bold mb-2">
                                 {project.url ?
                                     <Link href={project.url} className="hover:underline" target="_blank"
-                                          rel="noopener noreferrer">
+                                        rel="noopener noreferrer">
                                         {project.name}
                                     </Link> :
                                     project.name
@@ -76,7 +89,7 @@ export default function ProjectsPage() {
                         {project.github &&
                             <div className="text-sm">
                                 <Link href={project.github} className="text-blue-600 hover:underline" target="_blank"
-                                      rel="noopener noreferrer">
+                                    rel="noopener noreferrer">
                                     View on GitHub →
                                 </Link>
                             </div>}

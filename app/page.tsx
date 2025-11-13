@@ -15,6 +15,9 @@ export default async function HomePage() {
                 <p>
                     I might write about programming and investing sometimes on this site.
                 </p>
+                <p className="mt-4">
+                    Take a look at my projects <Link href="/projects" className="underline hover:text-gray-600">here</Link>.
+                </p>
             </div>
 
             <div>
