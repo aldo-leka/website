@@ -5,10 +5,10 @@ const projects = [
         name: 'Christmas Blackjack',
         url: 'https://blackjack.aldo.al',
         github: 'https://github.com/aldo-leka/blackjack.js',
-        description: 'A game I built for fun in 2 weeks which features authorative server multiplayer logic and in-game purchases.',
+        description: 'A game I built for fun in 2 weeks which features authoritative server multiplayer logic and in-game purchases.',
         tech: ['Next.js', 'Node.js', 'Express.js', 'SocketIO'],
         features: [
-            'Complex Blackjack rules and matchmaking made with authorative server',
+            'Complex Blackjack rules and matchmaking made with authoritative server',
             'Secure data transmission to not allow players to cheat',
             'Christmas-themed Blackjack and UI / UX made with Figma',
             'In-game chip package purchases via polar.sh',
