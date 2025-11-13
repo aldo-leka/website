@@ -1,4 +1,8 @@
+'use client'
+
 import Link from 'next/link'
+import Image from 'next/image'
+import { useState } from 'react'
 
 const projects = [
     {
@@ -13,6 +17,7 @@ const projects = [
             'Christmas-themed Blackjack and UI / UX made with Figma',
             'In-game chip package purchases via polar.sh',
         ],
+        demoGif: '/demos/blackjack.gif',
     },
     {
         name: 'QuizPlus',
@@ -26,6 +31,7 @@ const projects = [
             'Users by country stats',
             'API that generates and cleans quizzes in db called by a cronjob in Coolify / personal VPS'
         ],
+        demoGif: '/demos/quizplus.gif',
     },
     {
         name: 'Super-Investor',
@@ -39,6 +45,7 @@ const projects = [
             'Shareable links',
             'Export functionality',
         ],
+        demoGif: '/demos/superinvestor.gif',
     },
     {
         name: 'StockPortfolio.me',
@@ -51,22 +58,33 @@ const projects = [
             'Transfer of user data from not logged-in state via localStorage to database when logged-in',
             'Store images in an R2 bucket with Cloudflare',
         ],
+        demoGif: '/demos/stockportfolio.gif',
     },
 ]
 
 export default function ProjectsPage() {
+    const [hoveredProject, setHoveredProject] = useState<string | null>(null)
     return (
         <div>
-            <h1 className="text-2xl font-bold mb-8">My Projects</h1>
+            <div className="mb-8">
+                <h1 className="text-2xl font-bold inline">My Projects</h1>
+                <span className="text-sm text-gray-500 ml-3">(hover over titles to see demos)</span>
+            </div>
 
             <div className="space-y-12">
                 {projects.map((project) => (
-                    <article key={project.name} className="space-y-4">
+                    <article key={project.name} className="space-y-4 relative">
                         <div>
                             <h2 className="text-xl font-bold mb-2">
                                 {project.url ?
-                                    <Link href={project.url} className="hover:underline" target="_blank"
-                                        rel="noopener noreferrer">
+                                    <Link
+                                        href={project.url}
+                                        className="hover:underline"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        onMouseEnter={() => setHoveredProject(project.name)}
+                                        onMouseLeave={() => setHoveredProject(null)}
+                                    >
                                         {project.name}
                                     </Link> :
                                     project.name
@@ -93,6 +111,22 @@ export default function ProjectsPage() {
                                     View on GitHub →
                                 </Link>
                             </div>}
+
+                        {/* Hover popup GIF */}
+                        {hoveredProject === project.name && project.demoGif && (
+                            <div className="hidden md:block fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none">
+                                <div className="bg-white border-2 border-black p-1 shadow-lg">
+                                    <Image
+                                        src={project.demoGif}
+                                        alt={`${project.name} demo`}
+                                        width={600}
+                                        height={400}
+                                        unoptimized
+                                        className="max-w-[600px] h-auto"
+                                    />
+                                </div>
+                            </div>
+                        )}
                     </article>
                 ))}
             </div>
