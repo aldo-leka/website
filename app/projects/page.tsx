@@ -16,6 +16,7 @@ const projects = [
     },
     {
         name: 'Super-Investor',
+        url: 'https://superinvestor.aldo.al',
         github: 'https://github.com/aldo-leka/SuperInvestor-public',
         description: 'A note-taking application for SEC filings. Name was inspired from The Superinvestors of Graham and Doddsville article by Warren Buffett.',
         tech: ['Blazor Server', '.NET', 'C#', 'PostgreSQL'],
@@ -62,7 +63,6 @@ export default function ProjectsPage() {
                         </div>
 
                         <div>
-                            <h3 className="font-bold mb-2">Technical Implementation</h3>
                             <p className="text-sm text-gray-600 mb-2">
                                 Built with: {project.tech.join(', ')}
                             </p>
