@@ -14,7 +14,7 @@
     "@next/mdx": "^15.3.5",
     "@types/mdx": "^2.0.13",
     "gray-matter": "^4.0.3",
-    "next": "15.1.4",
+    "next": "^15.1.9",
     "next-mdx-remote": "^5.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
