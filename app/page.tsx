@@ -10,13 +10,13 @@ export default async function HomePage() {
             <div className="mb-12">
                 <h1 className="text-2xl font-bold mb-4">Hi!</h1>
                 <p className="leading-relaxed">
-                    I'm many things, but the longest one has been a programmer, so far.
+                    I wear multiple hats, but the longest one has been the programmer hat so far.
                 </p>
                 <p>
                     I might write about programming and investing sometimes on this site.
                 </p>
                 <p className="mt-4">
-                    Take a look at my projects <Link href="/projects" className="underline hover:text-gray-600">here</Link>.
+                    Take a look at my side projects <Link href="/projects" className="underline hover:text-gray-600">here</Link>.
                 </p>
             </div>
 
