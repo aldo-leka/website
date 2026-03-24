@@ -1,0 +1,16 @@
+services:
+  app:
+    image: ghcr.io/aldo-leka/website:${IMAGE_TAG:-latest}
+    container_name: website-app
+    restart: unless-stopped
+    environment:
+      HOSTNAME: 0.0.0.0
+    expose:
+      - "3000"
+    networks:
+      - ingress
+
+networks:
+  ingress:
+    external: true
+    name: yhp99hliq5cujkenfl2ln6rp
