@@ -6,10 +6,22 @@ import { useState } from 'react'
 
 const projects = [
     {
-        name: 'Christmas Blackjack',
+        name: 'TableLite',
+        url: 'https://tablelite.nl',
+        description: 'A project I built with my brother to try to sell restaurants a great reservation system with a lifetime deal instead of expensive monthly subscriptions.',
+        tech: ['Next.js', 'tRPC', 'drizzle-orm', 'Stripe'],
+        features: [
+            'Live reservations dashboard with timeline, calendar, and list views plus table assignment flows',
+            'Floor-plan table management with draggable tables, sections, and capacity presets',
+            'White-label booking widget with per-restaurant slugs, custom colors, multilingual support, and buffer-aware availability',
+            'Guest CRM with notes, tags, visit history, CSV export, and Stripe-powered lifetime plan checkout',
+        ],
+    },
+    {
+        name: 'Blackjack',
         url: 'https://blackjack.aldo.al',
         github: 'https://github.com/aldo-leka/blackjack.js',
-        description: 'A game I built for fun in 2 weeks which features authoritative server multiplayer logic and in-game purchases.',
+        description: 'A game I built for fun (after getting inspired by Scrimba lessons) that features authoritative server multiplayer logic and in-game purchases.',
         tech: ['Next.js', 'Node.js', 'Express.js', 'SocketIO'],
         features: [
             'Complex Blackjack rules and matchmaking made with authoritative server',
@@ -34,8 +46,8 @@ const projects = [
         demoGif: '/demos/quizplus.gif',
     },
     {
-        name: 'Super-Investor',
-        url: 'https://superinvestor.aldo.al',
+        name: 'SuperInvestor',
+        url: 'https://investor.aldo.al',
         github: 'https://github.com/aldo-leka/SuperInvestor-public',
         description: 'A note-taking application for SEC filings. Name was inspired from The Superinvestors of Graham and Doddsville article by Warren Buffett.',
         tech: ['Blazor Server', '.NET', 'C#', 'PostgreSQL'],

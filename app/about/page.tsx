@@ -17,7 +17,6 @@ export default function AboutPage() {
             <section className="space-y-4">
                 <h2 className="text-xl font-bold">Current Focus</h2>
                 <ul className="list-disc pl-6 space-y-1">
-                    <li>Working on a freelance basis.</li>
                     <li>Becoming an archmage at boot.dev.</li>
                     <li>Researching stocks and investing.</li>
                     <li>Following the neetcode.io curriculum and rereading Cracking the coding interview.</li>
@@ -40,7 +39,7 @@ export default function AboutPage() {
                         </Link>
                     </p>
                     <p>
-                        <Link href="https://twitter.com/aldodotal" className="text-blue-600 hover:underline"
+                        <Link href="https://twitter.com/leka_aldo" className="text-blue-600 hover:underline"
                               target="_blank" rel="noopener noreferrer">
                             Twitter/X
                         </Link>
