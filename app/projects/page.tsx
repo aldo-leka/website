@@ -34,6 +34,7 @@ const projects = [
     {
         name: 'QuizPlus',
         url: 'https://www.quizplus.io',
+        github: 'https://github.com/aldo-leka/ai-quiz-myself',
         description: 'A quiz game that currently features a Who Wants to Be a Millionaire quiz and a multi-player quiz with AI-generated content.',
         tech: ['Next.js', 'Node.js', 'API', 'AI system prompts'],
         features: [
