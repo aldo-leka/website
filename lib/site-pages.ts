@@ -55,19 +55,42 @@ export const sitePages = {
   "steady-rounds": {
     path: "/steady-rounds",
     title: "Steady Rounds: Boxing Timer",
-    headline: "Steady Rounds.",
-    description: "A timer for your boxing rounds. Built by Aldo Leka.",
+    headline: "Every round.\nIn your corner.",
+    description:
+      "Your rounds, rest and rhythm. An iPhone boxing timer with saved routines, clear countdowns and bells.",
     eyebrow: "Boxing Timer · For iPhone",
+    color: "#fff0bd",
+  },
+  "steady-rounds-privacy": {
+    path: "/steady-rounds/privacy",
+    title: "Steady Rounds Privacy Policy",
+    headline: "Your training.\nYour choices.",
+    description:
+      "Local routines, optional usage analytics and Pro purchases, explained.",
+    eyebrow: "Steady Rounds · Privacy",
+    color: "#dfe7d5",
+  },
+  "steady-rounds-support": {
+    path: "/steady-rounds/support",
+    title: "Steady Rounds Support",
+    headline: "Here to help.",
+    description:
+      "Help with timers, bells, lock-screen cues, saved routines and restoring Pro.",
+    eyebrow: "Steady Rounds · Support",
     color: "#fff0bd",
   },
 } as const;
 export type PageKey = keyof typeof sitePages;
 
+export function socialImagePath(key: PageKey) {
+  return `/share/${key}-${key.startsWith("steady-rounds") ? "v3" : "v2"}.png`;
+}
+
 export function pageMetadata(key: PageKey): Metadata {
   const page = sitePages[key];
   const image = {
-    url: `https://aldoleka.com/share/${key}-v2.png`,
-    secureUrl: `https://aldoleka.com/share/${key}-v2.png`,
+    url: `https://aldoleka.com${socialImagePath(key)}`,
+    secureUrl: `https://aldoleka.com${socialImagePath(key)}`,
     type: "image/png",
     width: 1200,
     height: 630,

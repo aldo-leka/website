@@ -1,14 +1,15 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
-import { sitePages, type PageKey } from "@/lib/site-pages";
+import { sitePages, socialImagePath, type PageKey } from "@/lib/site-pages";
 
 export const dynamic = "force-static";
 
 export function generateStaticParams() {
-  return Object.keys(sitePages).flatMap((key) => [
+  return (Object.keys(sitePages) as PageKey[]).flatMap((key) => [
     { slug: key }, // Keep previously shared image URLs available.
-    { slug: `${key}-v2.png` },
+    { slug: socialImagePath(key).split("/").pop()! },
+    ...(key === "steady-rounds" ? [{ slug: "steady-rounds-v2.png" }] : []),
   ]);
 }
 
@@ -20,6 +21,8 @@ const labels: Record<PageKey, [string, string]> = {
   "count-my-shift-privacy": ["Privacy", "Count My Shift"],
   "count-my-shift-support": ["Support", "Count My Shift"],
   "steady-rounds": ["Steady Rounds", "Boxing Timer · For iPhone"],
+  "steady-rounds-privacy": ["Privacy", "Steady Rounds"],
+  "steady-rounds-support": ["Support", "Steady Rounds"],
 };
 
 export async function GET(
@@ -27,15 +30,20 @@ export async function GET(
   { params }: { params: Promise<{ slug: string }> },
 ) {
   const { slug } = await params;
-  const key = slug.endsWith("-v2.png") ? slug.slice(0, -7) : slug;
+  const versioned = /-v[23]\.png$/.test(slug);
+  const key = versioned ? slug.slice(0, -7) : slug;
   if (!Object.hasOwn(sitePages, key))
     return new Response("Not found", { status: 404 });
 
   const page = sitePages[key as PageKey];
   const [title, subtitle] = labels[key as PageKey];
-  const isShift = key.startsWith("count-my-shift");
-  const appIcon = isShift
-    ? `data:image/png;base64,${(await readFile(join(process.cwd(), "public/apps/count-my-shift/icon.png"))).toString("base64")}`
+  const appFolder = key.startsWith("count-my-shift")
+    ? "count-my-shift"
+    : key.startsWith("steady-rounds") && slug !== "steady-rounds-v2.png"
+      ? "steady-rounds"
+      : null;
+  const appIcon = appFolder
+    ? `data:image/png;base64,${(await readFile(join(process.cwd(), `public/apps/${appFolder}/icon.png`))).toString("base64")}`
     : null;
 
   // Essential content stays in the middle 630px: a square thumbnail must
@@ -209,7 +217,7 @@ export async function GET(
       width: 1200,
       height: 630,
       headers: {
-        "Cache-Control": slug.endsWith("-v2.png")
+        "Cache-Control": versioned
           ? "public, max-age=31536000, immutable"
           : "public, max-age=3600, must-revalidate",
       },

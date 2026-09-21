@@ -8,6 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/count-my-shift/privacy",
     "/count-my-shift/support",
     "/steady-rounds",
+    "/steady-rounds/privacy",
+    "/steady-rounds/support",
   ].map((path) => ({
     url: `https://aldoleka.com${path}`,
     changeFrequency: "monthly",

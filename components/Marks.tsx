@@ -56,7 +56,7 @@ export function Squiggle() {
 export function FeatureIcon({
   type,
 }: {
-  type: "notebook" | "chart" | "cloud";
+  type: "notebook" | "chart" | "cloud" | "timer" | "bell" | "routines";
 }) {
   return (
     <svg
@@ -82,7 +82,26 @@ export function FeatureIcon({
           <rect x="35" y="5" width="9" height="42" rx="1" />
         </>
       ) : (
-        <path d="M12 40h25a9 9 0 0 0 1-18 14 14 0 0 0-27-3 11 11 0 0 0 1 21Z" />
+        <>
+          {type === "cloud" && (
+            <path d="M12 40h25a9 9 0 0 0 1-18 14 14 0 0 0-27-3 11 11 0 0 0 1 21Z" />
+          )}
+          {type === "timer" && (
+            <>
+              <circle cx="24" cy="29" r="18" />
+              <path d="M19 4h10M24 4v7M24 18v12l8 5M37 12l4-4" />
+            </>
+          )}
+          {type === "bell" && (
+            <path d="M10 38h28c-5-5-5-10-5-15a9 9 0 0 0-18 0c0 5 0 10-5 15ZM20 44a4 4 0 0 0 8 0M24 9V5M5 15l-3-3M43 15l3-3" />
+          )}
+          {type === "routines" && (
+            <>
+              <rect x="7" y="5" width="34" height="42" rx="5" />
+              <path d="m14 17 3 3 5-6M27 18h7m-20 11 3 3 5-6M27 30h7M14 40h20" />
+            </>
+          )}
+        </>
       )}
     </svg>
   );

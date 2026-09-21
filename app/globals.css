@@ -860,6 +860,15 @@ svg {
   color: var(--muted);
   margin-bottom: 20px;
 }
+@media (min-width: 1051px) {
+  .rounds-product-visual {
+    padding-bottom: 80px;
+  }
+  .rounds-product-visual .product-note {
+    right: 24px;
+    bottom: 12px;
+  }
+}
 @media (min-width: 1500px) {
   .home-hero {
     padding-top: 60px;
