@@ -66,8 +66,32 @@ for (const path of pages) {
     1,
     `${path}: primary heading`,
   );
-  for (const [, href] of html.matchAll(/<a\b[^>]*\bhref="([^"]*)"/g)) {
+  for (const [anchorTag, href] of html.matchAll(/<a\b[^>]*\bhref="([^"]*)"[^>]*>/g)) {
     const url = new URL(href.replaceAll("&amp;", "&"), new URL(path, base));
+    // Cloudflare's existing email protection replaces mailto URLs at the edge.
+    // Its script restores them in the browser; this endpoint is not a site page.
+    if (
+      url.origin === base.origin &&
+      url.pathname === "/cdn-cgi/l/email-protection"
+    ) {
+      assert(
+        html.includes("/cloudflare-static/email-decode.min.js"),
+        `${path}: email decoder`,
+      );
+      const encoded = url.hash.match(/^#([a-f0-9]+)/i)?.[1] ?? anchorTag.match(/data-cfemail="([a-f0-9]+)"/i)?.[1];
+      assert(encoded && encoded.length % 2 === 0, `${path}: encoded email`);
+      const bytes = Buffer.from(encoded, "hex");
+      const decoded = Buffer.from(
+        bytes.subarray(1).map((byte) => byte ^ bytes[0]),
+      ).toString();
+      const email = new URL(`mailto:${decoded}`).pathname;
+      assert.match(
+        email,
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+        `${path}: restored email`,
+      );
+      continue;
+    }
     if (url.origin === base.origin) internalLinks.add(url.pathname + url.hash);
   }
   console.log(`PASS ${path} — metadata and social preview`);
