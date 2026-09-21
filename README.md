@@ -37,7 +37,9 @@ Global navigation is Apps, About and Contact. App-specific legal and help links 
 
 Set `storeUrl` in **`lib/apps.ts`** when an iPhone app has a public `https://apps.apple.com/...` listing. Until then its page says “Coming to the App Store”; home cards link to the app overview. Setting the URL enables the store buttons and removes Count My Shift’s beta label. DineMio uses its own website URL. Never use a private App Store Connect page or TestFlight invitation as a public store URL.
 
-Page titles, descriptions and preview copy are centralized in `lib/site-pages.ts`. Every public page has its own generated PNG at `/share/<page-key>` and Open Graph/Twitter metadata. Add new pages to the sitemap and this metadata registry. Unknown preview keys return 404.
+Page titles, descriptions and preview copy are centralized in `lib/site-pages.ts`. Every public page has its own generated PNG at `/share/<page-key>-v2.png` and Open Graph/Twitter metadata. The central 630px contains the essential artwork and label so square thumbnails do not cut them off. Keep image filenames versioned when the design changes: social platforms may retain previously fetched images. Previous `/share/<page-key>` URLs remain available. Add new pages to the sitemap and this metadata registry. Unknown preview keys return 404.
+
+The smoke check uses `Twitterbot/1.0` by default and verifies metadata in the HTML head, PNG content and dimensions, image MIME metadata and a 300KB file-size budget. Use `SMOKE_USER_AGENT='WhatsApp/2.26' npm run test:smoke -- https://aldo.al` to check the alias with another crawler identity. Also run it against `https://aldoleka.com`. HTTP checks establish reachability; they do not prove a platform has refreshed its cached card. Check X’s Card Validator and a fresh draft, and inspect both wide and square image crops when updating previews.
 
 ## Privacy policy maintenance
 

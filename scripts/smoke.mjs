@@ -6,10 +6,12 @@ const base = new URL(process.argv[2] || "http://127.0.0.1:4173");
 const canonicalOrigin = "https://aldoleka.com";
 const internalLinks = new Set();
 const images = new Set();
+const userAgent = process.env.SMOKE_USER_AGENT || "Twitterbot/1.0";
 
 async function get(path, expectedStatus = 200) {
   const response = await fetch(new URL(path, base), {
     signal: AbortSignal.timeout(20000),
+    headers: { "User-Agent": userAgent },
   });
   assert.equal(response.status, expectedStatus, `${path}: HTTP status`);
   return response;
@@ -25,7 +27,8 @@ assert(pages.length > 0, "Sitemap must contain pages");
 
 for (const path of pages) {
   const html = await (await get(path)).text();
-  const tags = [...html.matchAll(/<(?:meta|link)\b[^>]*>/g)].map((match) => {
+  const head = html.split("</head>")[0];
+  const tags = [...head.matchAll(/<(?:meta|link)\b[^>]*>/g)].map((match) => {
     return Object.fromEntries(
       [...match[0].matchAll(/([\w:-]+)="([^"]*)"/g)].map((attribute) => [
         attribute[1],
@@ -52,6 +55,17 @@ for (const path of pages) {
   const image = new URL(meta("og:image"));
   assert.equal(image.origin, canonicalOrigin, `${path}: image origin`);
   assert.equal(
+    meta("og:image:type"),
+    "image/png",
+    `${path}: image MIME metadata`,
+  );
+  assert.equal(
+    meta("og:image:secure_url"),
+    image.href,
+    `${path}: secure image URL`,
+  );
+  assert.match(image.pathname, /-v\d+\.png$/, `${path}: versioned PNG URL`);
+  assert.equal(
     meta("twitter:image"),
     image.href,
     `${path}: shared social image`,
@@ -66,7 +80,9 @@ for (const path of pages) {
     1,
     `${path}: primary heading`,
   );
-  for (const [anchorTag, href] of html.matchAll(/<a\b[^>]*\bhref="([^"]*)"[^>]*>/g)) {
+  for (const [anchorTag, href] of html.matchAll(
+    /<a\b[^>]*\bhref="([^"]*)"[^>]*>/g,
+  )) {
     const url = new URL(href.replaceAll("&amp;", "&"), new URL(path, base));
     // Cloudflare's existing email protection replaces mailto URLs at the edge.
     // Its script restores them in the browser; this endpoint is not a site page.
@@ -78,7 +94,9 @@ for (const path of pages) {
         html.includes("/cloudflare-static/email-decode.min.js"),
         `${path}: email decoder`,
       );
-      const encoded = url.hash.match(/^#([a-f0-9]+)/i)?.[1] ?? anchorTag.match(/data-cfemail="([a-f0-9]+)"/i)?.[1];
+      const encoded =
+        url.hash.match(/^#([a-f0-9]+)/i)?.[1] ??
+        anchorTag.match(/data-cfemail="([a-f0-9]+)"/i)?.[1];
       assert(encoded && encoded.length % 2 === 0, `${path}: encoded email`);
       const bytes = Buffer.from(encoded, "hex");
       const decoded = Buffer.from(
@@ -101,6 +119,7 @@ for (const path of images) {
   const response = await get(path);
   assert.match(response.headers.get("content-type"), /^image\/png/);
   const png = Buffer.from(await response.arrayBuffer());
+  assert(png.length < 300000, `${path}: lightweight preview`);
   assert.equal(
     png.subarray(0, 8).toString("hex"),
     "89504e470d0a1a0a",
@@ -131,5 +150,5 @@ for (const path of [
 const robots = await (await get("/robots.txt")).text();
 assert(robots.includes(`${canonicalOrigin}/sitemap.xml`), "Robots sitemap");
 console.log(
-  `PASS ${pages.length} pages, ${images.size} preview images, ${internalLinks.size} internal links, removed routes and robots.txt`,
+  `PASS ${pages.length} pages, ${images.size} preview images, ${internalLinks.size} internal links, removed routes and robots.txt (${userAgent})`,
 );

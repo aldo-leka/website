@@ -66,7 +66,9 @@ export type PageKey = keyof typeof sitePages;
 export function pageMetadata(key: PageKey): Metadata {
   const page = sitePages[key];
   const image = {
-    url: `/share/${key}`,
+    url: `https://aldoleka.com/share/${key}-v2.png`,
+    secureUrl: `https://aldoleka.com/share/${key}-v2.png`,
+    type: "image/png",
     width: 1200,
     height: 630,
     alt: `${page.title} — ${page.description}`,
