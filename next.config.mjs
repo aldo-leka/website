@@ -1,13 +1,17 @@
-import createMDX from '@next/mdx'
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
-  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-}
-
-const withMDX = createMDX({
-  extension: /\.mdx?$/,
-})
-
-export default withMDX(nextConfig)
+  output: "standalone",
+  poweredByHeader: false,
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+        ],
+      },
+    ];
+  },
+};
+export default nextConfig;

@@ -1,0 +1,16 @@
+import type { MetadataRoute } from "next";
+export default function sitemap(): MetadataRoute.Sitemap {
+  return [
+    "",
+    "/about",
+    "/contact",
+    "/count-my-shift",
+    "/count-my-shift/privacy",
+    "/count-my-shift/support",
+    "/steady-rounds",
+  ].map((path) => ({
+    url: `https://aldoleka.com${path}`,
+    changeFrequency: "monthly",
+    priority: path === "" ? 1 : 0.7,
+  }));
+}
