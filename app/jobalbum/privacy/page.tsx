@@ -12,7 +12,7 @@ export default function PrivacyPage() {
         <br />
         <span className="underlined">Your choices.</span>
       </h1>
-      <p className="effective-date">Effective 22 September 2026</p>
+      <p className="effective-date">Effective 23 September 2026</p>
       <div className="policy-intro prose">
         <p>
           Your photos, job details, notes and optional GPS are stored on your
@@ -62,10 +62,11 @@ export default function PrivacyPage() {
         <h2 id="permissions">Camera, location and Photos permissions</h2>
         <p>
           Camera access is used to take still photos. JobAlbum does not record
-          audio or video. Location is optional and requested while using the
-          camera when you enable it. A recent, sufficiently accurate fix can be
-          stored with a photo and used in its stamp or report. There is no
-          background location collection, and you can capture without GPS.
+          audio or video. Location permission is requested when using the camera.
+          If allowed, a recent, sufficiently accurate position is automatically
+          saved with each photo. Location updates stop when the camera closes.
+          There is no background location collection, and capture works when
+          location is denied or unavailable.
         </p>
         <p>
           The Address or place field is a label you type. It is separate from
@@ -86,7 +87,7 @@ export default function PrivacyPage() {
           are held only temporarily in memory, cleared when the app leaves the
           foreground, and expire after five minutes. They are not written into
           photo metadata, stamped images or PDF reports. Recorded coordinates
-          remain available when an address cannot be found or the device is
+          are retained locally when an address cannot be found or the device is
           offline; map detail may also be unavailable offline.
         </p>
         <p>
@@ -100,11 +101,16 @@ export default function PrivacyPage() {
         <p>
           You choose when and where to share JPEGs and PDF reports through
           Apple’s share sheet. These files may include photos, job labels,
-          notes, capture time and GPS, depending on the file and options you
-          choose. Review the preview before sharing. Disabling recorded GPS in a
-          report removes coordinates from its captions and newly rendered
-          stamps; it does not remove an address you typed into a name, label or
-          note.
+          notes and capture time. Include location starts off and remembers your
+          choice. When enabled, PDFs include the saved job address and links to
+          each recorded photo position in Apple Maps; JPEGs include recorded
+          location metadata. When disabled, those fields, links and JPEG GPS
+          metadata are omitted. Exported JPEGs retain capture time and image
+          orientation but omit other source metadata. This does not remove an
+          address visible in a photographed scene or typed into a job name or
+          note. New stamped copies do not display coordinates. Review the
+          preview and your location choice before sharing. Opening a map link
+          sends its recorded coordinates to the mapping service.
         </p>
         <p>
           Receiving apps, storage providers and recipients control the copies

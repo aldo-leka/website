@@ -64,8 +64,8 @@ export default function JobAlbumPage() {
             <div>
               <h3>Capture the details</h3>
               <p>
-                Stamp photos with the date and time, plus optional GPS
-                coordinates. Keep both the original and a stamped copy.
+                Stamp photos with the date and time. Keep the camera ready
+                for the next shot, with originals and stamped copies saved.
               </p>
             </div>
           </div>

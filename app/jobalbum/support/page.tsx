@@ -12,11 +12,11 @@ const questions = [
   },
   {
     title: "How do I know a photo was saved?",
-    body: "Allow camera access, choose your job or Quick capture, and take a photo. Wait for Saved to JobAlbum. The app keeps an original and a stamped copy. If it reports that only the original was saved, open that photo to retry the stamp. If a save fails, follow the retry message and check available iPhone storage before closing the app; an unsaved capture may not survive closing it.",
+    body: "Allow camera access, choose your job or Quick capture, and take a photo. After Saved to JobAlbum appears, the camera stays ready for the next shot. Tap the thumbnail to view the latest photo or add a note. The app keeps an original and a stamped copy. If it reports that only the original was saved, open that photo to retry the stamp. If a save fails, follow the retry message and check available iPhone storage before closing the app; an unsaved capture may not survive closing it.",
   },
   {
-    title: "Why is GPS missing, or shown as coordinates?",
-    body: "GPS is optional. Enable it while using the camera and allow location access in iPhone Settings. JobAlbum only records a fix no more than 60 seconds old with an accuracy estimate of 100 metres or better. Otherwise the photo is saved without GPS. Open a photo with recorded GPS to see a nearby address and Apple map when available, with coordinates and accuracy underneath. An approximate address can refer to a neighboring property. Lookups need internet; a failed lookup leaves the photo and recorded GPS intact. The Address or place field is text you enter yourself and is separate from GPS. Apple address results are temporary display information, not part of saved stamps or reports.",
+    title: "How does photo location work?",
+    body: "JobAlbum asks for location permission when you use the camera. Once allowed, it automatically saves a recent, sufficiently accurate position with each photo. Location updates stop when the camera closes. Capture still works if permission is denied or location is unavailable; an early shot or an indoor capture may have no location. You can manage permission in iPhone Settings. Open a photo to see a nearby address and Apple map when available. The address can refer to a neighboring property. Address and map lookups need internet. The Address or place field in job details is text you enter yourself and is separate from the photo position. Apple's looked-up addresses are temporary display information and are not printed in reports.",
   },
   {
     title: "Where does the timestamp come from?",
@@ -24,7 +24,7 @@ const questions = [
   },
   {
     title: "How do I export a report or photos?",
-    body: "Open a job, select photos and choose Export. Free PDF samples include up to three selected photos in capture order; individual JPEG sharing is also free. Pro adds full PDF reports, batch JPEG exports, stamp layouts and report customization. Report options let you choose originals or stamped photos and whether to include notes and recorded GPS. Turning Recorded GPS off removes coordinates from report captions and freshly rendered report stamps, but does not remove location information you typed in a job name or note. Check the preview, then save or share. Confirm the file reached the destination: opening the share sheet alone does not confirm delivery.",
+    body: "Open a job, select photos and choose Export. Free PDF samples include up to three selected photos in capture order; individual JPEG sharing is also free. Pro adds full PDF reports, batch JPEG exports, stamp layouts and report customization. Include location adds the saved job address and photo map links to PDFs, or recorded location metadata to JPEGs. The switch starts off, remembers your choice and is hidden when no location is available for that format. Turning it off omits those details, including embedded GPS metadata in JPEGs. It cannot remove an address visible in a photographed scene or typed into a job name or note. Edit an optional address in the job details, not the export screen. More options contains photo versions, notes and Pro report customization. New stamps show date, time and the selected job-name setting without coordinates. Exported JPEGs preserve image pixels for original JPEG sources and keep only capture time, image orientation and optional location metadata. Check the preview, then save or share. Confirm the file reached the destination: opening the share sheet alone does not confirm delivery.",
   },
   {
     title: "Are photos automatically added to Apple Photos?",
