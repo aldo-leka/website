@@ -10,7 +10,7 @@ export default function PrivacyPage() {
         <br />
         <span className="underlined">Your business.</span>
       </h1>
-      <p className="effective-date">Effective 21 September 2026</p>
+      <p className="effective-date">Effective 22 September 2026</p>
       <div className="policy-intro prose">
         <p>
           Your notebook lives on your device and, when available, in your
@@ -21,6 +21,7 @@ export default function PrivacyPage() {
       <nav className="policy-toc" aria-label="Privacy policy sections">
         <a href="#notebook">Your notebook</a>
         <a href="#icloud">iCloud & exports</a>
+        <a href="#exchange-rates">Exchange rates</a>
         <a href="#analytics">Optional analytics</a>
         <a href="#purchases">Purchases</a>
         <a href="#choices">Your choices</a>
@@ -62,6 +63,24 @@ export default function PrivacyPage() {
           keep them somewhere private. Deleting something in the app does not
           remove copies you previously exported or shared. Manage those copies
           separately.
+        </p>
+        <h2 id="exchange-rates">Currency conversion and public exchange rates</h2>
+        <p>
+          When a summary includes another currency, the app downloads public
+          exchange-rate tables from <a href="https://frankfurter.dev/">Frankfurter</a>.
+          Requests contain currency codes and date ranges for the required monthly
+          tables. Your amounts, hours, job names, notes, payment records and app
+          analytics identifier are never sent to this service. Conversion happens
+          on your device, and downloaded rates are cached there for offline use.
+          Original records and CSV amounts keep their original currencies.
+        </p>
+        <p>
+          The service receives the network request, including the IP address
+          needed to deliver its response. Frankfurter states that its public API
+          does not retain personal data, IP addresses or request URLs. Its current
+          privacy information is available in the FAQ on its website. Exchange-rate
+          requests are part of the conversion feature and are separate from
+          optional Mixpanel analytics.
         </p>
         <h2 id="analytics">Optional usage analytics</h2>
         <p>
