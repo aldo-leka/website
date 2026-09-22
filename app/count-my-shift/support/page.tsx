@@ -9,6 +9,22 @@ const questions = [
     body: "Create your first job, then tap the plus button to log a shift. Add your hours, cash and card tips, tip-out and wages. Your weekly and monthly summaries update from the records you save. Earnings are before taxes and other deductions.",
   },
   {
+    title: "How do I combine different currencies?",
+    body: "Choose a currency when you create each job. Home, History and Insights combine earnings in your reporting currency, which you can change in Settings → Reporting currency. This choice is remembered and also becomes the default for new jobs. A job’s currency stays with its saved shifts; switching the reporting currency does not relabel your original records. Plus is needed for multiple active jobs.",
+  },
+  {
+    title: "Which exchange rates are used?",
+    body: "For each shift, Count My Shift uses a published rate on or before the shift date, supplied by Frankfurter. Weekends and holidays may use the previous published rate. The converted shift values are then added together. Recent rates may update as data becomes available. Converted totals are estimates and can differ from your bank’s rate or tax-reporting requirements. No money is exchanged.",
+  },
+  {
+    title: "Why does a converted total say rates are unavailable?",
+    body: "The app needs a rate for every foreign-currency shift included in a summary. It waits rather than showing a misleading partial total. Connect to the internet, then use Try again in the exchange-rate message. Downloaded rates work offline. A new date range may need more rates, and a future foreign-currency shift must wait for an available published rate. Your original shifts remain visible and editable.",
+  },
+  {
+    title: "Are CSV exports converted too?",
+    body: "No. CSV exports, backups, shift details and payment records keep their original amounts and currencies. Conversion is used for combined summaries and job comparisons. The app downloads public rate tables; your income amounts, job names, notes and payment records are never sent to the exchange-rate service.",
+  },
+  {
     title: "How does iCloud sync work?",
     body: "Count My Shift can sync your notebook through your private iCloud account. Use the same Apple Account on both devices and allow the app to use iCloud in your iPhone settings. Check Settings → iCloud & backup inside the app for sync information. Changes may take time to arrive, especially after being offline. Make a backup before troubleshooting; don’t delete the app to try to force a sync.",
   },

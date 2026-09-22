@@ -23,6 +23,9 @@ const labels: Record<PageKey, [string, string]> = {
   "steady-rounds": ["Steady Rounds", "Boxing Timer · For iPhone"],
   "steady-rounds-privacy": ["Privacy", "Steady Rounds"],
   "steady-rounds-support": ["Support", "Steady Rounds"],
+  jobalbum: ["JobAlbum", "Timestamp Camera · For iPhone"],
+  "jobalbum-privacy": ["Privacy", "JobAlbum"],
+  "jobalbum-support": ["Support", "JobAlbum"],
 };
 
 export async function GET(
@@ -41,7 +44,9 @@ export async function GET(
     ? "count-my-shift"
     : key.startsWith("steady-rounds") && slug !== "steady-rounds-v2.png"
       ? "steady-rounds"
-      : null;
+      : key.startsWith("jobalbum")
+        ? "jobalbum"
+        : null;
   const appIcon = appFolder
     ? `data:image/png;base64,${(await readFile(join(process.cwd(), `public/apps/${appFolder}/icon.png`))).toString("base64")}`
     : null;

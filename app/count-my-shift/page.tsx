@@ -20,7 +20,9 @@ export default function ShiftPage() {
             <span className="underlined">after every shift.</span>
           </h1>
           <p className="hero-description">
-            Keep track of your hours, tips and earnings with Count My Shift.
+            Keep track of your hours, tips and earnings across multiple
+            currencies. See combined totals in the reporting currency you
+            choose.
           </p>
           <div className="product-name">
             <Image
@@ -61,7 +63,10 @@ export default function ShiftPage() {
             <FeatureIcon type="chart" />
             <div>
               <h3>See the bigger picture</h3>
-              <p>Review your weekly and monthly totals.</p>
+              <p>
+                Combine earnings across currencies in weekly, monthly and yearly
+                summaries.
+              </p>
             </div>
           </div>
           <div>
@@ -73,7 +78,9 @@ export default function ShiftPage() {
           </div>
         </div>
         <p className="fine-print">
-          Earnings shown before taxes and other deductions.
+          Earnings shown before taxes and other deductions. Currency conversions
+          use published historical rates and are estimates; original records
+          stay unchanged.
         </p>
       </section>
       <section className="plus-section butter">

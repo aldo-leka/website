@@ -10,6 +10,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/steady-rounds",
     "/steady-rounds/privacy",
     "/steady-rounds/support",
+    "/jobalbum",
+    "/jobalbum/privacy",
+    "/jobalbum/support",
   ].map((path) => ({
     url: `https://aldoleka.com${path}`,
     changeFrequency: "monthly",

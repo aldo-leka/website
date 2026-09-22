@@ -3,7 +3,7 @@
 This repository is Aldo Leka’s apps-first portfolio at https://aldoleka.com. See README.md for routes, configuration, validation and the existing VPS deployment workflow.
 
 - Preserve the approved warm design: ivory, coral, peach, yellow and sage; DM Sans with Caveat accents; generous space and original illustrations.
-- Keep the homepage focused on Count My Shift, Steady Rounds and DineMio, followed by a short introduction.
+- Keep the homepage focused on Count My Shift, Steady Rounds, JobAlbum and DineMio, followed by a short introduction.
 - Global navigation contains Apps, About and Contact. Each app owns its Privacy and Support links within its own pages.
 - Keep “© <current year> Aldo Leka” in the footer, without another footer wordmark.
 - The old blog and older project content were deliberately removed; do not restore them or add legacy redirects without a request.

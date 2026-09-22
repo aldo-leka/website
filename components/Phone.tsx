@@ -20,7 +20,7 @@ export function Phone({
             ? ""
             : isRounds
               ? "Steady Rounds workout timer showing round three of six, 2 minutes 15 seconds remaining, and pause and end controls."
-              : "Count My Shift weekly overview showing sample earnings, four shifts and 24 paid hours."
+              : "Count My Shift weekly overview showing sample earnings, five shifts and 30 paid hours."
         }
         width={471}
         height={1024}

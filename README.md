@@ -26,7 +26,7 @@ The smoke check requests every sitemap page, validates canonical and social meta
 
 ## Content and links
 
-- `/`: Count My Shift, Steady Rounds and DineMio, with a short introduction.
+- `/`: Count My Shift, Steady Rounds, JobAlbum and DineMio, with a short introduction.
 - `/about` and `/contact`: professional biography and general contact.
 - `/count-my-shift`: app overview, with its own Privacy and Support navigation.
 - `/count-my-shift/privacy`: published privacy policy.
@@ -34,6 +34,9 @@ The smoke check requests every sitemap page, validates canonical and social meta
 - `/steady-rounds`: full boxing-timer overview with real app imagery, free/Pro features and app navigation.
 - `/steady-rounds/privacy`: local storage, optional analytics, purchases and privacy choices.
 - `/steady-rounds/support`: timer, sounds, lock-screen cues, routines, restore and beta help.
+- `/jobalbum`: timestamp-camera overview, free/Pro features and app navigation.
+- `/jobalbum/privacy`: local photos, optional GPS, sharing, purchases and opt-in analytics.
+- `/jobalbum/support`: capture, job albums, GPS, reports, storage and Pro restoration help.
 
 Global navigation is Apps, About and Contact. App-specific legal and help links belong within the app pages. The previous blog, older projects and their assets were deliberately removed. Their old URLs return 404; historical content remains in Git history.
 
@@ -55,9 +58,11 @@ Official references: [canonical URLs](https://developers.google.com/search/docs/
 
 ## Privacy policy maintenance
 
-The Count My Shift policy describes its current implementation: private local/iCloud records, opt-in usage analytics, no financial values or free text in analytics, EU Mixpanel projects, Apple-managed purchases and local reminders. The app source was checked when drafting it.
+The Count My Shift policy describes its current implementation: private local/iCloud records, public historical exchange-rate requests, opt-in usage analytics, no financial values or free text in analytics, EU Mixpanel projects, Apple-managed purchases and local reminders. The app source was checked when drafting it. Reporting currency affects combined summaries; original records, CSV exports and backups keep their recorded currencies and amounts. See `docs/count-my-shift-currencies.md` for the build 5 website handoff.
 
 Steady Rounds has separate app-specific disclosures: local routines and unfinished sessions, no cross-device routine sync, optional EU Mixpanel analytics with coarse workout/routine-count ranges, StoreKit purchases and local workout cues. Source references and asset provenance are recorded in `docs/steady-rounds-content.md`.
+
+JobAlbum describes its local photo library, optional foreground GPS, add-only Photos copies, file exports, Apple backups and purchases, and consented EU Mixpanel events. It retains OS-version analytics, unlike Steady Rounds. It has no app-operated photo upload or album sync, and manual address labels are separate from GPS. Source references and release URLs are in `docs/jobalbum-content.md`.
 
 The published **two-year event retention** matches Mixpanel’s default for projects created after 1 September 2025, and the owner approved using that period. This website does not change Mixpanel project settings. Recheck [Mixpanel’s retention documentation](https://docs.mixpanel.com/docs/privacy/gdpr-compliance) and actual project settings whenever practices change; update the policy and app disclosures together.
 

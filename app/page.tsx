@@ -140,6 +140,45 @@ export default function HomePage() {
             </div>
           </article>
           <article className="app-card sage">
+            <Link
+              className="card-art jobalbum-card-art"
+              href="/jobalbum"
+              tabIndex={-1}
+              aria-hidden="true"
+            >
+              <Image
+                src="/apps/jobalbum/icon.png"
+                alt=""
+                width={250}
+                height={250}
+                sizes="250px"
+              />
+            </Link>
+            <div className="card-copy">
+              <h3>
+                <Link href="/jobalbum">JobAlbum</Link>
+              </h3>
+              <p className="app-subtitle">Timestamp Camera</p>
+              <p className="app-description">
+                Work photos, notes and reports. A clear record of every job.
+              </p>
+              <div className="card-bottom">
+                {!apps.jobAlbum.storeUrl && (
+                  <span className="badge">In beta</span>
+                )}
+                {apps.jobAlbum.storeUrl ? (
+                  <a className="text-link" href={apps.jobAlbum.storeUrl}>
+                    App Store <Arrow diagonal />
+                  </a>
+                ) : (
+                  <Link className="text-link" href="/jobalbum">
+                    Explore app <Arrow diagonal />
+                  </Link>
+                )}
+              </div>
+            </div>
+          </article>
+          <article className="app-card peach">
             <a
               className="card-art"
               href={apps.dineMio.websiteUrl}

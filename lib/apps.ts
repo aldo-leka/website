@@ -11,6 +11,12 @@ export const apps = {
     path: "/steady-rounds",
     storeUrl: null as string | null,
   },
+  jobAlbum: {
+    name: "JobAlbum",
+    subtitle: "Timestamp Camera",
+    path: "/jobalbum",
+    storeUrl: null as string | null,
+  },
   dineMio: { name: "DineMio", websiteUrl: "https://dinemio.com" },
 };
 // Set storeUrl to the PUBLIC apps.apple.com listing when each app is available.

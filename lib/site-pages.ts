@@ -6,7 +6,7 @@ export const sitePages = {
     title: "Aldo Leka — Apps, software & a little curiosity",
     headline: "A few things\nI’m building.",
     description:
-      "Independent apps and software by Aldo Leka. Explore Count My Shift, Steady Rounds and DineMio, and meet the developer behind them.",
+      "Independent apps and software by Aldo Leka. Explore Count My Shift, Steady Rounds, JobAlbum and DineMio, and meet the developer behind them.",
     eyebrow: "Independent products & experiments",
     color: "#ffe4d9",
   },
@@ -31,7 +31,8 @@ export const sitePages = {
     path: "/count-my-shift",
     title: "Count My Shift: Tip Tracker",
     headline: "A little clarity\nafter every shift.",
-    description: "Your hours, tips and earnings in one place. For iPhone.",
+    description:
+      "Track tips, hours and shift income in multiple currencies. See consolidated totals in your chosen reporting currency. For iPhone.",
     eyebrow: "Count My Shift · Tip Tracker",
     color: "#ffe4d9",
   },
@@ -40,7 +41,7 @@ export const sitePages = {
     title: "Count My Shift Privacy Policy",
     headline: "Your records.\nYour business.",
     description:
-      "Your notebook, private iCloud sync and optional analytics, explained.",
+      "Your notebook, private iCloud sync, public exchange rates and optional analytics, explained.",
     eyebrow: "Count My Shift · Privacy",
     color: "#dfe7d5",
   },
@@ -49,7 +50,7 @@ export const sitePages = {
     title: "Count My Shift Support",
     headline: "Here when you\nneed a hand.",
     description:
-      "Help with shifts, iCloud, backups, exports and restoring Plus.",
+      "Help with shifts, multiple currencies, consolidated totals, exchange rates, iCloud, backups, CSV exports and restoring Plus.",
     eyebrow: "Count My Shift · Support",
     color: "#ffe4d9",
   },
@@ -78,6 +79,33 @@ export const sitePages = {
     description:
       "Help with timers, bells, lock-screen cues, saved routines and restoring Pro.",
     eyebrow: "Steady Rounds · Support",
+    color: "#fff0bd",
+  },
+  jobalbum: {
+    path: "/jobalbum",
+    title: "JobAlbum: Timestamp Camera",
+    headline: "Good work.\nClearly recorded.",
+    description:
+      "Timestamped work photos, job albums, notes and PDF reports. Keep a clear record of each visit, right on your iPhone.",
+    eyebrow: "JobAlbum · Timestamp Camera",
+    color: "#dfe7d5",
+  },
+  "jobalbum-privacy": {
+    path: "/jobalbum/privacy",
+    title: "JobAlbum Privacy Policy",
+    headline: "Your work.\nYour choices.",
+    description:
+      "How JobAlbum handles local photos, optional GPS, exports, purchases and opt-in usage analytics.",
+    eyebrow: "JobAlbum · Privacy",
+    color: "#dfe7d5",
+  },
+  "jobalbum-support": {
+    path: "/jobalbum/support",
+    title: "JobAlbum Support",
+    headline: "A hand with\nyour work photos.",
+    description:
+      "Help with timestamped photos, job albums, GPS, PDF reports, backups and restoring JobAlbum Pro.",
+    eyebrow: "JobAlbum · Support",
     color: "#fff0bd",
   },
 } as const;
