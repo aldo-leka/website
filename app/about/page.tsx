@@ -1,10 +1,13 @@
 import { pageMetadata } from "@/lib/site-pages";
 import Link from "next/link";
 import { Arrow, Asterisk } from "@/components/Marks";
+import { StructuredData } from "@/components/StructuredData";
+import { profileIdentity } from "@/lib/site-identity";
 export const metadata = pageMetadata("about");
 export default function AboutPage() {
   return (
     <div className="reading-page wrap">
+      <StructuredData data={profileIdentity} />
       <p className="eyebrow">A bit about the person behind the apps</p>
       <h1>
         Hi, I’m <span className="underlined">Aldo.</span>

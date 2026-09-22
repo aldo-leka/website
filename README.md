@@ -43,6 +43,16 @@ Page titles, descriptions and preview copy are centralized in `lib/site-pages.ts
 
 The smoke check uses `Twitterbot/1.0` by default and verifies metadata in the HTML head, PNG content and dimensions, image MIME metadata and a 300KB file-size budget. Use `SMOKE_USER_AGENT='WhatsApp/2.26' npm run test:smoke -- https://aldo.al` to check the alias with another crawler identity. Also run it against `https://aldoleka.com`. HTTP checks establish reachability; they do not prove a platform has refreshed its cached card. Check X’s Card Validator and a fresh draft, and inspect both wide and square image crops when updating previews.
 
+## Search and domain identity
+
+`aldoleka.com` is the canonical website. `aldo.al` and `www.aldo.al` permanently redirect to the corresponding canonical path, preserving query parameters. `www.aldoleka.com` is normalized by the existing hosting configuration. Keep internal links, canonical metadata and the sitemap consistent with `https://aldoleka.com`.
+
+The homepage provides `WebSite` structured data with the name Aldo Leka. About provides `ProfilePage` / `Person` structured data with existing public LinkedIn and GitHub links. Both use `lib/site-identity.ts`; do not add invented credentials, ratings, statistics or a placeholder profile photo.
+
+Search Console uses DNS-verified domain properties. Keep Google's verification TXT records in Cloudflare so ownership remains verified. Submit `https://aldoleka.com/sitemap.xml` in the main property's Sitemaps report; request a recrawl of the homepage after material updates. Alias URLs should redirect, rather than be submitted as competing content. Verification, sitemaps and indexing requests do not guarantee indexing or a particular ranking.
+
+Official references: [canonical URLs](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls), [site names](https://developers.google.com/search/docs/appearance/site-names), [profile markup](https://developers.google.com/search/docs/appearance/structured-data/profile-page).
+
 ## Privacy policy maintenance
 
 The Count My Shift policy describes its current implementation: private local/iCloud records, opt-in usage analytics, no financial values or free text in analytics, EU Mixpanel projects, Apple-managed purchases and local reminders. The app source was checked when drafting it.

@@ -5,7 +5,8 @@ export const sitePages = {
     path: "/",
     title: "Aldo Leka — Apps, software & a little curiosity",
     headline: "A few things\nI’m building.",
-    description: "Useful apps, thoughtful software, and a little curiosity.",
+    description:
+      "Independent apps and software by Aldo Leka. Explore Count My Shift, Steady Rounds and DineMio, and meet the developer behind them.",
     eyebrow: "Independent products & experiments",
     color: "#ffe4d9",
   },

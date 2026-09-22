@@ -2,6 +2,16 @@
 const nextConfig = {
   output: "standalone",
   poweredByHeader: false,
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "(?:www\\.)?aldo\\.al" }],
+        destination: "https://aldoleka.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

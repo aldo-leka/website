@@ -4,12 +4,15 @@ import Link from "next/link";
 import { Arrow, Asterisk, Squiggle } from "@/components/Marks";
 import { Phone } from "@/components/Phone";
 import { apps } from "@/lib/apps";
+import { StructuredData } from "@/components/StructuredData";
+import { websiteIdentity } from "@/lib/site-identity";
 
 export const metadata = pageMetadata("home");
 
 export default function HomePage() {
   return (
     <>
+      <StructuredData data={websiteIdentity} />
       <section className="home-hero wrap" aria-labelledby="intro">
         <div className="hero-copy">
           <p className="eyebrow">Independent products & experiments</p>
