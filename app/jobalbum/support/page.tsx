@@ -16,7 +16,7 @@ const questions = [
   },
   {
     title: "Why is GPS missing, or shown as coordinates?",
-    body: "GPS is optional. Enable it while using the camera and allow location access in iPhone Settings. JobAlbum only records a fix no more than 60 seconds old with an accuracy estimate of 100 metres or better. Otherwise the photo is saved without GPS. The app shows coordinates, not an automatically looked-up street address. The Address or place field is text you enter yourself and is separate from GPS. Accuracy varies with your surroundings and device settings.",
+    body: "GPS is optional. Enable it while using the camera and allow location access in iPhone Settings. JobAlbum only records a fix no more than 60 seconds old with an accuracy estimate of 100 metres or better. Otherwise the photo is saved without GPS. Open a photo with recorded GPS to see a nearby address and Apple map when available, with coordinates and accuracy underneath. An approximate address can refer to a neighboring property. Lookups need internet; a failed lookup leaves the photo and recorded GPS intact. The Address or place field is text you enter yourself and is separate from GPS. Apple address results are temporary display information, not part of saved stamps or reports.",
   },
   {
     title: "Where does the timestamp come from?",

@@ -69,10 +69,25 @@ export default function PrivacyPage() {
         </p>
         <p>
           The Address or place field is a label you type. It is separate from
-          sensor coordinates; the app does not send coordinates to a
-          street-address lookup service. Date and time come from your device.
+          sensor coordinates and automatically displayed nearby addresses.
+          Date and time come from your device.
           Neither timestamps nor GPS are a guarantee of a photo’s authenticity
           or exact location.
+        </p>
+        <p>
+          When you open a photo with recorded GPS, JobAlbum can send those
+          coordinates to Apple’s mapping service to display a nearby address
+          and map. The address is approximate and may refer to a neighboring
+          property. Apple handles the request under its{" "}
+          <a href="https://www.apple.com/legal/privacy/data/en/apple-maps/">
+            Maps privacy policy
+          </a>
+          . We do not receive the lookup or send it to Mixpanel. Address results
+          are held only temporarily in memory, cleared when the app leaves the
+          foreground, and expire after five minutes. They are not written into
+          photo metadata, stamped images or PDF reports. Recorded coordinates
+          remain available when an address cannot be found or the device is
+          offline; map detail may also be unavailable offline.
         </p>
         <p>
           Also save stamped photos to Photos is off by default. Enabling it
