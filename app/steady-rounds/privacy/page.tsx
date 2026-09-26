@@ -1,5 +1,5 @@
 import { pageMetadata } from "@/lib/site-pages";
-import { contactEmail } from "@/lib/apps";
+import { supportEmail } from "@/lib/apps";
 
 export const metadata = pageMetadata("steady-rounds-privacy");
 
@@ -32,7 +32,7 @@ export default function PrivacyPage() {
           This policy applies to Steady Rounds: Boxing Timer, provided by Aldo
           Leka, based in the Netherlands. Aldo is responsible for the optional
           analytics and support information described here. Contact:{" "}
-          <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
+          <a href={`mailto:${supportEmail}`}>{supportEmail}</a>.
         </p>
         <h2 id="routines">Local app data</h2>
         <p>
@@ -171,8 +171,8 @@ export default function PrivacyPage() {
         <h2 id="contact">Contact and policy updates</h2>
         <p>
           For privacy questions, email{" "}
-          <a href={`mailto:${contactEmail}?subject=Steady%20Rounds%20privacy`}>
-            {contactEmail}
+          <a href={`mailto:${supportEmail}?subject=Steady%20Rounds%20privacy`}>
+            {supportEmail}
           </a>{" "}
           with “Steady Rounds privacy” in the subject. We update this page when
           our practices change and show the effective date above. Material

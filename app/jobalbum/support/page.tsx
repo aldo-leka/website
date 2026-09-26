@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Arrow } from "@/components/Marks";
-import { contactEmail } from "@/lib/apps";
+import { supportEmail } from "@/lib/apps";
 import { pageMetadata } from "@/lib/site-pages";
 
 export const metadata = pageMetadata("jobalbum-support");
@@ -72,11 +72,11 @@ export default function SupportPage() {
         </div>
         <a
           className="text-link"
-          href={`mailto:${contactEmail}?subject=JobAlbum%20support`}
+          href={`mailto:${supportEmail}?subject=JobAlbum%20support`}
         >
           Email Aldo <Arrow diagonal />
         </a>
-        <p className="fine-print">{contactEmail}</p>
+        <p className="fine-print">{supportEmail}</p>
       </div>
       <div className="faq-list">
         {questions.map(({ title, body }) => (

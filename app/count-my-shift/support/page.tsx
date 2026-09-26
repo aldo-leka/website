@@ -1,7 +1,7 @@
 import { pageMetadata } from "@/lib/site-pages";
 import Link from "next/link";
 import { Arrow } from "@/components/Marks";
-import { contactEmail } from "@/lib/apps";
+import { supportEmail } from "@/lib/apps";
 export const metadata = pageMetadata("count-my-shift-support");
 const questions = [
   {
@@ -71,12 +71,12 @@ export default function SupportPage() {
         </div>
         <a
           className="text-link"
-          href={`mailto:${contactEmail}?subject=Count%20My%20Shift%20support`}
+          href={`mailto:${supportEmail}?subject=Count%20My%20Shift%20support`}
         >
           Email Aldo <Arrow diagonal />
         </a>
         <p className="fine-print">
-          {contactEmail} · Please leave out passwords, payment details and
+          {supportEmail} · Please leave out passwords, payment details and
           personal income records.
         </p>
       </div>

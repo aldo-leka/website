@@ -1,5 +1,5 @@
 import { pageMetadata } from "@/lib/site-pages";
-import { contactEmail } from "@/lib/apps";
+import { supportEmail } from "@/lib/apps";
 export const metadata = pageMetadata("count-my-shift-privacy");
 export default function PrivacyPage() {
   return (
@@ -32,7 +32,7 @@ export default function PrivacyPage() {
           This policy applies to Count My Shift: Tip Tracker, provided by Aldo
           Leka, based in the Netherlands. Aldo is responsible for the optional
           analytics and support information described here. Contact:{" "}
-          <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
+          <a href={`mailto:${supportEmail}`}>{supportEmail}</a>.
         </p>
         <h2 id="notebook">Your notebook</h2>
         <p>
@@ -173,9 +173,9 @@ export default function PrivacyPage() {
         <p>
           For privacy questions, email{" "}
           <a
-            href={`mailto:${contactEmail}?subject=Count%20My%20Shift%20privacy`}
+            href={`mailto:${supportEmail}?subject=Count%20My%20Shift%20privacy`}
           >
-            {contactEmail}
+            {supportEmail}
           </a>{" "}
           with “Count My Shift privacy” in the subject. We update this page when
           our practices change and show the effective date above. Material

@@ -1,7 +1,7 @@
 import { pageMetadata } from "@/lib/site-pages";
 import Link from "next/link";
 import { Arrow } from "@/components/Marks";
-import { contactEmail } from "@/lib/apps";
+import { supportEmail } from "@/lib/apps";
 
 export const metadata = pageMetadata("steady-rounds-support");
 
@@ -66,11 +66,11 @@ export default function SupportPage() {
         </div>
         <a
           className="text-link"
-          href={`mailto:${contactEmail}?subject=Steady%20Rounds%20support`}
+          href={`mailto:${supportEmail}?subject=Steady%20Rounds%20support`}
         >
           Email Aldo <Arrow diagonal />
         </a>
-        <p className="fine-print">{contactEmail}</p>
+        <p className="fine-print">{supportEmail}</p>
       </div>
       <div className="faq-list">
         {questions.map(({ title, body }) => (

@@ -1,4 +1,4 @@
-import { contactEmail } from "@/lib/apps";
+import { supportEmail } from "@/lib/apps";
 import { pageMetadata } from "@/lib/site-pages";
 
 export const metadata = pageMetadata("jobalbum-privacy");
@@ -34,7 +34,7 @@ export default function PrivacyPage() {
           This policy applies to JobAlbum: Timestamp Camera, provided by Aldo
           Leka, based in the Netherlands. Aldo is responsible for the optional
           analytics and support information described here. Contact:{" "}
-          <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
+          <a href={`mailto:${supportEmail}`}>{supportEmail}</a>.
         </p>
         <h2 id="library">Your photos and job library</h2>
         <p>
@@ -239,8 +239,8 @@ export default function PrivacyPage() {
         <h2 id="contact">Contact and policy updates</h2>
         <p>
           For privacy questions, email{" "}
-          <a href={`mailto:${contactEmail}?subject=JobAlbum%20privacy`}>
-            {contactEmail}
+          <a href={`mailto:${supportEmail}?subject=JobAlbum%20privacy`}>
+            {supportEmail}
           </a>{" "}
           with “JobAlbum privacy” in the subject. We update this page when
           practices change and show the effective date above. Material changes
