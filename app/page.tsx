@@ -15,7 +15,6 @@ export default function HomePage() {
       <StructuredData data={websiteIdentity} />
       <section className="home-hero wrap" aria-labelledby="intro">
         <div className="hero-copy">
-          <p className="eyebrow">Independent products & experiments</p>
           <h1 id="intro">
             A few things
             <br />

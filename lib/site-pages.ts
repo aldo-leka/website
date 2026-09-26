@@ -7,7 +7,6 @@ export const sitePages = {
     headline: "A few things\nI’m building.",
     description:
       "Independent apps and software by Aldo Leka. Explore Count My Shift, Steady Rounds, JobAlbum and DineMio, and meet the developer behind them.",
-    eyebrow: "Independent products & experiments",
     color: "#ffe4d9",
   },
   about: {
