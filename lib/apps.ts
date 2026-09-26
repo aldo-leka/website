@@ -21,4 +21,4 @@ export const apps = {
 };
 // Set storeUrl to the PUBLIC apps.apple.com listing when each app is available.
 // A TestFlight invitation or a private App Store Connect record is not a store URL.
-export const contactEmail = "aldo.leka@live.com";
+export const contactEmail = "hello@aldoleka.com";
