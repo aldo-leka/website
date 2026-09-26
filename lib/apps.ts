@@ -9,7 +9,8 @@ export const apps = {
     name: "Steady Rounds",
     subtitle: "Boxing Timer",
     path: "/steady-rounds",
-    storeUrl: null as string | null,
+    storeUrl:
+      "https://apps.apple.com/us/app/steady-rounds-boxing-timer/id6814609737",
   },
   jobAlbum: {
     name: "JobAlbum",
