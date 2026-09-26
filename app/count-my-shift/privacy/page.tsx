@@ -10,7 +10,7 @@ export default function PrivacyPage() {
         <br />
         <span className="underlined">Your business.</span>
       </h1>
-      <p className="effective-date">Effective 22 September 2026</p>
+      <p className="effective-date">Effective 26 September 2026</p>
       <div className="policy-intro prose">
         <p>
           Your notebook lives on your device and, when available, in your
@@ -66,7 +66,9 @@ export default function PrivacyPage() {
         </p>
         <h2 id="exchange-rates">Currency conversion and public exchange rates</h2>
         <p>
-          When a summary includes another currency, the app downloads public
+          Summaries containing only one currency keep that currency. When a
+          selection combines different currencies, the app converts the summary
+          into your chosen reporting currency and downloads public
           exchange-rate tables from <a href="https://frankfurter.dev/">Frankfurter</a>.
           Requests contain currency codes and date ranges for the required monthly
           tables. Your amounts, hours, job names, notes, payment records and app
@@ -103,7 +105,11 @@ export default function PrivacyPage() {
           Our Mixpanel projects use its EU data region. Network requests
           necessarily reach the service using an IP address, but we do not use
           it to build location reports. Mixpanel processes analytics on our
-          behalf; it is not used to sell your data or advertise to you.
+          behalf; it is not used to sell your data or advertise to you. We do not
+          combine these events with data from other companies’ apps or websites
+          for targeted advertising or advertising measurement. The random app
+          identifier links events from that installation; it is pseudonymous,
+          not a promise that analytics is anonymous.
         </p>
         <h3>Analytics retention</h3>
         <p>
@@ -114,7 +120,11 @@ export default function PrivacyPage() {
           described below.
         </p>
         <p>
-          Analytics is off until you opt in. Change your choice in Settings →
+          Analytics is off until you opt in. On first use, a separate choice
+          appears before job setup; Allow analytics and No thanks both let you
+          continue. This choice concerns optional product analytics, not
+          permission for advertising tracking. Your decision is remembered on
+          that device and is not synced through iCloud. Change it in Settings →
           Usage analytics at any time. Opting out clears queued events and
           resets the local analytics identity; a request already sent cannot be
           recalled. Activity while analytics is off is not saved for later
@@ -132,7 +142,7 @@ export default function PrivacyPage() {
           Reminders are optional local notifications. The app requests
           notification permission when you enable them. Reminder text does not
           include your earnings. You can change your schedule in the app or
-          notification permission in iPhone Settings.
+          notification permission in your iPhone or iPad settings.
         </p>
         <h2 id="choices">Your choices and requests</h2>
         <ul>
@@ -161,7 +171,10 @@ export default function PrivacyPage() {
           credentials.
         </p>
         <p>
-          If you contact support, we use your email address and the information
+          Settings → Send feedback opens an email addressed to dev@aldoleka.com.
+          You choose what to write and whether to send it; the app does not
+          automatically attach your notebook, logs or analytics identifier.
+          If you contact support or send feedback, we use your email address and the information
           you send to respond and resolve your request. We retain correspondence
           only as needed for that purpose and any applicable legal obligations.
           Depending on where you live, you may have rights to access, correct,

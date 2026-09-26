@@ -12,7 +12,7 @@ export default function ShiftPage() {
       <section className="product-hero">
         <div>
           <p className="eyebrow">
-            For iPhone{!apps.countMyShift.storeUrl && " · In beta"}
+            For iPhone &amp; iPad{!apps.countMyShift.storeUrl && " · In beta"}
           </p>
           <h1>
             A little clarity

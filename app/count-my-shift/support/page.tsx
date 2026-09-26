@@ -6,11 +6,23 @@ export const metadata = pageMetadata("count-my-shift-support");
 const questions = [
   {
     title: "How do I start tracking?",
-    body: "Create your first job, then tap the plus button to log a shift. Add your hours, cash and card tips, tip-out and wages. Your weekly and monthly summaries update from the records you save. Earnings are before taxes and other deductions.",
+    body: "First choose whether to share optional usage analytics. Allow analytics and No thanks both continue to job setup. Create your first job, then tap Log a shift. Add your hours, cash and card tips, tip-out and wages. Your weekly and monthly summaries update from the records you save. Earnings are before taxes and other deductions.",
+  },
+  {
+    title: "Can I use Count My Shift on iPad?",
+    body: "Yes. Count My Shift supports iPhone and iPad, with iPad layouts that adapt to portrait, landscape and narrower windows. Wider layouts give your dashboard more room and show shift history alongside its details. Use the same Apple Account and enable iCloud to keep your notebook available across your devices.",
+  },
+  {
+    title: "How do I send feedback?",
+    body: "Open Settings → Send feedback to compose an email to dev@aldoleka.com in your email app. If an email app is not configured, you can email that address directly. Nothing is sent automatically, and the app does not attach your notebook or analytics identifier. Describe the issue or idea and include your app version and device model if useful. Please leave out passwords, payment details and personal income records.",
   },
   {
     title: "How do I combine different currencies?",
-    body: "Choose a currency when you create each job. Home, History and Insights combine earnings in your reporting currency, which you can change in Settings → Reporting currency. This choice is remembered and also becomes the default for new jobs. A job’s currency stays with its saved shifts; switching the reporting currency does not relabel your original records. Plus is needed for multiple active jobs.",
+    body: "Choose a currency when you create each job. If the selected shifts all use one currency, Home, History and Insights keep that currency, even if your reporting currency differs. When the selection includes multiple currencies, combined totals and graphs convert into Settings → Reporting currency. This choice is remembered and also becomes the default for new jobs. Each saved shift always keeps its job’s original currency. Plus is needed for multiple active jobs.",
+  },
+  {
+    title: "How is the initial currency chosen?",
+    body: "The initial currency follows your device’s Region setting, without asking for location access. If the region’s currency is not supported, the app starts with USD. You can change the reporting currency in Settings and choose another currency when adding a job. Your language follows the system or the app language selected in device settings.",
   },
   {
     title: "Which exchange rates are used?",
@@ -26,7 +38,7 @@ const questions = [
   },
   {
     title: "How does iCloud sync work?",
-    body: "Count My Shift can sync your notebook through your private iCloud account. Use the same Apple Account on both devices and allow the app to use iCloud in your iPhone settings. Check Settings → iCloud & backup inside the app for sync information. Changes may take time to arrive, especially after being offline. Make a backup before troubleshooting; don’t delete the app to try to force a sync.",
+    body: "Count My Shift can sync jobs, shifts and payment records between iPhone and iPad through your private iCloud account. Use the same Apple Account on both devices and allow the app to use iCloud in device settings. Reporting currency, analytics consent and reminders are separate on each device. Check Settings → iCloud & backup inside the app for sync information. Changes may take time to arrive, especially after being offline. Make a backup before troubleshooting; don’t delete the app to try to force a sync.",
   },
   {
     title: "How do I back up or export my records?",
@@ -46,7 +58,7 @@ const questions = [
   },
   {
     title: "How do I change analytics or reminders?",
-    body: "Optional usage analytics is controlled in Settings → Usage analytics. You can leave it off and keep using the app. Reminders are configured separately in Settings → Reminders; notification permission is requested when you enable them.",
+    body: "On first use, a separate analytics choice appears before job setup. You can choose No thanks and keep using every free or purchased feature. Your choice is remembered on that device and can be changed in Settings → Usage analytics. This is consent for optional product analytics, not advertising or tracking across other companies’ apps or websites. Reminders are configured separately in Settings → Reminders; notification permission is requested when you enable them.",
   },
   {
     title: "I’m testing through TestFlight. What should I know?",
@@ -65,8 +77,8 @@ export default function SupportPage() {
         <div>
           <h2>Can’t find what you need?</h2>
           <p>
-            Tell me what happened, your app version and your iPhone’s iOS
-            version.
+            Tell me what happened, your app version, device model and iOS or
+            iPadOS version.
           </p>
         </div>
         <a

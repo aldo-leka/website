@@ -32,7 +32,7 @@ export const sitePages = {
     title: "Count My Shift: Tip Tracker",
     headline: "A little clarity\nafter every shift.",
     description:
-      "Track tips, hours and shift income in multiple currencies. See consolidated totals in your chosen reporting currency. For iPhone.",
+      "Track tips, hours and shift income on iPhone and iPad. Combine multiple currencies in your chosen reporting currency.",
     eyebrow: "Count My Shift · Tip Tracker",
     color: "#ffe4d9",
   },
