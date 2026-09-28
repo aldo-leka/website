@@ -48,7 +48,7 @@ const questions = [
   },
   {
     title: "Can I use JobAlbum offline and without analytics?",
-    body: "Yes. Capture, notes, albums and file preparation work locally. Buying or restoring Pro needs an internet connection, and sharing may need one depending on the destination. Analytics is off until you choose Share usage analytics. You can choose No thanks during onboarding or change Settings → Share usage analytics at any time. Free and Pro features do not depend on analytics consent.",
+    body: "Yes. Capture, notes, albums and file preparation work locally. Buying or restoring Pro needs an internet connection, and sharing may need one depending on the destination. Analytics is off unless you choose Allow in Apple’s tracking permission request after onboarding. You can decline the request or change permission in Apple’s Settings → Privacy & Security → Tracking. JobAlbum’s analytics setting opens system Settings. Free and Pro features do not depend on analytics consent.",
   },
 ];
 
