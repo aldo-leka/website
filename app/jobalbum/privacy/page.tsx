@@ -12,12 +12,13 @@ export default function PrivacyPage() {
         <br />
         <span className="underlined">Your choices.</span>
       </h1>
-      <p className="effective-date">Effective 23 September 2026</p>
+      <p className="effective-date">Effective 28 September 2026</p>
       <div className="policy-intro prose">
         <p>
           Your photos, job details, notes and optional GPS are stored on your
-          iPhone. Usage analytics starts only if you agree. You can use the app
-          and Pro with analytics off.
+          iPhone or iPad. Usage analytics starts only after you allow Apple’s
+          tracking permission request. You can use the app and Pro with
+          analytics off.
         </p>
       </div>
       <nav className="policy-toc" aria-label="Privacy policy sections">
@@ -41,7 +42,7 @@ export default function PrivacyPage() {
           JobAlbum stores original and stamped photos, job names and
           descriptions, typed address or place labels, photo notes, capture
           dates and time zones, optional recorded GPS coordinates and accuracy,
-          and app preferences on your iPhone. These records let you organize
+          and app preferences on your iPhone or iPad. These records let you organize
           work, add stamps and create exports. No JobAlbum account is required.
         </p>
         <p>
@@ -94,7 +95,7 @@ export default function PrivacyPage() {
           Also save stamped photos to Photos is off by default. Enabling it
           requests add-only Photos permission to save an extra stamped copy
           after capture. JobAlbum does not need access to read your full Photos
-          library. Manage camera, location and Photos permissions in iPhone
+          library. Manage camera, location and Photos permissions in system
           Settings.
         </p>
         <h2 id="sharing">Exports, Photos copies and device backups</h2>
@@ -134,10 +135,19 @@ export default function PrivacyPage() {
           With your consent, JobAlbum sends limited usage events to{" "}
           <a href="https://mixpanel.com/legal/privacy-policy/">Mixpanel</a> to
           understand feature use, reliability and the Pro purchase flow.
-          Analytics is off until you choose Share usage analytics. No analytics
-          service starts and no events are queued before consent. Choose No
-          thanks during onboarding or change Settings → Share usage analytics at
-          any time.
+          Analytics is off until you choose Allow in Apple’s
+          AppTrackingTransparency request after onboarding. No analytics service
+          starts and no events are queued before that authorization. Choosing
+          Ask App Not to Track, a system restriction, or leaving the request
+          unanswered keeps analytics off. An earlier in-app consent choice does
+          not replace Apple’s permission. JobAlbum no longer shows a separate
+          analytics consent prompt.
+        </p>
+        <p>
+          Manage permission in Apple’s Settings → Privacy &amp; Security →
+          Tracking. JobAlbum’s Share usage analytics setting opens system
+          Settings; it cannot override Apple’s decision. Apple may suppress the
+          request when tracking requests are disabled or restricted.
         </p>
         <p>
           Events describe app opens, job creation, capture starts or failures,
@@ -181,7 +191,7 @@ export default function PrivacyPage() {
           analytics off stops future collection, discards queued events and
           resets the local analytics identifier. Activity while analytics is off
           is not saved for later analytics upload. A request already sent cannot
-          be recalled, and turning the switch off does not automatically erase
+          be recalled, and withdrawing permission does not automatically erase
           previously delivered events.
         </p>
         <p>
@@ -214,8 +224,8 @@ export default function PrivacyPage() {
             destinations.
           </li>
           <li>
-            Leave analytics off or withdraw consent in Settings → Share usage
-            analytics.
+            Leave analytics off or withdraw permission in Apple’s Settings →
+            Privacy &amp; Security → Tracking.
           </li>
           <li>
             Contact us about information we hold and requests to access, correct
