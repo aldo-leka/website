@@ -3,14 +3,13 @@ export const apps = {
     name: "Count My Shift",
     subtitle: "Tip Tracker",
     path: "/count-my-shift",
-    storeUrl: null as string | null,
+    storeUrl: "https://apps.apple.com/app/id6814605499",
   },
   steadyRounds: {
     name: "Steady Rounds",
     subtitle: "Boxing Timer",
     path: "/steady-rounds",
-    storeUrl:
-      "https://apps.apple.com/us/app/steady-rounds-boxing-timer/id6814609737",
+    storeUrl: "https://apps.apple.com/app/id6814609737",
   },
   jobAlbum: {
     name: "JobAlbum",
