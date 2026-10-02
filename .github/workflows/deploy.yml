@@ -65,6 +65,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
 
       - name: Deploy on VPS
+        env:
+          GOATCOUNTER_SITE: lekisti
+          GOATCOUNTER_API_KEY: ${{ secrets.GOATCOUNTER_API_KEY }}
+          GOATCOUNTER_START_DATE: "2026-10-02"
+          WEBSITE_ANALYTICS_ENABLED: "true"
         run: |
           IMAGE_TAG="sha-${GITHUB_SHA::7}"
           /root/website/scripts/deploy.sh "$IMAGE_TAG"

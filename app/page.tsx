@@ -41,11 +41,6 @@ export default function HomePage() {
             priority
             sizes="(max-width: 760px) 92vw, 48vw"
           />
-          <span className="handwritten hero-note-bottom">
-            Ideas. Tools.
-            <br />
-            Better days.
-          </span>
         </div>
       </section>
       <section
@@ -55,11 +50,6 @@ export default function HomePage() {
       >
         <div className="section-heading">
           <h2 id="apps-heading">Selected apps</h2>
-          <span className="handwritten section-note" aria-hidden="true">
-            Different problems.
-            <br />
-            Same curiosity.
-          </span>
         </div>
         <div className="app-grid">
           <article className="app-card peach">
@@ -213,11 +203,6 @@ export default function HomePage() {
       <section className="about-strip wrap" aria-labelledby="about-heading">
         <div className="about-doodle" aria-hidden="true">
           <Asterisk />
-          <span className="handwritten">
-            Good software
-            <br />
-            for real life.
-          </span>
         </div>
         <div>
           <h2 id="about-heading">Hi, I’m Aldo.</h2>

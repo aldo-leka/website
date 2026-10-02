@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 
 export const sitePages = {
+  stats: {
+    path: "/stats",
+    title: "Site stats — Aldo Leka",
+    headline: "A little look\naround the world.",
+    description: "A public look at visits to aldoleka.com: trends, countries and how people find the site.",
+    color: "#ffe4d9",
+  },
   home: {
     path: "/",
     title: "Aldo Leka — Apps, software & a little curiosity",

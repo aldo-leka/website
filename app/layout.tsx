@@ -4,6 +4,7 @@ import "@fontsource-variable/dm-sans";
 import "@fontsource/caveat/400.css";
 import "./globals.css";
 import { SiteHeader, SiteFooter } from "@/components/SiteChrome";
+import { SiteAnalytics } from "@/components/SiteAnalytics";
 export const metadata: Metadata = {
   ...pageMetadata("home"),
   metadataBase: new URL("https://aldoleka.com"),
@@ -22,6 +23,7 @@ export default function RootLayout({
         <SiteHeader />
         <main id="main-content">{children}</main>
         <SiteFooter />
+        <SiteAnalytics />
       </body>
     </html>
   );

@@ -2,6 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Public website statistics */
+.visit-counter { display: inline-flex; align-items: center; gap: 10px; padding: 10px 17px; border: 1px solid #efc6b6; border-radius: 999px; background: var(--peach); color: var(--ink); font-size: 14px; white-space: nowrap; }
+.visit-counter:hover { background: #ffdac9; }
+.visit-counter > svg:last-child { width: 17px; height: 17px; }
+.stats-page { padding-top: 66px; padding-bottom: 90px; }
+.stats-heading h1 { font-size: clamp(54px, 6.7vw, 84px); }
+.stats-heading > p { margin-top: 24px; color: var(--muted); font-size: 21px; }
+.stats-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 22px; margin: 45px 0 25px; }
+.stats-range { color: var(--muted); font-size: 13px; }
+.stats-periods { display: inline-flex; padding: 4px; border: 1px solid var(--line); border-radius: 999px; white-space: nowrap; }
+.stats-periods button { font: inherit; font-size: 13px; border: 0; border-radius: 999px; padding: 9px 15px; color: var(--muted); cursor: pointer; background: transparent; }
+.stats-periods button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.stats-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.stats-tile { border: 1px solid #0000000c; border-radius: 20px; padding: 26px 29px; }
+.stats-tile.peach { background: var(--peach); }
+.stats-tile.sage { background: var(--sage); }
+.stats-tile.butter { background: var(--butter); }
+.stats-tile > p { font-size: 15px; }
+.stats-tile > strong { display: block; font-size: clamp(36px, 4.5vw, 60px); letter-spacing: -.06em; line-height: 1.2; margin: 10px 0; overflow-wrap: anywhere; }
+.stats-tile > .stats-source { font-size: clamp(29px, 3.5vw, 46px); min-height: 72px; display: flex; align-items: center; }
+.stats-tile > span { color: var(--muted); font-size: 12px; }
+.stats-notice { margin-top: 24px; padding: 20px 24px; border: 1px dashed #c9c4b8; border-radius: 16px; }
+.stats-notice p { margin-top: 5px; font-size: 15px; color: var(--muted); }
+.stats-notice button { margin-top: 12px; background: none; border: 0; padding: 0; cursor: pointer; font: inherit; }
+.stats-panel { border: 1px solid var(--line); border-radius: 20px; padding: 28px; min-width: 0; }
+.stats-panel h2 { font-size: 25px; letter-spacing: -.04em; }
+.trend-panel { margin-top: 24px; }
+.stats-panel-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 24px; }
+.stats-panel-heading .handwritten { color: var(--muted); font-size: 23px; }
+.stats-chart { width: 100%; height: auto; display: block; overflow: visible; }
+.chart-dates { display: flex; justify-content: space-between; gap: 10px; font-size: 12px; color: var(--muted); }
+.chart-table { margin-top: 22px; font-size: 13px; color: var(--muted); }
+.chart-table summary, .stats-method summary { cursor: pointer; }
+.table-scroll { overflow: auto; max-height: 320px; margin-top: 16px; }
+.chart-table table { border-collapse: collapse; width: 100%; text-align: left; }
+.chart-table caption { text-align: left; margin-bottom: 10px; }
+.chart-table th, .chart-table td { padding: 9px 6px; border-bottom: 1px solid var(--line); }
+.chart-table th:last-child, .chart-table td:last-child { text-align: right; }
+.stats-chart-empty { height: 220px; display: grid; place-items: center; color: var(--muted); font-size: 14px; border-bottom: 1px solid var(--line); background: repeating-linear-gradient(to bottom, transparent 0, transparent 54px, #e2dfd760 54px, #e2dfd760 55px); }
+.stats-chart-empty span { background: var(--paper); padding: 8px 16px; }
+.stats-breakdowns { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+.stats-panel-subtitle { color: var(--muted); font-size: 13px; margin-top: 8px; }
+.stats-ranking { list-style: none; margin: 28px 0 0; padding: 0; }
+.stats-ranking li + li { margin-top: 20px; }
+.stats-ranking li > div { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; margin-bottom: 9px; }
+.stats-ranking strong { font-variant-numeric: tabular-nums; font-size: 13px; }
+.stats-bar { display: block; height: 12px; background: #f2f1e9; border-radius: 4px; overflow: hidden; }
+.stats-bar > span { display: block; height: 100%; background: #aac196; border-radius: inherit; }
+.sources-panel .stats-bar > span { background: #efb39b; }
+.stats-empty-small { color: var(--muted); font-size: 14px; padding: 36px 0; }
+.stats-updated { margin-top: 22px; text-align: center; font-size: 12px; color: var(--muted); }
+.stats-method { max-width: 740px; margin: 62px auto 0; }
+.stats-method h2 { font-size: 28px; margin-bottom: 14px; }
+.stats-method > p { color: var(--muted); font-size: 15px; margin-bottom: 22px; }
+.stats-method details { padding: 17px 0; border-top: 1px solid var(--line); font-size: 15px; }
+.stats-method details p { color: var(--muted); padding-top: 16px; line-height: 1.75; }
+.stats-method a { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 760px) {
+  .stats-page { padding-top: 35px; }
+  .stats-toolbar { align-items: flex-start; flex-direction: column-reverse; margin-top: 30px; gap: 15px; }
+  .stats-tiles { gap: 10px; }
+  .stats-tile { padding: 18px 14px; border-radius: 15px; }
+  .stats-tile > p { font-size: 12px; }
+  .stats-tile > strong { font-size: 36px; }
+  .stats-tile > .stats-source { font-size: 24px; min-height: 43px; }
+  .stats-tile > span { font-size: 11px; line-height: 1.4; display: block; }
+  .stats-breakdowns { grid-template-columns: 1fr; }
+  .stats-panel { padding: 22px 18px; }
+  .stats-panel-heading .handwritten { display: none; }
+  .stats-heading > p { font-size: 17px; }
+  .chart-dates { font-size: 10px; }
+  .chart-dates span:nth-child(2) { display: none; }
+}
+@media (max-width: 420px) {
+  .stats-tiles { grid-template-columns: 1fr; }
+  .stats-tile { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 4px 12px; }
+  .stats-tile > strong { text-align: right; grid-column: 2; grid-row: 1 / 3; margin: 0; }
+  .stats-tile > .stats-source { justify-content: flex-end; }
+  .stats-tile > span { grid-column: 1; }
+}
+
 :root {
   --paper: #fffdf8;
   --ink: #202126;

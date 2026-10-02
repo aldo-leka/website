@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { VisitCounter } from "./SiteStats";
 export function SiteHeader() {
   return (
     <header className="site-header wrap">
@@ -25,7 +26,7 @@ export function SiteFooter() {
       </div>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Aldo Leka</span>
-        <span className="handwritten">Good software for real life.</span>
+        <VisitCounter />
       </div>
     </footer>
   );

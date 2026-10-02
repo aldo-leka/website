@@ -14,6 +14,7 @@ export function generateStaticParams() {
 }
 
 const labels: Record<PageKey, [string, string]> = {
+  stats: ["Site stats.", "Visits, countries & a little curiosity"],
   home: ["Aldo Leka.", "Apps for real life"],
   about: ["About Aldo", "The person behind the apps"],
   contact: ["Let’s talk.", "Ideas, projects & a hello"],

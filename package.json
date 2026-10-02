@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint app components lib --max-warnings=0",
     "typecheck": "tsc --noEmit",
-    "test:smoke": "node scripts/smoke.mjs"
+    "test:smoke": "node scripts/smoke.mjs",
+    "test:stats": "node --experimental-strip-types --test scripts/site-stats.test.mjs",
+    "test:stats-api": "node --test scripts/site-stats-api.test.mjs"
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "5.3.0",

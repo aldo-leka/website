@@ -4,6 +4,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/about",
     "/contact",
+    "/stats",
     "/count-my-shift",
     "/count-my-shift/privacy",
     "/count-my-shift/support",
