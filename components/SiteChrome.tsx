@@ -18,15 +18,10 @@ export function SiteFooter() {
   return (
     <footer className="site-footer wrap">
       <div className="footer-top">
-        <nav aria-label="Footer navigation">
-          <Link href="/#apps">Apps</Link>
-          <Link href="/about">About</Link>
-          <Link href="/contact">Contact</Link>
-        </nav>
+        <VisitCounter />
       </div>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Aldo Leka</span>
-        <VisitCounter />
       </div>
     </footer>
   );
