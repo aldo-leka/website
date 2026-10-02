@@ -72,7 +72,7 @@ export function PublicStats() {
   const { data, loading, failed, retry } = useStats(period);
   const ready = !loading && data?.status === "ready";
   const unavailable = failed || data?.status === "unavailable";
-  const topSource = ready ? data.sources.find(row => !["Direct / unknown", "Other sources"].includes(row.label)) : null;
+  const topSource = ready ? data.sources[0] : null;
   return <>
     <div className="stats-toolbar">
       <p className="stats-range" aria-live="polite">{ready ? `${formatDate(data.start, true)} – ${formatDate(new Date(Date.parse(data.end) - 86_400_000).toISOString(), true)}${period === "all" ? " · includes today" : ""}` : ""}</p>

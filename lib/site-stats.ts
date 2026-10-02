@@ -18,11 +18,12 @@ export type SiteStats = {
 };
 
 export function dateRange(period: StatsPeriod, now = new Date(), since?: string) {
-  // Fixed windows use completed UTC days. All time also includes today.
-  const end = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+  // Every range includes today and ends at tomorrow's UTC midnight (exclusive).
+  const today = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+  const end = new Date(today.getTime() + 86_400_000);
   if (period === "all") return {
-    start: since ?? end.toISOString().slice(0, 10),
-    end: new Date(end.getTime() + 86_400_000).toISOString().slice(0, 10),
+    start: since ?? today.toISOString().slice(0, 10),
+    end: end.toISOString().slice(0, 10),
   };
   const start = new Date(end.getTime() - period * 86_400_000);
   return { start: start.toISOString().slice(0, 10), end: end.toISOString().slice(0, 10) };
@@ -59,7 +60,9 @@ const sourceNames: Record<string, string> = {
 // Only a known label is public. Never echo an arbitrary referrer, URL or query.
 export function publicSource(raw: unknown): string {
   if (typeof raw !== "string" || !raw.trim()) return "Direct / unknown";
-  const value = raw.trim().toLowerCase();
+  let value = raw.trim();
+  try { value = decodeURIComponent(value); } catch { /* Keep malformed labels unrecognized. */ }
+  value = value.toLowerCase();
   if (sourceNames[value]) return sourceNames[value];
   try {
     const url = new URL(value.includes("://") ? value : `https://${value}`);
@@ -93,19 +96,9 @@ export function ranked(rows: ProviderRow[], kind: "countries" | "sources") {
     totals.set(label, (totals.get(label) ?? 0) + visits);
   }
   const countryCount = countryCodes.size;
-  // Small groups stay grouped, rather than advertising one person's location.
-  let other = 0;
-  const result: Ranking[] = [];
-  for (const [label, visits] of totals) {
-    if (visits < 5 || label === "Other sources" || label === "Unknown country") other += visits;
-    else result.push({ label, count: visits });
-  }
+  const result: Ranking[] = [...totals].map(([label, visits]) => ({ label, count: visits }));
   result.sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
-  const top = result.slice(0, 5);
-  other += result.slice(5).reduce((sum, row) => sum + row.count, 0);
-  if (other) top.push({ label: kind === "sources" ? "Other sources" : "Other / unknown", count: other });
-  top.sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
-  return { rows: top, countryCount };
+  return { rows: result, countryCount };
 }
 
 export function dailyCounts(raw: unknown, start: string, end: string): DayCount[] {
