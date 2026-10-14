@@ -15,9 +15,10 @@ export const apps = {
     name: "JobAlbum",
     subtitle: "Timestamp Camera",
     path: "/jobalbum",
-    storeUrl: null as string | null,
+    storeUrl: "https://apps.apple.com/app/id6814814479",
   },
   dineMio: { name: "DineMio", websiteUrl: "https://dinemio.com" },
+  lekasoft: { name: "Lekasoft", websiteUrl: "https://lekasoft.nl" },
 };
 // Set storeUrl to the PUBLIC apps.apple.com listing when each app is available.
 // A TestFlight invitation or a private App Store Connect record is not a store URL.

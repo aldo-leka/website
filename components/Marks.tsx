@@ -53,6 +53,16 @@ export function Squiggle() {
     </svg>
   );
 }
+// Lekasoft's own mark, as published at lekasoft.nl/icon.svg, with rounded corners.
+export function LekasoftIcon() {
+  return (
+    <svg aria-hidden="true" width="220" height="220" viewBox="0 0 64 64">
+      <rect width="64" height="64" rx="14" fill="#111418" />
+      <rect x="18" y="16" width="8" height="32" fill="#f5f7fa" />
+      <rect x="30" y="40" width="16" height="8" fill="#ffb020" />
+    </svg>
+  );
+}
 export function FeatureIcon({
   type,
 }: {

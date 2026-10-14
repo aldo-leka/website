@@ -4,7 +4,7 @@ Checked 22 September 2026 against the task **JobAlbum: Timestamp camera** (`01a0
 
 ## Sources and distinctions
 
-- `docs/PRODUCT.md`, `docs/DEVELOPMENT-HANDOFF.md`, `JobAlbum/Views/SettingsView.swift`: jobs as albums, Quick capture, original/stamped copies, photo notes, archive, free/pro limits and localized StoreKit price. Minimum iOS 17. The public App Store listing is not yet configured, so use coming-soon links.
+- `docs/PRODUCT.md`, `docs/DEVELOPMENT-HANDOFF.md`, `JobAlbum/Views/SettingsView.swift`: jobs as albums, Quick capture, original/stamped copies, photo notes, archive, free/pro limits and localized StoreKit price. Minimum iOS 17. The public App Store listing went live in October 2026 and is set as `apps.jobAlbum.storeUrl`.
 - `JobAlbum/Services/CameraService.swift` and `JobAlbum/Models/Library.swift`: optional foreground GPS, no more than 60 seconds old and accuracy estimate no worse than 100 metres. Date-only fallback, no background location. Typed address/place is separate from GPS. Device time and coordinates are not certified evidence.
 - `JobAlbum/Services/AddressLookup.swift` and `JobAlbum/Views/PhotoLocationView.swift`: Apple reverse geocoding when viewing a GPS-tagged photo, with a corresponding Apple map and attribution. An address is approximate; exact-coordinate results are cached only in memory for up to five minutes and cleared on leaving the foreground. No persistent address storage or automatic address stamping/report export. Coordinates go to Apple for the lookup, never Mixpanel or a developer server. Capture and existing files do not depend on lookup success.
 - `JobAlbum/Services/LibraryRepository.swift` and `LibraryStore.swift`: local library, deletion tombstones, no in-app trash or cross-device sync. Device backups, Photos copies and exports are separate.
@@ -23,4 +23,4 @@ Checked 22 September 2026 against the task **JobAlbum: Timestamp camera** (`01a0
 - Support URL: `https://aldoleka.com/jobalbum/support`
 - Privacy Policy URL: `https://aldoleka.com/jobalbum/privacy`
 
-These URLs are public after this website deployment. Add them to App Store Connect and the in-app help/privacy links during the separate JobAlbum release task. Do not assume that publishing this website updates Apple's fields. Set `apps.jobAlbum.storeUrl` only when the public listing is available.
+These URLs are public after this website deployment. Add them to App Store Connect and the in-app help/privacy links during the separate JobAlbum release task. Do not assume that publishing this website updates Apple's fields. The public listing is https://apps.apple.com/app/id6814814479.

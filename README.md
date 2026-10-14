@@ -26,7 +26,7 @@ The smoke check requests every sitemap page, validates canonical and social meta
 
 ## Content and links
 
-- `/`: Count My Shift, Steady Rounds, JobAlbum and DineMio, with a short introduction.
+- `/`: DineMio as the wide lead project, then Count My Shift, Steady Rounds, JobAlbum and Lekasoft, with a short introduction. Desktop is a three-column grid with DineMio spanning two columns, tablet is two columns with DineMio full width, and phones show DineMio first with the other projects in a horizontal swipe row.
 - `/about` and `/contact`: professional biography and general contact.
 - `/count-my-shift`: app overview, with its own Privacy and Support navigation.
 - `/count-my-shift/privacy`: published privacy policy.
@@ -40,7 +40,7 @@ The smoke check requests every sitemap page, validates canonical and social meta
 
 Global navigation is Apps, About and Contact. App-specific legal and help links belong within the app pages. The previous blog, older projects and their assets were deliberately removed. Their old URLs return 404; historical content remains in Git history.
 
-Set `storeUrl` in **`lib/apps.ts`** when an iPhone app has a public `https://apps.apple.com/...` listing. Until then its page says “Coming to the App Store”; home cards link to the app overview. Setting the URL enables the store buttons and removes the app’s beta label. DineMio uses its own website URL. Never use a private App Store Connect page or TestFlight invitation as a public store URL.
+Set `storeUrl` in **`lib/apps.ts`** when an iPhone app has a public `https://apps.apple.com/...` listing. Until then its page says “Coming to the App Store”; home cards link to the app overview. Setting the URL enables the store buttons and removes the app’s beta label. DineMio and Lekasoft use their own website URLs. Never use a private App Store Connect page or TestFlight invitation as a public store URL.
 
 Page titles, descriptions and preview copy are centralized in `lib/site-pages.ts`. Every public page has its own generated PNG at `/share/<page-key>-v<revision>.png` (currently v2, or v3 for Steady Rounds) and Open Graph/Twitter metadata. The central 630px contains the essential artwork and label so square thumbnails do not cut them off. Keep image filenames versioned when the design changes: social platforms may retain previously fetched images. Previous `/share/<page-key>` URLs remain available. Add new pages to the sitemap and this metadata registry. Unknown preview keys return 404.
 

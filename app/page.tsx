@@ -1,7 +1,7 @@
 import { pageMetadata } from "@/lib/site-pages";
 import Image from "next/image";
 import Link from "next/link";
-import { Arrow, Asterisk, Squiggle } from "@/components/Marks";
+import { Arrow, Asterisk, LekasoftIcon, Squiggle } from "@/components/Marks";
 import { Phone } from "@/components/Phone";
 import { apps } from "@/lib/apps";
 import { StructuredData } from "@/components/StructuredData";
@@ -49,125 +49,10 @@ export default function HomePage() {
         aria-labelledby="apps-heading"
       >
         <div className="section-heading">
-          <h2 id="apps-heading">Selected apps</h2>
+          <h2 id="apps-heading">Selected projects</h2>
         </div>
         <div className="app-grid">
-          <article className="app-card peach">
-            <Link
-              className="card-art shift-art"
-              href="/count-my-shift"
-              tabIndex={-1}
-              aria-hidden="true"
-            >
-              <Phone compact />
-              <Image
-                className="card-app-icon"
-                src="/apps/count-my-shift/icon.png"
-                width={88}
-                height={88}
-                alt=""
-                sizes="88px"
-              />
-            </Link>
-            <div className="card-copy">
-              <h3>
-                <Link href="/count-my-shift">Count My Shift</Link>
-              </h3>
-              <p className="app-subtitle">Tip Tracker</p>
-              <p className="app-description">
-                Your hours, tips and earnings in one place.
-              </p>
-              <div className="card-bottom">
-                {!apps.countMyShift.storeUrl && (
-                  <span className="badge">In beta</span>
-                )}
-                {apps.countMyShift.storeUrl ? (
-                  <a className="text-link" href={apps.countMyShift.storeUrl}>
-                    App Store <Arrow diagonal />
-                  </a>
-                ) : (
-                  <Link className="text-link" href="/count-my-shift">
-                    Explore app <Arrow diagonal />
-                  </Link>
-                )}
-              </div>
-            </div>
-          </article>
-          <article className="app-card butter">
-            <Link
-              className="card-art"
-              href="/steady-rounds"
-              tabIndex={-1}
-              aria-hidden="true"
-            >
-              <Image
-                className="tile-illustration"
-                src="/art/rounds.webp"
-                alt=""
-                width={650}
-                height={650}
-                sizes="(max-width: 760px) 90vw, 32vw"
-              />
-            </Link>
-            <div className="card-copy">
-              <h3>
-                <Link href="/steady-rounds">Steady Rounds</Link>
-              </h3>
-              <p className="app-subtitle">Boxing Timer</p>
-              <p className="app-description">A timer for your boxing rounds.</p>
-              <div className="card-bottom">
-                {apps.steadyRounds.storeUrl ? (
-                  <a className="text-link" href={apps.steadyRounds.storeUrl}>
-                    App Store <Arrow diagonal />
-                  </a>
-                ) : (
-                  <Link className="text-link" href="/steady-rounds">
-                    Explore app <Arrow diagonal />
-                  </Link>
-                )}
-              </div>
-            </div>
-          </article>
-          <article className="app-card sage">
-            <Link
-              className="card-art jobalbum-card-art"
-              href="/jobalbum"
-              tabIndex={-1}
-              aria-hidden="true"
-            >
-              <Image
-                src="/apps/jobalbum/icon.png"
-                alt=""
-                width={250}
-                height={250}
-                sizes="250px"
-              />
-            </Link>
-            <div className="card-copy">
-              <h3>
-                <Link href="/jobalbum">JobAlbum</Link>
-              </h3>
-              <p className="app-subtitle">Timestamp Camera</p>
-              <p className="app-description">
-                Work photos, notes and reports. A clear record of every job.
-              </p>
-              <div className="card-bottom">
-                {!apps.jobAlbum.storeUrl && (
-                  <span className="badge">In beta</span>
-                )}
-                {apps.jobAlbum.storeUrl ? (
-                  <a className="text-link" href={apps.jobAlbum.storeUrl}>
-                    App Store <Arrow diagonal />
-                  </a>
-                ) : (
-                  <Link className="text-link" href="/jobalbum">
-                    Explore app <Arrow diagonal />
-                  </Link>
-                )}
-              </div>
-            </div>
-          </article>
-          <article className="app-card peach">
+          <article className="app-card lead-card sage">
             <a
               className="card-art"
               href={apps.dineMio.websiteUrl}
@@ -180,7 +65,7 @@ export default function HomePage() {
                 alt=""
                 width={650}
                 height={650}
-                sizes="(max-width: 760px) 90vw, 32vw"
+                sizes="(max-width: 760px) 90vw, 36vw"
               />
             </a>
             <div className="card-copy">
@@ -198,6 +83,153 @@ export default function HomePage() {
               </div>
             </div>
           </article>
+          <p className="handwritten shelf-hint" aria-hidden="true">
+            Swipe for more <Arrow />
+          </p>
+          <div className="app-shelf">
+            <article className="app-card peach">
+              <Link
+                className="card-art shift-art"
+                href="/count-my-shift"
+                tabIndex={-1}
+                aria-hidden="true"
+              >
+                <Phone compact />
+                <Image
+                  className="card-app-icon"
+                  src="/apps/count-my-shift/icon.png"
+                  width={88}
+                  height={88}
+                  alt=""
+                  sizes="88px"
+                />
+              </Link>
+              <div className="card-copy">
+                <h3>
+                  <Link href="/count-my-shift">Count My Shift</Link>
+                </h3>
+                <p className="app-subtitle">Tip Tracker</p>
+                <p className="app-description">
+                  Your hours, tips and earnings in one place.
+                </p>
+                <div className="card-bottom">
+                  {!apps.countMyShift.storeUrl && (
+                    <span className="badge">In beta</span>
+                  )}
+                  {apps.countMyShift.storeUrl ? (
+                    <a className="text-link" href={apps.countMyShift.storeUrl}>
+                      App Store <Arrow diagonal />
+                    </a>
+                  ) : (
+                    <Link className="text-link" href="/count-my-shift">
+                      Explore app <Arrow diagonal />
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </article>
+            <article className="app-card butter">
+              <Link
+                className="card-art"
+                href="/steady-rounds"
+                tabIndex={-1}
+                aria-hidden="true"
+              >
+                <Image
+                  className="tile-illustration"
+                  src="/art/rounds.webp"
+                  alt=""
+                  width={650}
+                  height={650}
+                  sizes="(max-width: 760px) 90vw, 32vw"
+                />
+              </Link>
+              <div className="card-copy">
+                <h3>
+                  <Link href="/steady-rounds">Steady Rounds</Link>
+                </h3>
+                <p className="app-subtitle">Boxing Timer</p>
+                <p className="app-description">
+                  A timer for your boxing rounds.
+                </p>
+                <div className="card-bottom">
+                  {apps.steadyRounds.storeUrl ? (
+                    <a className="text-link" href={apps.steadyRounds.storeUrl}>
+                      App Store <Arrow diagonal />
+                    </a>
+                  ) : (
+                    <Link className="text-link" href="/steady-rounds">
+                      Explore app <Arrow diagonal />
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </article>
+            <article className="app-card sage">
+              <Link
+                className="card-art icon-card-art"
+                href="/jobalbum"
+                tabIndex={-1}
+                aria-hidden="true"
+              >
+                <Image
+                  src="/apps/jobalbum/icon.png"
+                  alt=""
+                  width={250}
+                  height={250}
+                  sizes="220px"
+                />
+              </Link>
+              <div className="card-copy">
+                <h3>
+                  <Link href="/jobalbum">JobAlbum</Link>
+                </h3>
+                <p className="app-subtitle">Timestamp Camera</p>
+                <p className="app-description">
+                  Work photos, notes and reports. A clear record of every job.
+                </p>
+                <div className="card-bottom">
+                  {!apps.jobAlbum.storeUrl && (
+                    <span className="badge">In beta</span>
+                  )}
+                  {apps.jobAlbum.storeUrl ? (
+                    <a className="text-link" href={apps.jobAlbum.storeUrl}>
+                      App Store <Arrow diagonal />
+                    </a>
+                  ) : (
+                    <Link className="text-link" href="/jobalbum">
+                      Explore app <Arrow diagonal />
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </article>
+            <article className="app-card butter">
+              <a
+                className="card-art icon-card-art"
+                href={apps.lekasoft.websiteUrl}
+                tabIndex={-1}
+                aria-hidden="true"
+              >
+                <LekasoftIcon />
+              </a>
+              <div className="card-copy">
+                <h3>
+                  <a href={apps.lekasoft.websiteUrl}>Lekasoft</a>
+                </h3>
+                <p className="app-subtitle">Printables &amp; tools</p>
+                <p className="app-description">
+                  Gift draws, Sinterklaas poems and printable templates, in
+                  Dutch.
+                </p>
+                <div className="card-bottom">
+                  <a className="text-link" href={apps.lekasoft.websiteUrl}>
+                    Visit Lekasoft <Arrow diagonal />
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
       <section className="about-strip wrap" aria-labelledby="about-heading">
