@@ -28,7 +28,7 @@ GoatCounter (site `lekisti`, used from 2 October until the switch on 15 October 
 ## Data boundary
 
 - Only public routes are counted. Route queries, fragments, free-form titles and click events are excluded.
-- Referrers are reduced in the browser to known source labels or Direct / unknown / Other sources, then stored in Umami as one canonical domain per label (`other.invalid` for Other sources). Public output maps them back to the label and shows country names derived from country codes only. Rankings keep every count, with no minimum threshold or top-five cutoff.
+- Referrers are reduced in the browser to known source labels or Direct / Other, then stored in Umami as one canonical domain per label (`other.invalid` for Other; Direct has no referrer). Countries without a code show as Unknown. The Top referrer tile skips Direct. Public output maps them back to the label and shows country names derived from country codes only. Rankings keep every count, with no minimum threshold or top-five cutoff.
 - No referrer URLs, identifiers, user records, credentials or app revenue appear in the public response. Website stats do not read any Mixpanel, PostHog or App Store account.
 - The production-host guard, Global Privacy Control and Do Not Track apply in the browser and again on the server.
 - Stats cache for five minutes (30 seconds after a failure) with four bounded date choices and request coalescing. Database errors produce an unavailable state rather than invented zeros. This assumes the existing single app container.

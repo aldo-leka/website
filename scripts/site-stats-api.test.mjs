@@ -46,7 +46,7 @@ test('today’s two visits, country and source survive every queried range', asy
   const data = await (await GET(request('all'))).json();
   assert.equal(data.status, 'ready');
   assert.equal(data.totalVisits, 2);
-  assert.deepEqual(data.sources, [{ label: 'Direct / unknown', count: 1 }, { label: 'Google', count: 1 }]);
+  assert.deepEqual(data.sources, [{ label: 'Direct', count: 1 }, { label: 'Google', count: 1 }]);
   assert.deepEqual(data.countries, [{ label: 'Netherlands', count: 2 }]);
   assert.deepEqual(calls.sort(), ['countries', 'daily', 'sources', 'total']);
   assert.ok(!JSON.stringify(data).includes('local-test-password'));

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useId, useState } from "react";
 import { Arrow, Asterisk } from "./Marks";
-import { chartPoints, formatCount, formatDate, statsPeriods, type DayCount, type Ranking, type SiteStats, type StatsPeriod } from "@/lib/site-stats";
+import { chartPoints, directSource, formatCount, formatDate, statsPeriods, type DayCount, type Ranking, type SiteStats, type StatsPeriod } from "@/lib/site-stats";
 
 function useStats(period: StatsPeriod) {
   const [result, setResult] = useState<{ period: StatsPeriod; data: SiteStats | null; failed: boolean } | null>(null);
@@ -72,7 +72,8 @@ export function PublicStats() {
   const { data, loading, failed, retry } = useStats(period);
   const ready = !loading && data?.status === "ready";
   const unavailable = failed || data?.status === "unavailable";
-  const topSource = ready ? data.sources[0] : null;
+  // Direct visits have no referrer, so the tile names the leading external source.
+  const topSource = ready ? data.sources.find(source => source.label !== directSource) ?? null : null;
   return <>
     <div className="stats-toolbar">
       <p className="stats-range" aria-live="polite">{ready ? `${formatDate(data.start, true)} – ${formatDate(new Date(Date.parse(data.end) - 86_400_000).toISOString(), true)}${period === "all" ? " · includes today" : ""}` : ""}</p>
@@ -82,7 +83,7 @@ export function PublicStats() {
       <div className="stats-tiles">
         <article className="stats-tile peach"><p>Site visits</p><strong>{formatCount(ready ? data.visits : null)}</strong><span>{period === "all" ? "Since tracking began" : `Last ${period} days`}</span></article>
         <article className="stats-tile sage"><p>Countries</p><strong>{formatCount(ready ? data.countryCount : null)}</strong><span>Around the world</span></article>
-        <article className="stats-tile butter"><p>Top referrer</p><strong className="stats-source">{topSource?.label ?? "—"}</strong><span>{topSource ? `${formatCount(topSource.count)} recorded visits` : "Among identified sources"}</span></article>
+        <article className="stats-tile butter"><p>Top referrer</p><strong className="stats-source">{topSource?.label ?? "—"}</strong><span>{topSource ? `${formatCount(topSource.count)} ${topSource.count === 1 ? "visit" : "visits"}` : ready ? "None yet" : "From other sites"}</span></article>
       </div>
       {!ready && <div className="stats-notice" role="status"><strong>{loading ? "Fetching the latest counts…" : unavailable ? "The stats are taking a breather." : "Every visit starts somewhere."}</strong><p>{loading ? "Just a moment." : unavailable ? "The latest numbers aren’t available right now. Please try again in a little while." : "Counting hasn’t started yet. Once it does, you’ll find real visits, countries and sources here."}</p>{unavailable && !loading && <button type="button" onClick={retry} className="text-link">Try again <Arrow /></button>}</div>}
       <section className="stats-panel trend-panel" aria-labelledby="trend-title"><div className="stats-panel-heading"><h2 id="trend-title">Visits over time</h2></div>{ready && data.days.length ? <Trend days={data.days} /> : <div className="stats-chart-empty"><span>No chart to show yet</span></div>}</section>

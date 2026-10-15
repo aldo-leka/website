@@ -50,30 +50,32 @@ export function count(value: unknown): number {
 
 export type ProviderRow = { name?: unknown; id?: unknown; count?: unknown };
 
+export const directSource = "Direct";
+
 const sourceNames: Record<string, string> = {
   google: "Google", bing: "Bing", duckduckgo: "DuckDuckGo", yahoo: "Yahoo",
   linkedin: "LinkedIn", facebook: "Facebook", instagram: "Instagram",
   reddit: "Reddit", github: "GitHub", youtube: "YouTube", chatgpt: "ChatGPT",
-  twitter: "X", x: "X", "direct / unknown": "Direct / unknown",
+  twitter: "X", x: "X", direct: directSource, "direct / unknown": directSource,
 };
 
 // Only a known label is public. Never echo an arbitrary referrer, URL or query.
 export function publicSource(raw: unknown): string {
-  if (typeof raw !== "string" || !raw.trim()) return "Direct / unknown";
+  if (typeof raw !== "string" || !raw.trim()) return directSource;
   let value = raw.trim();
   try { value = decodeURIComponent(value); } catch { /* Keep malformed labels unrecognized. */ }
   value = value.toLowerCase();
   if (sourceNames[value]) return sourceNames[value];
   try {
     const url = new URL(value.includes("://") ? value : `https://${value}`);
-    if (url.username || url.password) return "Other sources";
+    if (url.username || url.password) return "Other";
     const host = url.hostname.replace(/^www\./, "");
     const domains: Record<string, string> = { "google.com": "Google", "google.nl": "Google", "google.co.uk": "Google", "bing.com": "Bing", "duckduckgo.com": "DuckDuckGo", "yahoo.com": "Yahoo", "linkedin.com": "LinkedIn", "lnkd.in": "LinkedIn", "facebook.com": "Facebook", "instagram.com": "Instagram", "reddit.com": "Reddit", "github.com": "GitHub", "youtube.com": "YouTube", "chatgpt.com": "ChatGPT", "t.co": "X", "x.com": "X", "twitter.com": "X" };
     for (const [domain, label] of Object.entries(domains)) {
       if (host === domain || host.endsWith(`.${domain}`)) return label;
     }
   } catch { /* Unrecognized text is deliberately grouped. */ }
-  return "Other sources";
+  return "Other";
 }
 
 // The browser sends only a public label. Umami stores referrers as domains, so each
@@ -82,7 +84,9 @@ const sourceDomains: Record<string, string> = {
   Google: "google.com", Bing: "bing.com", DuckDuckGo: "duckduckgo.com", Yahoo: "yahoo.com",
   LinkedIn: "linkedin.com", Facebook: "facebook.com", Instagram: "instagram.com",
   Reddit: "reddit.com", GitHub: "github.com", YouTube: "youtube.com", ChatGPT: "chatgpt.com",
-  X: "x.com", "Other sources": "other.invalid",
+  X: "x.com", Other: "other.invalid",
+  // Pages loaded before the label was shortened still send the old one.
+  "Other sources": "other.invalid",
 };
 
 export function sourceReferrer(label: unknown): string | undefined {
@@ -104,7 +108,7 @@ export function ranked(rows: ProviderRow[], kind: "countries" | "sources") {
       if (name && name !== code && code !== "ZZ") {
         countryCodes.add(code);
         label = name;
-      } else label = "Unknown country";
+      } else label = "Unknown";
     }
     totals.set(label, (totals.get(label) ?? 0) + visits);
   }

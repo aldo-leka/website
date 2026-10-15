@@ -45,21 +45,22 @@ test('referrer normalization never exposes URLs, queries or arbitrary input', ()
   assert.equal(publicSource('https://www.google.com/search?q=private'), 'Google');
   assert.equal(publicSource('https://m.linkedin.com/in/private-person'), 'LinkedIn');
   for (const raw of ['https://google.com.attacker.test/private', 'https://google.com@attacker.test/', 'https://private.example/invite?secret=abc', '<script>alert(1)</script>']) {
-    assert.equal(publicSource(raw), 'Other sources');
+    assert.equal(publicSource(raw), 'Other');
   }
-  assert.equal(publicSource(''), 'Direct / unknown');
-  assert.equal(publicSource('Direct / unknown'), 'Direct / unknown');
+  assert.equal(publicSource(''), 'Direct');
+  assert.equal(publicSource('Direct / unknown'), 'Direct');
+  assert.equal(publicSource('Direct'), 'Direct');
 });
 test('encoded provider referrers retain known labels without exposing private URLs', () => {
-  assert.equal(publicSource('Direct%20/%20unknown'), 'Direct / unknown');
+  assert.equal(publicSource('Direct%20/%20unknown'), 'Direct');
   assert.equal(publicSource('https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dprivate'), 'Google');
   for (const raw of ['https%3A%2F%2Fprivate.example%2Finvite%3Fsecret%3Dabc', 'https%3A%2F%2Fgoogle.com%40attacker.test%2F', '%E0%A4%A']) {
-    assert.equal(publicSource(raw), 'Other sources');
+    assert.equal(publicSource(raw), 'Other');
   }
 });
 test('countries are named even with one or two visits and only unknown codes are grouped', () => {
   const result = ranked([{ id: 'NL', name: 'private text', count: 2 }, { id: 'AL', count: 1 }, { id: 'XX', name: 'fake place', count: 2 }, { id: 'ZZ', count: 1 }], 'countries');
-  assert.deepEqual(result.rows, [{ label: 'Unknown country', count: 3 }, { label: 'Netherlands', count: 2 }, { label: 'Albania', count: 1 }]);
+  assert.deepEqual(result.rows, [{ label: 'Unknown', count: 3 }, { label: 'Netherlands', count: 2 }, { label: 'Albania', count: 1 }]);
   assert.equal(result.countryCount, 2);
 });
 test('all named countries remain ranked without a top-five cutoff', () => {
@@ -75,11 +76,11 @@ test('all named countries remain ranked without a top-five cutoff', () => {
 });
 test('source groups merge and raw labels are removed', () => {
   assert.deepEqual(ranked([{ name: 'Google', count: 3 }, { name: 'https://google.com/private', count: 3 }, { name: 'secret-link', count: 1 }], 'sources').rows,
-    [{ label: 'Google', count: 6 }, { label: 'Other sources', count: 1 }]);
+    [{ label: 'Google', count: 6 }, { label: 'Other', count: 1 }]);
 });
 test('known sources with fewer than five visits retain their names', () => {
   assert.deepEqual(ranked([{ name: 'Google', count: 3 }, { name: 'Bing', count: 1 }, { name: 'secret-link', count: 1 }], 'sources').rows,
-    [{ label: 'Google', count: 3 }, { label: 'Bing', count: 1 }, { label: 'Other sources', count: 1 }]);
+    [{ label: 'Google', count: 3 }, { label: 'Bing', count: 1 }, { label: 'Other', count: 1 }]);
 });
 test('daily series fills missing days and excludes the next UTC day', () => {
   const days = dailyCounts([{ day: '2024-02-28', daily: 2 }, { day: '2024-03-01', daily: 50 }], '2024-02-28', '2024-03-01');
@@ -95,12 +96,13 @@ test('long all-time charts group by month without losing visits', () => {
   assert.equal(points.reduce((n, p) => n + p.count, 0), days.reduce((n, p) => n + p.count, 0));
 });
 test('every public source label survives the round trip through a referrer domain', () => {
-  for (const label of ['Google', 'Bing', 'DuckDuckGo', 'Yahoo', 'LinkedIn', 'Facebook', 'Instagram', 'Reddit', 'GitHub', 'YouTube', 'ChatGPT', 'X', 'Other sources']) {
+  for (const label of ['Google', 'Bing', 'DuckDuckGo', 'Yahoo', 'LinkedIn', 'Facebook', 'Instagram', 'Reddit', 'GitHub', 'YouTube', 'ChatGPT', 'X', 'Other']) {
     const url = sourceReferrer(label);
     assert.match(url, /^https:\/\/[a-z.]+\/$/);
     assert.equal(publicSource(new URL(url).hostname), label);
   }
-  for (const label of ['Direct / unknown', 'https://private.example/', '', null, 'constructor', '__proto__']) {
+  assert.equal(sourceReferrer('Other sources'), sourceReferrer('Other'));
+  for (const label of ['Direct', 'Direct / unknown', 'https://private.example/', '', null, 'constructor', '__proto__']) {
     assert.equal(sourceReferrer(label), undefined);
   }
 });

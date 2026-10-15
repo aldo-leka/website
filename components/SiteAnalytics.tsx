@@ -2,14 +2,14 @@
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { sitePages } from "@/lib/site-pages";
-import { publicSource } from "@/lib/site-stats";
+import { directSource, publicSource } from "@/lib/site-stats";
 
 const paths = new Set<string>(Object.values(sitePages).map(page => page.path));
 
 function entrySource() {
   try {
     const host = new URL(document.referrer).hostname.replace(/^www\./, "");
-    if (host === "aldoleka.com" || host === "aldo.al") return "Direct / unknown";
+    if (host === "aldoleka.com" || host === "aldo.al") return directSource;
   } catch { /* No or malformed referrer. */ }
   return publicSource(document.referrer);
 }
