@@ -62,7 +62,9 @@ async function load(period: StatsPeriod): Promise<SiteStats> {
   const config = analyticsConfig();
   if (!config) return emptyStats(period, "not-configured");
   const now = new Date();
-  const range = dateRange(period, now, config.since);
+  // Days before tracking began were not recorded, so no window shows them as zeros.
+  const requested = dateRange(period, now, config.since);
+  const range = { ...requested, start: requested.start < config.since ? config.since : requested.start };
   const allRange = dateRange("all", now, config.since);
   const read = (query: keyof typeof queries, from: { start: string; end: string }) =>
     rows(config.database, query, config.websiteId, from.start, from.end);

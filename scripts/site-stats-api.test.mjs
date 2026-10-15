@@ -54,7 +54,8 @@ test('today’s two visits, country and source survive every queried range', asy
   assert.equal(recent.status, 'ready');
   assert.equal(recent.visits, 2);
   assert.equal(recent.totalVisits, 2);
-  assert.equal(recent.days.length, 30);
+  assert.equal(recent.start, today); // Untracked days before the start are not shown as zeros.
+  assert.equal(recent.days.length, 1);
   assert.equal(recent.days.at(-1).count, 2);
   assert.deepEqual(recent.countries, data.countries);
 });
@@ -63,7 +64,8 @@ test('a new website with no rows produces verified zeros', async () => {
   const data = await (await GET(request(90))).json();
   assert.equal(data.status, 'ready');
   assert.equal(data.visits, 0);
-  assert.equal(data.days.length, 90);
+  assert.equal(data.days.length, 1);
+  assert.deepEqual(data.days, [{ date: today, count: 0 }]);
 });
 test('database errors do not leak details or substitute zero', async t => {
   const now = Date.now();
