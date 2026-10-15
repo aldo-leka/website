@@ -78,7 +78,7 @@ function Trend({ days }: { days: DayCount[] }) {
   return <>
     <p className="chart-readout" aria-live="polite">
       {shown ? <><strong>{visits(shown.count)}</strong><span>{when(shown)}</span></>
-        : <span className="chart-hint">{monthly ? "Hover or drag across the chart for each month" : "Hover or drag across the chart for each day"}</span>}
+        : <span className="chart-hint">{monthly ? "Hover or drag to see each month" : "Hover or drag to see each day"}</span>}
     </p>
     <div ref={frame}><svg className="stats-chart" viewBox={`0 0 ${width} ${height}`} tabIndex={0} role="slider"
       aria-label={`${monthly ? "Monthly" : "Daily"} site visits from ${formatDate(days[0].date, true)} to ${formatDate(days[days.length - 1].date, true)}`}
