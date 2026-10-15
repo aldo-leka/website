@@ -17,13 +17,19 @@ Memory limits: Umami 512 MB (Node heap capped at 320 MB), Postgres 256 MB with 6
 
 - `/root/umami/.env` (chmod 600) holds the Umami database password, `APP_SECRET` and the two-factor key, generated on the server.
 - `/root/website/.env` (chmod 600, gitignored) holds `UMAMI_STATS_DATABASE_URL` for the read-only role.
-- The deploy workflow passes the non-secret values: `UMAMI_URL`, `UMAMI_WEBSITE_ID`, `WEBSITE_ANALYTICS_START_DATE` (first Umami day, 2026-10-15) and `WEBSITE_ANALYTICS_ENABLED`.
+- The deploy workflow passes the non-secret values: `UMAMI_URL`, `UMAMI_WEBSITE_ID`, `WEBSITE_ANALYTICS_START_DATE` (2026-10-02, the first GoatCounter day; see below) and `WEBSITE_ANALYTICS_ENABLED`.
 
 The aldoleka.com website record was created directly in Umami's database and belongs to the `admin` user. **Change the default `admin` / `umami` password** in the dashboard (Settings → Profile) before using it.
 
 To recreate the stack: `cd /root/umami && docker compose up -d`. To upgrade, change the pinned image tag, read Umami's release notes for schema changes to `website_event` or `session`, then run `npm run test:stats-api` and check `/api/site-stats` for every period. The read-only role's table grants must survive the upgrade.
 
-GoatCounter (site `lekisti`, used from 2 October until the switch on 15 October 2026; 123 recorded visits) is no longer used. Its history stays in that private account and is not merged into these counts.
+## GoatCounter history
+
+GoatCounter (site `lekisti`) counted visits from 2 October until the switch on 15 October 2026. Its database export (`hit_stats` hourly page/source counts and `location_stats` daily page/country counts) was imported into Umami on 15 October as 123 page views tagged `goatcounter-import`, each with its own session and visit, at its original hour (to the second after the hour), page and source. Countries were assigned within each day and page, so daily country totals match GoatCounter exactly. The last imported visit is at 05:00 UTC on 15 October; Umami's first event is at 07:08, so nothing is double counted. Browser, system and screen data were only available as per-day summaries and were not imported.
+
+GoatCounter counted once per page a visitor opened, while Umami counts once per visitor per hour, so the imported days read slightly higher than Umami would have counted them.
+
+To remove the import: `delete from website_event where tag = 'goatcounter-import'`, then delete sessions that no longer have events, as the `umami` database owner. Set `WEBSITE_ANALYTICS_START_DATE` back to 2026-10-15 if you do.
 
 ## Data boundary
 

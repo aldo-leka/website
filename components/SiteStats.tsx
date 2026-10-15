@@ -100,7 +100,9 @@ function Trend({ days }: { days: DayCount[] }) {
         <circle cx={x(active)} cy={y(shown.count)} r="6" fill="#fffdf8" stroke="#b93931" strokeWidth="3" />
       </g>}
     </svg></div>
-    <div className="chart-dates"><span>{formatDate(days[0].date, true)}</span><span>{monthly ? "Monthly totals" : "Daily totals"}</span><span>{formatDate(days[days.length - 1].date, true)}</span></div>
+    {days.length === 1
+      ? <div className="chart-dates single"><span>{formatDate(days[0].date, true)}</span></div>
+      : <div className="chart-dates"><span>{formatDate(days[0].date, true)}</span><span>{monthly ? "Monthly totals" : "Daily totals"}</span><span>{formatDate(days[days.length - 1].date, true)}</span></div>}
   </>;
 }
 

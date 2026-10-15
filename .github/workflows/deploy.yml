@@ -69,7 +69,8 @@ jobs:
           # UMAMI_STATS_DATABASE_URL (read-only role) stays in /root/website/.env on the VPS.
           UMAMI_URL: http://umami:3000
           UMAMI_WEBSITE_ID: c68e1995-41d8-4536-b4ee-15b5e3755051
-          WEBSITE_ANALYTICS_START_DATE: "2026-10-15"
+          # GoatCounter history from 2026-10-02 is imported into Umami (tag goatcounter-import).
+          WEBSITE_ANALYTICS_START_DATE: "2026-10-02"
           WEBSITE_ANALYTICS_ENABLED: "true"
         run: |
           IMAGE_TAG="sha-${GITHUB_SHA::7}"
