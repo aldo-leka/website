@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { chartPoints, count, dailyCounts, dateRange, emptyStats, publicSource, ranked } from '../lib/site-stats.ts';
+import { chartPoints, count, dailyCounts, dateRange, emptyStats, publicSource, ranked, sourceReferrer } from '../lib/site-stats.ts';
 
 test('UTC windows and all-time include the right days across a leap year', () => {
   const now = new Date('2024-03-02T01:00:00+02:00');
@@ -93,4 +93,14 @@ test('long all-time charts group by month without losing visits', () => {
   assert.equal(points.length, 7);
   assert.equal(points[0].date, '2024-01-01');
   assert.equal(points.reduce((n, p) => n + p.count, 0), days.reduce((n, p) => n + p.count, 0));
+});
+test('every public source label survives the round trip through a referrer domain', () => {
+  for (const label of ['Google', 'Bing', 'DuckDuckGo', 'Yahoo', 'LinkedIn', 'Facebook', 'Instagram', 'Reddit', 'GitHub', 'YouTube', 'ChatGPT', 'X', 'Other sources']) {
+    const url = sourceReferrer(label);
+    assert.match(url, /^https:\/\/[a-z.]+\/$/);
+    assert.equal(publicSource(new URL(url).hostname), label);
+  }
+  for (const label of ['Direct / unknown', 'https://private.example/', '', null, 'constructor', '__proto__']) {
+    assert.equal(sourceReferrer(label), undefined);
+  }
 });

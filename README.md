@@ -1,6 +1,6 @@
 # Aldo Leka — app portfolio
 
-Warm, apps-first portfolio at **https://aldoleka.com**. Built with Next.js App Router, React and custom CSS. Fonts and artwork are served locally. Optional GoatCounter website analytics feed the public `/stats` page; see [analytics setup](docs/website-analytics.md). There is no contact-form backend.
+Warm, apps-first portfolio at **https://aldoleka.com**. Built with Next.js App Router, React and custom CSS. Fonts and artwork are served locally. Optional self-hosted Umami analytics (on the same VPS) feed the public `/stats` page; see [analytics setup](docs/website-analytics.md). There is no contact-form backend.
 
 ## Development
 

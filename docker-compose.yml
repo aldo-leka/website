@@ -5,16 +5,21 @@ services:
     restart: unless-stopped
     environment:
       HOSTNAME: 0.0.0.0
-      GOATCOUNTER_SITE: ${GOATCOUNTER_SITE:-}
-      GOATCOUNTER_API_KEY: ${GOATCOUNTER_API_KEY:-}
-      GOATCOUNTER_START_DATE: ${GOATCOUNTER_START_DATE:-}
+      UMAMI_URL: ${UMAMI_URL:-}
+      UMAMI_WEBSITE_ID: ${UMAMI_WEBSITE_ID:-}
+      UMAMI_STATS_DATABASE_URL: ${UMAMI_STATS_DATABASE_URL:-}
+      WEBSITE_ANALYTICS_START_DATE: ${WEBSITE_ANALYTICS_START_DATE:-}
       WEBSITE_ANALYTICS_ENABLED: ${WEBSITE_ANALYTICS_ENABLED:-false}
     expose:
       - "3000"
     networks:
       - ingress
+      - analytics
 
 networks:
   ingress:
     external: true
     name: yhp99hliq5cujkenfl2ln6rp
+  analytics:
+    external: true
+    name: website-analytics

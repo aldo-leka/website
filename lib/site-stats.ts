@@ -68,12 +68,25 @@ export function publicSource(raw: unknown): string {
     const url = new URL(value.includes("://") ? value : `https://${value}`);
     if (url.username || url.password) return "Other sources";
     const host = url.hostname.replace(/^www\./, "");
-    const domains: Record<string, string> = { "google.com": "Google", "google.nl": "Google", "google.co.uk": "Google", "bing.com": "Bing", "duckduckgo.com": "DuckDuckGo", "linkedin.com": "LinkedIn", "lnkd.in": "LinkedIn", "facebook.com": "Facebook", "instagram.com": "Instagram", "reddit.com": "Reddit", "github.com": "GitHub", "youtube.com": "YouTube", "chatgpt.com": "ChatGPT", "t.co": "X", "x.com": "X", "twitter.com": "X" };
+    const domains: Record<string, string> = { "google.com": "Google", "google.nl": "Google", "google.co.uk": "Google", "bing.com": "Bing", "duckduckgo.com": "DuckDuckGo", "yahoo.com": "Yahoo", "linkedin.com": "LinkedIn", "lnkd.in": "LinkedIn", "facebook.com": "Facebook", "instagram.com": "Instagram", "reddit.com": "Reddit", "github.com": "GitHub", "youtube.com": "YouTube", "chatgpt.com": "ChatGPT", "t.co": "X", "x.com": "X", "twitter.com": "X" };
     for (const [domain, label] of Object.entries(domains)) {
       if (host === domain || host.endsWith(`.${domain}`)) return label;
     }
   } catch { /* Unrecognized text is deliberately grouped. */ }
   return "Other sources";
+}
+
+// The browser sends only a public label. Umami stores referrers as domains, so each
+// label is recorded as one canonical domain that publicSource() maps back to it.
+const sourceDomains: Record<string, string> = {
+  Google: "google.com", Bing: "bing.com", DuckDuckGo: "duckduckgo.com", Yahoo: "yahoo.com",
+  LinkedIn: "linkedin.com", Facebook: "facebook.com", Instagram: "instagram.com",
+  Reddit: "reddit.com", GitHub: "github.com", YouTube: "youtube.com", ChatGPT: "chatgpt.com",
+  X: "x.com", "Other sources": "other.invalid",
+};
+
+export function sourceReferrer(label: unknown): string | undefined {
+  return typeof label === "string" && Object.hasOwn(sourceDomains, label) ? `https://${sourceDomains[label]}/` : undefined;
 }
 
 export function ranked(rows: ProviderRow[], kind: "countries" | "sources") {

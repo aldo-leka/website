@@ -1,36 +1,38 @@
 # Public website statistics
 
-`/stats` and the footer show **recorded page visits**, not unique people or app usage. There is no owner dashboard in this release. Every 7/30/90-day window includes today in UTC; a seven-day view covers today and the previous six days. All time and the footer include today, from the configured first tracking day. Long charts group daily counts into months without discarding totals.
+`/stats` and the footer show **recorded visits**, not unique people or app usage. A visit is one visitor (an anonymous, monthly-rotating session) on public pages within one clock hour. Every 7/30/90-day window includes today in UTC; a seven-day view covers today and the previous six days. All time and the footer include today, from the configured first tracking day. Long charts group daily counts into months without discarding totals.
 
-## Activation
+## Architecture
 
-Code alone does not create an account or start tracking. Until runtime settings exist, the page shows an honest not-started state.
+Self-hosted [Umami](https://umami.is) 3.4.0 runs on the website VPS (`ubuntu-8gb-hel1-1`) in `/root/umami`, with its own Postgres. Nothing about it is public:
 
-Production configuration: site `lekisti`, first tracking day `2026-10-02`, and the encrypted repository secret `GOATCOUNTER_API_KEY` are supplied to the existing VPS deployment step. Docker Compose reads these environment values at runtime; the secret is not part of the image or repository. Routine container restarts preserve its environment. For manual deployments outside Actions, provide the same settings through an untracked VPS `.env` or exported environment; otherwise counting disables itself.
+- **Collection.** The browser posts `{path, source, screen, language}` to the website's own `/api/collect`. The route accepts only `lib/site-pages.ts` paths and known source labels, drops requests with Global Privacy Control, Do Not Track or another origin, and forwards a page view to `http://umami:3000/api/send` with the visitor's user agent and Cloudflare's `CF-Connecting-IP` / `CF-IPCountry` headers. Umami filters bots, derives a session ID from a monthly salt and does not store the IP address or user agent string.
+- **Reading.** `/api/site-stats` queries Umami's database directly with the `website_stats` role, which can only `SELECT` from `website_event` and `session`, runs read-only and has a 5-second statement timeout. Counting distinct visits per day, per country and per entry source keeps every view consistent: rankings and daily totals always add up to the headline number. Direct traffic is included.
+- **Networks.** The website container joins the external Docker network `website-analytics` alongside `umami` and `umami-postgres`. Umami's dashboard listens on `127.0.0.1:3010` only.
+- **Dashboard.** `tailscale serve` publishes it to the tailnet: <https://ubuntu-8gb-hel1-1.tail4e166c.ts.net:8443>. It is not reachable from the internet.
 
-On 2026-10-02 the owner registered the account and authorized the key. The initial setup enabled Sessions, Referrer and Country. Later that day the owner requested all collection options: Individual pageviews, Sessions, Referrer, User-Agent, Size, Country, Region and Language are now enabled and saved in GoatCounter. The optional region-country restriction is blank, so regions are collected for all countries. Dashboard access remains private; the website key is read-statistics only and reporting uses UTC. Retention remains the default unlimited period for the requested all-time view. Collection changes apply to new visits and cannot reconstruct disabled fields from older visits.
+Memory limits: Umami 512 MB (Node heap capped at 320 MB), Postgres 256 MB with 64 MB shared buffers. Measured at start: about 225 MB and 40 MB.
 
-User-Agent collection stores parsed browser/system information, not the full header. Individual pageviews stores detailed records for exports; aggregate dashboard counts work without it. These records remain in the private GoatCounter account. The public website still displays aggregate counts and country/source rankings only. On 2026-10-02 the live public API was verified to show named countries and direct traffic after the ranking/date-range correction.
+## Configuration
 
-1. Create a dedicated hosted GoatCounter site for `aldoleka.com`. Complete its account/terms flow with the account owner. No paid plan is required for the initial setup.
-2. Keep the native GoatCounter dashboard private and its timezone set to UTC. Preserve the owner's current choice to enable all eight Data collection options, with no country restriction for regions. Confirm these settings against the current UI before reporting them as applied. Do not expose individual pageview records through the public website.
-3. Create a **read-only statistics** API key restricted to this website. Never use a key with export, count/write, site-management or other-app access. Store it only as a runtime secret on the VPS, outside Git.
-4. Set the values from `.env.example` in `/root/website/.env` on the existing deployment host. `GOATCOUNTER_SITE` is the short site code, not a URL. `GOATCOUNTER_START_DATE` is the actual UTC activation day. Set `WEBSITE_ANALYTICS_ENABLED=true` only after checking settings.
-5. Recreate the existing app container (`docker compose up -d --force-recreate app`, preserving its current image tag). These are runtime values; no build-time secret is needed.
-6. Check `/api/analytics-config`: only the public `/count` endpoint is returned. Check `/api/site-stats?days=all` and each 7/30/90 window. Confirm a real normal-browser page visit arrives, no query or full referrer is sent, and totals agree with the provider. Today's visit appears in every period. Test a client-side route change and a reload; confirm GoatCounter deduplication. Verify GPC/DNT and non-production hosts send nothing.
+- `/root/umami/.env` (chmod 600) holds the Umami database password, `APP_SECRET` and the two-factor key, generated on the server.
+- `/root/website/.env` (chmod 600, gitignored) holds `UMAMI_STATS_DATABASE_URL` for the read-only role.
+- The deploy workflow passes the non-secret values: `UMAMI_URL`, `UMAMI_WEBSITE_ID`, `WEBSITE_ANALYTICS_START_DATE` (first Umami day, 2026-10-15) and `WEBSITE_ANALYTICS_ENABLED`.
 
-If the provider response, timezone or totals disagree, the endpoint fails closed with an unavailable state rather than publishing invented zeros. Account settings, API responses and tracking must be checked with the real account before considering analytics live.
+The aldoleka.com website record was created directly in Umami's database and belongs to the `admin` user. **Change the default `admin` / `umami` password** in the dashboard (Settings → Profile) before using it.
+
+To recreate the stack: `cd /root/umami && docker compose up -d`. To upgrade, change the pinned image tag, read Umami's release notes for schema changes to `website_event` or `session`, then run `npm run test:stats-api` and check `/api/site-stats` for every period. The read-only role's table grants must survive the upgrade.
+
+GoatCounter (site `lekisti`, used from 2 October until the switch on 15 October 2026; 123 recorded visits) is no longer used. Its history stays in that private account and is not merged into these counts.
 
 ## Data boundary
 
-- Only `lib/site-pages.ts` public routes are counted and included in queries. Route queries, fragments, free-form titles and click events are excluded.
-- Referrers are reduced in the browser to known source labels or Direct / unknown / Other sources. Public API output repeats that sanitization and permits country names derived from country codes only. Rankings retain every returned country/source count without a minimum-count threshold or top-five cutoff; URI-encoded source labels are decoded before normalization.
-- No raw referrer URLs, identifiers, user records, API keys or app revenue appear in the public response. Website stats do not read any Mixpanel, PostHog or App Store account.
-- Production-host guard, Global Privacy Control and Do Not Track apply before loading the analytics script. Configure GoatCounter's collection settings as above too; JavaScript minimization is not a substitute for provider settings.
-- Stats cache for five minutes with four bounded date choices, request coalescing and a paced provider queue. Provider failures use short caches and expose no error details. This assumes the existing single app container; use shared caching/rate limiting before horizontal scaling.
+- Only public routes are counted. Route queries, fragments, free-form titles and click events are excluded.
+- Referrers are reduced in the browser to known source labels or Direct / unknown / Other sources, then stored in Umami as one canonical domain per label (`other.invalid` for Other sources). Public output maps them back to the label and shows country names derived from country codes only. Rankings keep every count, with no minimum threshold or top-five cutoff.
+- No referrer URLs, identifiers, user records, credentials or app revenue appear in the public response. Website stats do not read any Mixpanel, PostHog or App Store account.
+- The production-host guard, Global Privacy Control and Do Not Track apply in the browser and again on the server.
+- Stats cache for five minutes (30 seconds after a failure) with four bounded date choices and request coalescing. Database errors produce an unavailable state rather than invented zeros. This assumes the existing single app container.
 
 ## Verification
 
-Run `npm run test:stats`, `npm run lint`, `npm run build`, `npm run typecheck`, `npm run test:stats-api` (uses the built handlers with a local provider stub), and `npm run test:smoke -- http://127.0.0.1:3000`. Inspect `/stats` and the footer at desktop and mobile widths. Test loading, empty, unavailable, zero and populated data states. Preview fixtures must remain local and must not enter the deployed API.
-
-Official references: [API](https://www.goatcounter.com/help/api), [JavaScript](https://www.goatcounter.com/help/js), [sessions](https://www.goatcounter.com/help/sessions), [privacy](https://www.goatcounter.com/help/privacy).
+Run `npm run test:stats`, `npm run lint`, `npm run build`, `npm run typecheck`, `npm run test:stats-api` (built handlers with a stubbed `pg` pool and collector) and `npm run test:smoke -- http://127.0.0.1:3000`. After deploying, load a public page in a normal browser, confirm the visit appears in the Umami dashboard and in `/api/site-stats?days=7`, and check `/stats` and the footer at desktop and mobile widths.
