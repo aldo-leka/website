@@ -26,7 +26,7 @@ The smoke check requests every sitemap page, validates canonical and social meta
 
 ## Content and links
 
-- `/`: DineMio as the wide lead project, then Count My Shift, Steady Rounds, JobAlbum and Lekasoft, with a short introduction. Desktop is a three-column grid with DineMio spanning two columns, tablet is two columns with DineMio full width, and phones show DineMio first with the other projects in a horizontal swipe row.
+- `/`: DineMio as the wide lead project, then Rogers Deep Value, Count My Shift, Steady Rounds, JobAlbum and Lekasoft, with a short introduction. Desktop is a three-column grid with DineMio spanning two columns, tablet is two columns with DineMio full width, and phones show DineMio first with the other projects in a horizontal swipe row. Lekasoft, the last card (`closing-card`), spans the full row on desktop and tablet so the grid has no trailing gap; recheck that when adding a project.
 - `/about` and `/contact`: professional biography and general contact.
 - `/count-my-shift`: app overview, with its own Privacy and Support navigation.
 - `/count-my-shift/privacy`: published privacy policy.
@@ -40,7 +40,7 @@ The smoke check requests every sitemap page, validates canonical and social meta
 
 Global navigation is Apps, About and Contact. App-specific legal and help links belong within the app pages. The previous blog, older projects and their assets were deliberately removed. Their old URLs return 404; historical content remains in Git history.
 
-Set `storeUrl` in **`lib/apps.ts`** when an iPhone app has a public `https://apps.apple.com/...` listing. Until then its page says “Coming to the App Store”; home cards link to the app overview. Setting the URL enables the store buttons and removes the app’s beta label. DineMio and Lekasoft use their own website URLs. Never use a private App Store Connect page or TestFlight invitation as a public store URL.
+Set `storeUrl` in **`lib/apps.ts`** when an iPhone app has a public `https://apps.apple.com/...` listing. Until then its page says “Coming to the App Store”; home cards link to the app overview. Setting the URL enables the store buttons and removes the app’s beta label. DineMio, Lekasoft and Rogers Deep Value use their own website URLs. Never use a private App Store Connect page or TestFlight invitation as a public store URL.
 
 Page titles, descriptions and preview copy are centralized in `lib/site-pages.ts`. Every public page has its own generated PNG at `/share/<page-key>-v<revision>.png` (currently v2, or v3 for Steady Rounds) and Open Graph/Twitter metadata. The central 630px contains the essential artwork and label so square thumbnails do not cut them off. Keep image filenames versioned when the design changes: social platforms may retain previously fetched images. Previous `/share/<page-key>` URLs remain available. Add new pages to the sitemap and this metadata registry. Unknown preview keys return 404.
 
@@ -68,7 +68,7 @@ The published **two-year event retention** matches Mixpanel’s default for proj
 
 ## Assets
 
-`public/art/` contains original AI-generated Amsterdam, stopwatch and restaurant illustrations made for this design, optimized to WebP. The latter two are decorative artwork, not official app logos or product screenshots. `public/apps/count-my-shift/` contains the app’s own icon and an actual screenshot with example records. `public/apps/steady-rounds/` contains its actual boxing-bell icon and a real timer screenshot, optimized from the app repository. DM Sans and Caveat are self-hosted through their Fontsource packages; their font licenses are also distributed in `public/licenses/`. Do not add the CV, credentials, private app data or raw research documents to the repository.
+`public/art/` contains original AI-generated Amsterdam, stopwatch and restaurant illustrations made for this design, optimized to WebP. The latter two are decorative artwork, not official app logos or product screenshots. `public/apps/count-my-shift/` contains the app’s own icon and an actual screenshot with example records. `public/apps/steady-rounds/` contains its actual boxing-bell icon and a real timer screenshot, optimized from the app repository. `public/apps/rogers-deep-value/` contains the Substack publication’s own avatar, resized to WebP. DM Sans and Caveat are self-hosted through their Fontsource packages; their font licenses are also distributed in `public/licenses/`. Do not add the CV, credentials, private app data or raw research documents to the repository.
 
 ## Deployment
 

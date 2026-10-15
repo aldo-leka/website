@@ -13,7 +13,7 @@ export const sitePages = {
     title: "Aldo Leka — Apps, software & a little curiosity",
     headline: "A few things\nI’m building.",
     description:
-      "Independent apps and software by Aldo Leka. Explore DineMio, Count My Shift, Steady Rounds, JobAlbum and Lekasoft, and meet the developer behind them.",
+      "Independent apps and software by Aldo Leka. Explore DineMio, Rogers Deep Value, Count My Shift, Steady Rounds, JobAlbum and Lekasoft, and meet the developer behind them.",
     color: "#ffe4d9",
   },
   about: {

@@ -3,7 +3,7 @@
 This repository is Aldo Leka’s apps-first portfolio at https://aldoleka.com. See README.md for routes, configuration, validation and the existing VPS deployment workflow.
 
 - Preserve the approved warm design: ivory, coral, peach, yellow and sage; DM Sans with Caveat accents; generous space and original illustrations.
-- Keep the homepage focused on its projects, followed by a short introduction. DineMio leads as the wide first card; Count My Shift, Steady Rounds, JobAlbum and Lekasoft follow. On phones the cards after DineMio form a horizontal swipe row, so new projects join that row instead of lengthening the page.
+- Keep the homepage focused on its projects, followed by a short introduction. DineMio leads as the wide first card and Rogers Deep Value comes second; Count My Shift, Steady Rounds and JobAlbum follow, and Lekasoft closes the grid as a full-width card. On phones the cards after DineMio form a horizontal swipe row, so new projects join that row instead of lengthening the page.
 - Global navigation contains Apps, About and Contact. Each app owns its Privacy and Support links within its own pages.
 - Keep “© <current year> Aldo Leka” in the footer, without another footer wordmark.
 - The old blog and older project content were deliberately removed; do not restore them or add legacy redirects without a request.

@@ -87,6 +87,43 @@ export default function HomePage() {
             Swipe for more <Arrow />
           </p>
           <div className="app-shelf">
+            <article className="app-card butter">
+              <a
+                className="card-art icon-card-art"
+                href={apps.rogersDeepValue.websiteUrl}
+                tabIndex={-1}
+                aria-hidden="true"
+              >
+                <Image
+                  src="/apps/rogers-deep-value/avatar.webp"
+                  alt=""
+                  width={220}
+                  height={220}
+                  sizes="220px"
+                />
+              </a>
+              <div className="card-copy">
+                <h3>
+                  <a href={apps.rogersDeepValue.websiteUrl}>
+                    Rogers Deep Value
+                  </a>
+                </h3>
+                <p className="app-subtitle">Multi-agent investor</p>
+                <p className="app-description">
+                  Researcher, verifier, re-evaluator, writer and trader agents
+                  that work like a real investor. Started on OpenClaw in March
+                  2026, now runs on Grok bots.
+                </p>
+                <div className="card-bottom">
+                  <a
+                    className="text-link"
+                    href={apps.rogersDeepValue.websiteUrl}
+                  >
+                    Read on Substack <Arrow diagonal />
+                  </a>
+                </div>
+              </div>
+            </article>
             <article className="app-card peach">
               <Link
                 className="card-art shift-art"
@@ -204,7 +241,7 @@ export default function HomePage() {
                 </div>
               </div>
             </article>
-            <article className="app-card butter">
+            <article className="app-card closing-card butter">
               <a
                 className="card-art icon-card-art"
                 href={apps.lekasoft.websiteUrl}

@@ -497,6 +497,27 @@ svg {
     font-size: 18px;
     max-width: 24em;
   }
+  /* The last project fills its row, so the grid never ends on a gap. */
+  .closing-card {
+    grid-column: 1 / -1;
+    flex-direction: row;
+  }
+  .closing-card .card-art {
+    width: calc((100% - 44px) / 3);
+    height: auto;
+    min-height: 300px;
+  }
+  .closing-card .card-copy {
+    padding: 34px 36px 30px;
+  }
+  .closing-card .app-description {
+    max-width: 30em;
+  }
+}
+@media (min-width: 761px) and (max-width: 1050px) {
+  .closing-card .card-art {
+    width: 50%;
+  }
 }
 .badge {
   display: inline-flex;

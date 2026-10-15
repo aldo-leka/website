@@ -19,6 +19,10 @@ export const apps = {
   },
   dineMio: { name: "DineMio", websiteUrl: "https://dinemio.com" },
   lekasoft: { name: "Lekasoft", websiteUrl: "https://lekasoft.nl" },
+  rogersDeepValue: {
+    name: "Rogers Deep Value",
+    websiteUrl: "https://rogersdeepvalue.substack.com",
+  },
 };
 // Set storeUrl to the PUBLIC apps.apple.com listing when each app is available.
 // A TestFlight invitation or a private App Store Connect record is not a store URL.
