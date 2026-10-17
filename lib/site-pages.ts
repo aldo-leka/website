@@ -13,7 +13,7 @@ export const sitePages = {
     title: "Aldo Leka — Apps, software & a little curiosity",
     headline: "A few things\nI’m building.",
     description:
-      "Independent apps and software by Aldo Leka. Explore DineMio, Rogers Deep Value, Count My Shift, Steady Rounds, JobAlbum and Lekasoft, and meet the developer behind them.",
+      "Independent apps and software by Aldo Leka. Explore DineMio, Rogers Deep Value, Night Show, Count My Shift, Steady Rounds, JobAlbum and Lekasoft, and meet the developer behind them.",
     color: "#ffe4d9",
   },
   about: {
@@ -113,6 +113,33 @@ export const sitePages = {
       "Help with timestamped photos, job albums, GPS, PDF reports, backups and restoring JobAlbum Pro.",
     eyebrow: "JobAlbum · Support",
     color: "#fff0bd",
+  },
+  "night-show": {
+    path: "/night-show",
+    title: "Night Show: Party Games",
+    headline: "Game night.\nOn the big screen.",
+    description:
+      "Party games for friends and family. The TV shows the game and everyone plays from their phone. Country City and The Buzzer, in English and Albanian.",
+    eyebrow: "Night Show · Party Games",
+    color: "#fff0bd",
+  },
+  "night-show-privacy": {
+    path: "/night-show/privacy",
+    title: "Night Show Privacy Policy",
+    headline: "Play together.\nKeep it simple.",
+    description:
+      "A random player ID, your game balance, game statistics and AI judging without player names, explained.",
+    eyebrow: "Night Show · Privacy",
+    color: "#dfe7d5",
+  },
+  "night-show-support": {
+    path: "/night-show/support",
+    title: "Night Show Support",
+    headline: "Here to help\nthe party along.",
+    description:
+      "Help with the TV screen, joining from phones, Country City, The Buzzer, free games and languages.",
+    eyebrow: "Night Show · Support",
+    color: "#ffe4d9",
   },
 } as const;
 export type PageKey = keyof typeof sitePages;

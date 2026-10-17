@@ -17,6 +17,12 @@ export const apps = {
     path: "/jobalbum",
     storeUrl: "https://apps.apple.com/app/id6814814479",
   },
+  nightShow: {
+    name: "Night Show",
+    subtitle: "Party Games",
+    path: "/night-show",
+    storeUrl: null,
+  },
   dineMio: { name: "DineMio", websiteUrl: "https://dinemio.com" },
   lekasoft: { name: "Lekasoft", websiteUrl: "https://lekasoft.nl" },
   rogersDeepValue: {

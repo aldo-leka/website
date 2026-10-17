@@ -14,6 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/jobalbum",
     "/jobalbum/privacy",
     "/jobalbum/support",
+    "/night-show",
+    "/night-show/privacy",
+    "/night-show/support",
   ].map((path) => ({
     url: `https://aldoleka.com${path}`,
     changeFrequency: "monthly",

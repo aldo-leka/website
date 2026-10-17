@@ -338,20 +338,23 @@ svg {
   transform: rotate(5deg);
   filter: drop-shadow(0 16px 14px #4a360a26);
 }
-.jobalbum-product-visual {
+.jobalbum-product-visual,
+.night-show-product-visual {
   min-height: 520px;
   flex-direction: column;
   align-items: center;
   gap: 34px;
 }
-.jobalbum-product-visual > img {
+.jobalbum-product-visual > img,
+.night-show-product-visual > img {
   width: min(80%, 310px);
   height: auto;
   border-radius: 23%;
   box-shadow: 0 22px 35px #23392c20;
   transform: rotate(-5deg);
 }
-.jobalbum-product-visual .handwritten {
+.jobalbum-product-visual .handwritten,
+.night-show-product-visual .handwritten {
   font-size: 34px;
   line-height: 1.15;
   text-align: center;
@@ -497,13 +500,14 @@ svg {
     font-size: 18px;
     max-width: 24em;
   }
-  /* The last project fills its row, so the grid never ends on a gap. */
+  /* The last project fills the rest of its row, so the grid never ends on a
+     gap: two of the three columns here, one of the two on tablets (below). */
   .closing-card {
-    grid-column: 1 / -1;
+    grid-column: span 2;
     flex-direction: row;
   }
   .closing-card .card-art {
-    width: calc((100% - 44px) / 3);
+    width: calc((100% - 22px) / 2);
     height: auto;
     min-height: 300px;
   }
@@ -515,8 +519,14 @@ svg {
   }
 }
 @media (min-width: 761px) and (max-width: 1050px) {
+  .closing-card {
+    grid-column: auto;
+    flex-direction: column;
+  }
   .closing-card .card-art {
-    width: 50%;
+    width: auto;
+    height: 275px;
+    min-height: 0;
   }
 }
 .badge {

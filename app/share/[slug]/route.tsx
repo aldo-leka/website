@@ -27,6 +27,9 @@ const labels: Record<PageKey, [string, string]> = {
   jobalbum: ["JobAlbum", "Timestamp Camera · For iPhone"],
   "jobalbum-privacy": ["Privacy", "JobAlbum"],
   "jobalbum-support": ["Support", "JobAlbum"],
+  "night-show": ["Night Show", "Party Games · For iPhone"],
+  "night-show-privacy": ["Privacy", "Night Show"],
+  "night-show-support": ["Support", "Night Show"],
 };
 
 export async function GET(
@@ -47,7 +50,9 @@ export async function GET(
       ? "steady-rounds"
       : key.startsWith("jobalbum")
         ? "jobalbum"
-        : null;
+        : key.startsWith("night-show")
+          ? "night-show"
+          : null;
   const appIcon = appFolder
     ? `data:image/png;base64,${(await readFile(join(process.cwd(), `public/apps/${appFolder}/icon.png`))).toString("base64")}`
     : null;

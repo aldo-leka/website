@@ -124,6 +124,45 @@ export default function HomePage() {
                 </div>
               </div>
             </article>
+            <article className="app-card sage">
+              <Link
+                className="card-art icon-card-art"
+                href="/night-show"
+                tabIndex={-1}
+                aria-hidden="true"
+              >
+                <Image
+                  src="/apps/night-show/icon.png"
+                  alt=""
+                  width={250}
+                  height={250}
+                  sizes="220px"
+                />
+              </Link>
+              <div className="card-copy">
+                <h3>
+                  <Link href="/night-show">Night Show</Link>
+                </h3>
+                <p className="app-subtitle">Party Games</p>
+                <p className="app-description">
+                  Game night on the TV, played from everyone’s phones.
+                </p>
+                <div className="card-bottom">
+                  {!apps.nightShow.storeUrl && (
+                    <span className="badge">Coming soon</span>
+                  )}
+                  {apps.nightShow.storeUrl ? (
+                    <a className="text-link" href={apps.nightShow.storeUrl}>
+                      App Store <Arrow diagonal />
+                    </a>
+                  ) : (
+                    <Link className="text-link" href="/night-show">
+                      Explore app <Arrow diagonal />
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </article>
             <article className="app-card peach">
               <Link
                 className="card-art shift-art"
