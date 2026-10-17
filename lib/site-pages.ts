@@ -128,7 +128,7 @@ export const sitePages = {
     title: "Night Show Privacy Policy",
     headline: "Play together.\nKeep it simple.",
     description:
-      "A random player ID, your game balance, game statistics and AI judging without player names, explained.",
+      "A random player ID, game statistics and AI judging without player names, explained.",
     eyebrow: "Night Show · Privacy",
     color: "#dfe7d5",
   },
@@ -137,7 +137,7 @@ export const sitePages = {
     title: "Night Show Support",
     headline: "Here to help\nthe party along.",
     description:
-      "Help with the TV screen, joining from phones, Country City, The Buzzer, free games and languages.",
+      "Help with the TV screen, joining from phones, Country City, The Buzzer and languages.",
     eyebrow: "Night Show · Support",
     color: "#ffe4d9",
   },

@@ -15,10 +15,10 @@ export default function PrivacyPage() {
       <p className="effective-date">Effective 17 October 2026</p>
       <div className="policy-intro prose">
         <p>
-          Night Show needs no account and shows no ads. The app contains no
-          third-party analytics or advertising software. Our game server keeps
-          a random player ID, your game balance and simple game statistics.
-          Player names are never sent to the AI.
+          Night Show is free, needs no account and shows no ads. The app
+          contains no third-party analytics or advertising software. Our game
+          server keeps a random player ID and simple game statistics. Player
+          names are never sent to the AI.
         </p>
       </div>
       <nav className="policy-toc" aria-label="Privacy policy sections">
@@ -64,8 +64,7 @@ export default function PrivacyPage() {
         <p>
           With the ID, the app sends its platform, app version and your
           device’s language setting. The server records when the ID was first
-          and last seen, and a ledger of free, used and returned games. That
-          ledger is how your game balance is counted.
+          and last seen. The ID is what lets a phone host games.
         </p>
         <p>
           Players who join from a browser don’t get a player ID. The join page
@@ -110,9 +109,9 @@ export default function PrivacyPage() {
         <h2 id="statistics">Game statistics</h2>
         <p>
           The server logs simple events to understand what people play and what
-          breaks: a new player ID, games given or used, a game started (which
-          game, free or paid, number of players and their platforms, settings
-          such as rounds, category or topic), a game finished or abandoned and
+          breaks: a new player ID, a game started (which game, number of
+          players and their platforms, settings such as rounds, category or
+          topic), a game finished or abandoned and
           how many rounds were played, a host accepting or rejecting an answer,
           and the AI falling back to a simpler check. Each event is linked to
           the host’s player ID or to the game.
@@ -126,10 +125,8 @@ export default function PrivacyPage() {
         </p>
         <h2 id="purchases">Purchases</h2>
         <p>
-          If Night Show offers games to buy, Apple handles the purchase and
-          your payment details. Our server receives the purchase confirmation
-          from Apple to add the games to your player ID. We never receive card
-          or bank details.
+          Night Show has no in-app purchases, and we never receive payment
+          details.
         </p>
         <h2 id="retention">How long we keep it</h2>
         <ul>
@@ -141,8 +138,8 @@ export default function PrivacyPage() {
             13 months.
           </li>
           <li>
-            Your player ID and game ledger: kept so your games don’t expire,
-            until you ask us to delete them.
+            Your player ID and when it was first and last seen: kept until you
+            ask us to delete them.
           </li>
           <li>
             AI verdicts and quiz questions: kept, because they aren’t linked to
@@ -161,8 +158,7 @@ export default function PrivacyPage() {
           </li>
           <li>
             Ask us to access or delete the data linked to your player ID. Send
-            the ID shown in the app’s settings so we can find it. Deleting it
-            also removes any games left on it.
+            the ID shown in the app’s settings so we can find it.
           </li>
         </ul>
         <p>

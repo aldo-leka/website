@@ -100,12 +100,11 @@ export default function NightShowPage() {
       </section>
       <section className="plus-section butter">
         <div>
-          <p className="eyebrow">Free games</p>
-          <h2>The first games are on us.</h2>
+          <p className="eyebrow">Free to play</p>
+          <h2>Every game is on us.</h2>
           <p>
-            A new player starts with free games. A game counts only when the
-            host starts it, and going back to the lobby within the first minute
-            gives it back.
+            No purchases, no ads, no account. Start as many games as the night
+            needs.
           </p>
           <p className="fine-print">
             Survey answers in The Buzzer are Claude’s estimate of what most

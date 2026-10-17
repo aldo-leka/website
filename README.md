@@ -37,9 +37,9 @@ The smoke check requests every sitemap page, validates canonical and social meta
 - `/jobalbum`: timestamp-camera overview, free/Pro features and app navigation.
 - `/jobalbum/privacy`: local photos, optional GPS, sharing, purchases and opt-in analytics.
 - `/jobalbum/support`: capture, job albums, GPS, reports, storage and Pro restoration help.
-- `/night-show`: party-games overview (TV screen + phones, Country City, The Buzzer, free games) and app navigation.
-- `/night-show/privacy`: random player ID, game ledger, server-side game statistics, AI judging without names, retention.
-- `/night-show/support`: TV screen, joining, both games, custom topics, free games, languages and removing players.
+- `/night-show`: party-games overview (TV screen + phones, Country City, The Buzzer, free to play) and app navigation.
+- `/night-show/privacy`: random player ID, server-side game statistics, AI judging without names, retention, no purchases.
+- `/night-show/support`: TV screen, joining, both games, custom topics, cost (free), languages and removing players.
 
 Global navigation is Apps, About and Contact. App-specific legal and help links belong within the app pages. The previous blog, older projects and their assets were deliberately removed. Their old URLs return 404; historical content remains in Git history.
 
@@ -67,7 +67,7 @@ Steady Rounds has separate app-specific disclosures: local routines and unfinish
 
 JobAlbum describes its local photo library, optional foreground GPS, add-only Photos copies, file exports, Apple backups and purchases, and consented EU Mixpanel events. It retains OS-version analytics, unlike Steady Rounds. It has no app-operated photo upload or album sync, and manual address labels are separate from GPS. Source references and release URLs are in `docs/jobalbum-content.md`.
 
-Night Show is different from the other apps: its games run on its own server (show.aldo.al), so the policy describes what that server keeps rather than an analytics SDK. There is no third-party analytics in the app. The server deletes events, game records and AI-call logs after 13 months (`server/src/store.js` in the night-show repo); player IDs and the game ledger stay so games don’t expire. Source references are in `docs/night-show-content.md`. Recheck the policy whenever the server's tables, events, AI use or purchases change, and when the app ships on Android.
+Night Show is different from the other apps: its games run on its own server (show.aldo.al), so the policy describes what that server keeps rather than an analytics SDK. There is no third-party analytics in the app. The server deletes events, game records and AI-call logs after 13 months (`server/src/store.js` in the night-show repo); player IDs stay until someone asks for theirs to be deleted. Every game is free and there are no purchases. Source references are in `docs/night-show-content.md`. Recheck the policy whenever the server's tables, events, AI use or purchases change, and when the app ships on Android.
 
 The published **two-year event retention** matches Mixpanel’s default for projects created after 1 September 2025, and the owner approved using that period. This website does not change Mixpanel project settings. Recheck [Mixpanel’s retention documentation](https://docs.mixpanel.com/docs/privacy/gdpr-compliance) and actual project settings whenever practices change; update the policy and app disclosures together.
 

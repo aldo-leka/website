@@ -31,8 +31,8 @@ const questions = [
     body: "Yes. In The Buzzer the host can type a topic in the lobby, and Claude writes new questions about it. That takes one to three minutes; until then the game uses mixed questions. Topics and their questions can come up again for anyone who picks the same topic, so don’t type personal details.",
   },
   {
-    title: "How do free games work?",
-    body: "A new player starts with free games the first time they open the app. One game is used when the host starts a game, and going back to the lobby within the first minute gives it back. Your remaining games show on the home screen when only a few are left.",
+    title: "Does Night Show cost anything?",
+    body: "No. Every game is free, with no purchases, no ads and no account.",
   },
   {
     title: "How do I switch between English and Albanian?",
