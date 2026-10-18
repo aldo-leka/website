@@ -28,11 +28,19 @@ const questions = [
   },
   {
     title: "Can we play on our own topic?",
-    body: "Yes. In The Buzzer the host can type a topic in the lobby, and Claude writes new questions about it. That takes one to three minutes; until then the game uses mixed questions. Topics and their questions can come up again for anyone who picks the same topic, so don’t type personal details.",
+    body: "Yes, with Night Show Plus. The host types a topic in the lobby, and Claude writes new Buzzer questions, a Big Board category or Draw & Guess words about it. That takes one to three minutes; until then the game plays its usual content. Topics and what was written for them can come up again for anyone who picks the same topic, so don’t type personal details.",
   },
   {
     title: "Does Night Show cost anything?",
-    body: "No. Every game is free, with no purchases, no ads and no account.",
+    body: "No. Every game is free, with no ads and no account. Night Show Plus is an optional subscription for the host that adds custom topics, up to 30 a month. Only the host needs it; everyone in the room plays the new content.",
+  },
+  {
+    title: "How do I cancel or restore Night Show Plus?",
+    body: "Plus is billed by Apple. Cancel it any time in your iPhone’s Settings › your name › Subscriptions, at least 24 hours before it renews. On a new phone, open the app’s Settings › Night Show Plus and tap Restore purchase.",
+  },
+  {
+    title: "Why do we sometimes get a question we’ve had before?",
+    body: "Night Show remembers what your games have played and brings new questions, categories and words first. When you’ve played most of a game, some come back; the lobby then says so. With Plus you can type a topic for brand-new ones.",
   },
   {
     title: "How do I switch between English and Albanian?",

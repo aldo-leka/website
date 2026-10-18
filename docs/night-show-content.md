@@ -10,7 +10,7 @@ Checked 17 October 2026 against the night-show repository (aldo-leka/night-show,
 - Events: `profile_created`, `game_started`, `game_finished` / `game_abandoned`, `judge_override`, `ai_fallback`.
 - `server/src/games/fshat-qytet/game.js` and `judge.js`: Country City sends the letter, categories and numbered answers to Claude; no names or player IDs. `server/src/games/zilja/`: Buzzer answers are matched on the server (`match.js`); Claude only writes questions (`questions.js`). Topic questions are only served to rooms that pick the same topic.
 - `server/public/src/join.js`: the browser join page keeps name, room code, player ID for that room and language in local storage.
-- Every game is free (since 17 October 2026): no game credits, no ledger table, no purchases. The policy says Night Show has no in-app purchases; revisit it if that changes.
+- Every game is free (since 17 October 2026): no game credits, no ledger table, no ads. Since 18 October 2026 there is one optional purchase, the Night Show Plus subscription (custom topics, 30 a month); the privacy page's Purchases section describes what the server stores for it.
 - The Buzzer's "We asked 100 people" answers are Claude's estimate, as the overview and support pages say.
 
 ## Asset provenance

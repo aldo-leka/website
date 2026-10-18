@@ -66,7 +66,7 @@ export function LekasoftIcon() {
 export function FeatureIcon({
   type,
 }: {
-  type: "notebook" | "chart" | "cloud" | "timer" | "bell" | "routines" | "tv";
+  type: "notebook" | "chart" | "cloud" | "timer" | "bell" | "routines" | "tv" | "board" | "pencil";
 }) {
   return (
     <svg
@@ -109,6 +109,18 @@ export function FeatureIcon({
             <>
               <rect x="4" y="13" width="40" height="27" rx="5" />
               <path d="m16 4 8 9 8-9M15 47h18M19 40v7M29 40v7" />
+            </>
+          )}
+          {type === "board" && (
+            <>
+              <rect x="4" y="7" width="40" height="38" rx="4" />
+              <path d="M17 7v38M31 7v38M4 17h40M4 26h40M4 35h40" />
+            </>
+          )}
+          {type === "pencil" && (
+            <>
+              <path d="M33 6l9 9-25 25-11 3 3-11Z" />
+              <path d="M28 11l9 9M6 48h36" />
             </>
           )}
           {type === "routines" && (

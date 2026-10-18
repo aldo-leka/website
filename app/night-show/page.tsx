@@ -58,7 +58,7 @@ export default function NightShowPage() {
         </div>
       </section>
       <section className="feature-section" id="features">
-        <h2>One TV. Every phone. Two games to start.</h2>
+        <h2>One TV. Every phone. Four games to start.</h2>
         <div className="feature-grid">
           <div>
             <FeatureIcon type="tv" />
@@ -89,7 +89,29 @@ export default function NightShowPage() {
               <p>
                 The team survey quiz: “We asked 100 people…”. Hit the buzzer,
                 find the answers on the board and steal the points. Pick a
-                category or type your own topic.
+                category, or type your own topic with Plus.
+              </p>
+            </div>
+          </div>
+          <div>
+            <FeatureIcon type="board" />
+            <div>
+              <h3>The Big Board</h3>
+              <p>
+                The quiz board: pick a category and a value, buzz in faster
+                than everyone else and bet it all on the final question. Play
+                solo, in teams or with a quizmaster.
+              </p>
+            </div>
+          </div>
+          <div>
+            <FeatureIcon type="pencil" />
+            <div>
+              <h3>Draw &amp; Guess</h3>
+              <p>
+                One player draws the word on their phone, the drawing appears
+                on the TV, and everyone races to guess it. The faster it’s
+                found, the more points for both.
               </p>
             </div>
           </div>
@@ -103,8 +125,12 @@ export default function NightShowPage() {
           <p className="eyebrow">Free to play</p>
           <h2>Every game is on us.</h2>
           <p>
-            No purchases, no ads, no account. Start as many games as the night
-            needs.
+            No ads, no account. Start as many games as the night needs.
+          </p>
+          <p>
+            Want questions on your own topic? Night Show Plus, an optional
+            subscription for the host, has Claude write fresh Buzzer questions,
+            Big Board categories and drawing words on any topic you type.
           </p>
           <p className="fine-print">
             Survey answers in The Buzzer are Claude’s estimate of what most

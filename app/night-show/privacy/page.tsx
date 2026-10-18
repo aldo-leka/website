@@ -12,10 +12,11 @@ export default function PrivacyPage() {
         <br />
         <span className="underlined">Keep it simple.</span>
       </h1>
-      <p className="effective-date">Effective 17 October 2026</p>
+      <p className="effective-date">Effective 18 October 2026</p>
       <div className="policy-intro prose">
         <p>
-          Night Show is free, needs no account and shows no ads. The app
+          Night Show is free to play, needs no account and shows no ads. An
+          optional subscription, Night Show Plus, adds custom topics. The app
           contains no third-party analytics or advertising software. Our game
           server keeps a random player ID and simple game statistics. Player
           names are never sent to the AI.
@@ -26,6 +27,7 @@ export default function PrivacyPage() {
         <a href="#player-id">Player ID</a>
         <a href="#games">During a game</a>
         <a href="#ai">AI</a>
+        <a href="#played">What you’ve played</a>
         <a href="#statistics">Statistics</a>
         <a href="#purchases">Purchases</a>
         <a href="#retention">Retention</a>
@@ -81,10 +83,11 @@ export default function PrivacyPage() {
           stored in the database.
         </p>
         <p>
-          A custom quiz topic typed by the host is stored with the game and
-          with the questions written for it. Those questions can be shown again
-          in any room that picks the same topic. Please don’t type personal
-          details into a topic.
+          A custom topic typed by the host (for The Buzzer, The Big Board or
+          Draw &amp; Guess) is stored with the game and with the questions,
+          category or words written for it. Those can be shown again in any
+          room that picks the same topic. Please don’t type personal details
+          into a topic.
         </p>
         <h2 id="ai">AI judging and questions</h2>
         <p>
@@ -92,8 +95,11 @@ export default function PrivacyPage() {
           Country City, the server sends the round’s letter, the categories and
           the answers, each with a number. Player names and IDs aren’t sent.
           For The Buzzer, Claude writes quiz questions for a category or a
-          custom topic; answers in The Buzzer are matched on our server and
-          aren’t sent to Claude.
+          custom topic. For The Big Board and Draw &amp; Guess, Claude writes a
+          quiz category or words to draw on a custom topic. Answers and guesses
+          in these games are matched on our server and aren’t sent to Claude.
+          Drawings go from the artist’s phone to the screens in the room and
+          are only kept in memory while the room is open.
         </p>
         <p>
           To save cost, the server remembers Claude’s verdict on each answer
@@ -106,6 +112,13 @@ export default function PrivacyPage() {
           and{" "}
           <a href="https://www.anthropic.com/legal/privacy">privacy policy</a>.
         </p>
+        <h2 id="played">What your games have played</h2>
+        <p>
+          So the next game brings questions, categories and words you haven’t
+          had yet, the server remembers which ones were played in games that
+          a player ID took part in. This list is linked to the player ID only,
+          not to names or answers.
+        </p>
         <h2 id="statistics">Game statistics</h2>
         <p>
           The server logs simple events to understand what people play and what
@@ -113,7 +126,9 @@ export default function PrivacyPage() {
           players and their platforms, settings such as rounds, category or
           topic), a game finished or abandoned and
           how many rounds were played, a host accepting or rejecting an answer,
-          and the AI falling back to a simpler check. Each event is linked to
+          a game starting to repeat content the host has played before, a
+          Night Show Plus subscription being confirmed, and the AI falling back
+          to a simpler check. Each event is linked to
           the host’s player ID or to the game.
         </p>
         <p>
@@ -125,8 +140,19 @@ export default function PrivacyPage() {
         </p>
         <h2 id="purchases">Purchases</h2>
         <p>
-          Night Show has no in-app purchases, and we never receive payment
-          details.
+          Night Show Plus is an auto-renewable subscription sold by Apple
+          through the App Store. Apple handles the payment; we never receive
+          your payment details or your Apple Account.
+        </p>
+        <p>
+          After a purchase or a restore, the app sends our server the
+          transaction Apple signed for it. The server checks Apple’s signature
+          and stores the product, Apple’s transaction ID, the expiry date and
+          whether it’s a test purchase, linked to your player ID. We use this
+          only to know which phones have Plus and to count the custom topics
+          used each month (fair use). The purchase is also tagged with your
+          player ID in Apple’s records, so it belongs to this app. You manage
+          or cancel the subscription in your Apple Account settings.
         </p>
         <h2 id="retention">How long we keep it</h2>
         <ul>
@@ -134,16 +160,20 @@ export default function PrivacyPage() {
             Room data, names and answers: in memory while the room is open.
           </li>
           <li>
-            Game statistics, game records and AI request logs: deleted after
-            13 months.
+            Game statistics, game records, AI request logs and the list of what
+            your games have played: deleted after 13 months.
+          </li>
+          <li>
+            Night Show Plus records: deleted 13 months after the subscription
+            ends.
           </li>
           <li>
             Your player ID and when it was first and last seen: kept until you
             ask us to delete them.
           </li>
           <li>
-            AI verdicts and quiz questions: kept, because they aren’t linked to
-            anyone.
+            AI verdicts, quiz questions, categories and drawing words: kept,
+            because they aren’t linked to anyone.
           </li>
         </ul>
         <h2 id="choices">Your choices and privacy rights</h2>

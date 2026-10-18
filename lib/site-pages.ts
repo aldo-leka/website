@@ -119,7 +119,7 @@ export const sitePages = {
     title: "Night Show: Party Games",
     headline: "Game night.\nOn the big screen.",
     description:
-      "Party games for friends and family. The TV shows the game and everyone plays from their phone. Country City and The Buzzer, in English and Albanian.",
+      "Party games for friends and family. The TV shows the game and everyone plays from their phone. Country City, The Buzzer, The Big Board and Draw & Guess, in English and Albanian.",
     eyebrow: "Night Show · Party Games",
     color: "#fff0bd",
   },
@@ -128,7 +128,7 @@ export const sitePages = {
     title: "Night Show Privacy Policy",
     headline: "Play together.\nKeep it simple.",
     description:
-      "A random player ID, game statistics and AI judging without player names, explained.",
+      "A random player ID, game statistics, AI without player names and the optional Plus subscription, explained.",
     eyebrow: "Night Show · Privacy",
     color: "#dfe7d5",
   },
@@ -137,7 +137,7 @@ export const sitePages = {
     title: "Night Show Support",
     headline: "Here to help\nthe party along.",
     description:
-      "Help with the TV screen, joining from phones, Country City, The Buzzer and languages.",
+      "Help with the TV screen, joining from phones, the games, Night Show Plus and languages.",
     eyebrow: "Night Show · Support",
     color: "#ffe4d9",
   },
