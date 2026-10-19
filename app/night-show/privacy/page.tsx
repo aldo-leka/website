@@ -12,14 +12,15 @@ export default function PrivacyPage() {
         <br />
         <span className="underlined">Keep it simple.</span>
       </h1>
-      <p className="effective-date">Effective 18 October 2026</p>
+      <p className="effective-date">Effective 19 October 2026</p>
       <div className="policy-intro prose">
         <p>
           Night Show is free to play, needs no account and shows no ads. An
-          optional subscription, Night Show Plus, adds custom topics. The app
-          contains no third-party analytics or advertising software. Our game
-          server keeps a random player ID and simple game statistics. Player
-          names are never sent to the AI.
+          optional subscription, Night Show Plus, adds custom topics. Our game
+          server keeps a random player ID and simple game statistics, which it
+          also sends to our analytics provider. The app reports crashes to our
+          error-reporting provider. There is no advertising software, and player
+          names are never sent to the AI or to these providers.
         </p>
       </div>
       <nav className="policy-toc" aria-label="Privacy policy sections">
@@ -29,6 +30,8 @@ export default function PrivacyPage() {
         <a href="#ai">AI</a>
         <a href="#played">What you’ve played</a>
         <a href="#statistics">Statistics</a>
+        <a href="#crashes">Crash reports</a>
+        <a href="#feedback">Feedback and reports</a>
         <a href="#purchases">Purchases</a>
         <a href="#retention">Retention</a>
         <a href="#choices">Your choices</a>
@@ -122,21 +125,59 @@ export default function PrivacyPage() {
         <h2 id="statistics">Game statistics</h2>
         <p>
           The server logs simple events to understand what people play and what
-          breaks: a new player ID, a game started (which game, number of
-          players and their platforms, settings such as rounds, category or
-          topic), a game finished or abandoned and
-          how many rounds were played, a host accepting or rejecting an answer,
-          a game starting to repeat content the host has played before, a
-          Night Show Plus subscription being confirmed, and the AI falling back
-          to a simpler check. Each event is linked to
-          the host’s player ID or to the game.
+          breaks: the app being opened (platform and app version), a new player
+          ID, a TV opening a room, a player joining (app or browser), a game
+          started (which game, number of players and their platforms, settings
+          such as rounds, category or topic), a game finished or abandoned (how
+          many rounds were played and how long it took), a host accepting or
+          rejecting an answer, a game starting to repeat content the host has
+          played before, the Night Show Plus screen being opened, a purchase or
+          restore being started or failing, a subscription being confirmed,
+          feedback being sent, content being reported, and the AI falling back
+          to a simpler check. Each event is linked to a player ID or to the
+          game; events from browsers and TVs have no player ID.
+        </p>
+        <p>
+          The server also sends these events to Mixpanel, our analytics
+          provider, which stores them in the European Union. Mixpanel receives
+          the event, its time, the player ID and the details listed above. It
+          doesn’t receive names, answers, drawings or IP addresses (the server
+          sends the events itself and turns off Mixpanel’s location lookup).
+          Mixpanel processes them for us under its{" "}
+          <a href="https://mixpanel.com/legal/privacy-policy/">privacy policy</a>.
         </p>
         <p>
           For each AI request the server logs the model, the number of tokens,
           the cost, how long it took and whether it worked, linked to the game
-          it served. We don’t use advertising identifiers, cross-app tracking,
-          session recordings or third-party analytics, and we don’t sell this
-          information.
+          it served. We don’t use advertising identifiers, cross-app tracking or
+          session recordings, and we don’t sell this information.
+        </p>
+        <h2 id="crashes">Crash reports</h2>
+        <p>
+          When the app crashes or runs into an error, it sends a report to
+          Sentry, our error-reporting provider, which stores it in the European
+          Union. A report contains what went wrong and where in the app’s code,
+          the app version, your device model, operating system version and
+          language, and the app’s own technical steps just before the error
+          (such as which screen was open). It doesn’t contain your player ID,
+          your name, what you typed or your IP address. Our game server reports
+          its own errors to Sentry in the same way. Sentry processes them for us
+          under its{" "}
+          <a href="https://sentry.io/privacy/">privacy policy</a>.
+        </p>
+        <h2 id="feedback">Feedback and reports</h2>
+        <p>
+          If you send feedback from the app’s settings, the server stores your
+          message, the email address you add (it’s optional), the app version,
+          platform and language and your player ID, and emails the message to
+          us. Our email is hosted by Zoho in the European Union. We use it to
+          read your feedback and, if you left an address, to answer you.
+        </p>
+        <p>
+          Any player can report a question, category or word that Claude wrote.
+          The server then stores what was on screen, the game, the language and
+          the reporter’s player ID (when they play in the app), and takes the
+          item out of the games.
         </p>
         <h2 id="purchases">Purchases</h2>
         <p>
@@ -166,6 +207,15 @@ export default function PrivacyPage() {
           <li>
             Night Show Plus records: deleted 13 months after the subscription
             ends.
+          </li>
+          <li>
+            Feedback and content reports on our server: deleted after 13
+            months. Feedback emails: kept as long as needed to answer them.
+          </li>
+          <li>
+            Events in Mixpanel and crash reports in Sentry: kept under those
+            services’ retention settings. When you ask us to delete the data
+            linked to your player ID, we also delete it from Mixpanel.
           </li>
           <li>
             Your player ID and when it was first and last seen: kept until you

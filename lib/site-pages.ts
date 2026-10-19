@@ -128,7 +128,7 @@ export const sitePages = {
     title: "Night Show Privacy Policy",
     headline: "Play together.\nKeep it simple.",
     description:
-      "A random player ID, game statistics, AI without player names and the optional Plus subscription, explained.",
+      "A random player ID, game statistics, crash reports, feedback, AI without player names and the optional Plus subscription, explained.",
     eyebrow: "Night Show · Privacy",
     color: "#dfe7d5",
   },

@@ -50,6 +50,14 @@ const questions = [
     title: "Can I remove someone from the room?",
     body: "Yes. The host can tap a player in the lobby and remove them. Anyone can also leave the room from their own phone.",
   },
+  {
+    title: "A question, category or word is wrong or not OK",
+    body: "Tap ⋯ at the top of your phone during the game and choose Report. It’s taken out of the games right away, and we take a look.",
+  },
+  {
+    title: "How do I send an idea or report a problem?",
+    body: "In the app, open Settings and tap Send feedback. You can add your email if you’d like an answer. You can also email us, below.",
+  },
 ];
 
 export default function SupportPage() {
