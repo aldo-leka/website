@@ -31,7 +31,7 @@ export default function PrivacyPage() {
         <a href="#played">What you’ve played</a>
         <a href="#statistics">Statistics</a>
         <a href="#crashes">Crash reports</a>
-        <a href="#feedback">Feedback and reports</a>
+        <a href="#feedback">Feedback and requests</a>
         <a href="#purchases">Purchases</a>
         <a href="#retention">Retention</a>
         <a href="#choices">Your choices</a>
@@ -105,6 +105,11 @@ export default function PrivacyPage() {
           are only kept in memory while the room is open.
         </p>
         <p>
+          When you ask for a game in the app’s settings, Claude reads what you
+          typed together with the names of the games asked for so far, and
+          decides which game it is. Your player ID isn’t sent.
+        </p>
+        <p>
           To save cost, the server remembers Claude’s verdict on each answer
           (for example letter B, category City, answer Berat, valid) and the
           questions it writes. These don’t identify who typed or played them.
@@ -133,7 +138,8 @@ export default function PrivacyPage() {
           rejecting an answer, a game starting to repeat content the host has
           played before, the Night Show Plus screen being opened, a purchase or
           restore being started or failing, a subscription being confirmed,
-          feedback being sent, content being reported, and the AI falling back
+          feedback being sent, a game being requested or voted for, content
+          being reported, and the AI falling back
           to a simpler check. Each event is linked to a player ID or to the
           game; events from browsers and TVs have no player ID.
         </p>
@@ -165,13 +171,22 @@ export default function PrivacyPage() {
           under its{" "}
           <a href="https://sentry.io/privacy/">privacy policy</a>.
         </p>
-        <h2 id="feedback">Feedback and reports</h2>
+        <h2 id="feedback">Feedback, game requests and reports</h2>
         <p>
           If you send feedback from the app’s settings, the server stores your
           message, the email address you add (it’s optional), the app version,
           platform and language and your player ID, and emails the message to
           us. Our email is hosted by Zoho in the European Union. We use it to
           read your feedback and, if you left an address, to answer you.
+        </p>
+        <p>
+          In the app’s settings you can also ask for a game we don’t have yet,
+          or vote for one that other players asked for. The server stores what
+          you typed, the app’s language, your player ID and your votes. Claude
+          puts requests for the same game under one name (see AI above). Other
+          players see only the names of the games and how many votes each has,
+          never what anyone typed or who voted. Please don’t type personal
+          details into a request.
         </p>
         <p>
           Any player can report a question, category or word that Claude wrote.
@@ -209,8 +224,9 @@ export default function PrivacyPage() {
             ends.
           </li>
           <li>
-            Feedback and content reports on our server: deleted after 13
-            months. Feedback emails: kept as long as needed to answer them.
+            Feedback, game requests, votes and content reports on our server:
+            deleted after 13 months. Feedback emails: kept as long as needed to
+            answer them.
           </li>
           <li>
             Events in Mixpanel and crash reports in Sentry: kept under those
