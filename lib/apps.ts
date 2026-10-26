@@ -23,10 +23,10 @@ export const apps = {
     path: "/night-show",
     storeUrl: null,
   },
-  couch: {
-    name: "Couch",
+  armrest: {
+    name: "Armrest",
     subtitle: "TV Remote",
-    path: "/couch",
+    path: "/armrest",
     storeUrl: null,
   },
   dineMio: { name: "DineMio", websiteUrl: "https://dinemio.com" },

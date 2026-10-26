@@ -5,15 +5,15 @@ import { StoreLink } from "@/components/StoreLink";
 import { apps } from "@/lib/apps";
 import { pageMetadata } from "@/lib/site-pages";
 
-export const metadata = pageMetadata("couch");
+export const metadata = pageMetadata("armrest");
 
-export default function CouchPage() {
+export default function ArmrestPage() {
   return (
     <div className="wrap product-page">
       <section className="product-hero">
         <div>
           <p className="eyebrow">
-            For iPhone and iPad{!apps.couch.storeUrl && " · Coming soon"}
+            For iPhone and iPad{!apps.armrest.storeUrl && " · Coming soon"}
           </p>
           <h1>
             Any TV.
@@ -21,29 +21,29 @@ export default function CouchPage() {
             <span className="underlined">Right from your couch.</span>
           </h1>
           <p className="hero-description">
-            A friendly TV remote for iPhone and iPad. Couch finds the TV on
+            A friendly TV remote for iPhone and iPad. Armrest finds the TV on
             your Wi-Fi and pairs in a tap, at home or in a holiday rental.
           </p>
           <div className="product-name">
             <Image
-              src="/apps/couch/icon.png"
-              alt="Couch icon"
+              src="/apps/armrest/icon.png"
+              alt="Armrest icon"
               width={66}
               height={66}
             />
             <p>
-              <strong>{apps.couch.name}:</strong> {apps.couch.subtitle}
+              <strong>{apps.armrest.name}:</strong> {apps.armrest.subtitle}
             </p>
           </div>
-          <StoreLink url={apps.couch.storeUrl} />
+          <StoreLink url={apps.armrest.storeUrl} />
           <a className="text-link" href="#features">
             See what it does <span aria-hidden="true">↓</span>
           </a>
           <p className="byline">Built by Aldo Leka · In 51 languages</p>
         </div>
-        <div className="product-visual couch-product-visual peach">
+        <div className="product-visual armrest-product-visual peach">
           <Image
-            src="/apps/couch/icon.png"
+            src="/apps/armrest/icon.png"
             alt=""
             width={512}
             height={512}
@@ -64,7 +64,7 @@ export default function CouchPage() {
             <div>
               <h3>Finds the TV for you</h3>
               <p>
-                Couch looks for LG, Samsung, Sony, Philips, Roku, Fire TV,
+                Armrest looks for LG, Samsung, Sony, Philips, Roku, Fire TV,
                 Android and Google TV, Vizio and Panasonic TVs on your Wi-Fi.
                 Pair once: accept on the TV, or type the code it shows.
               </p>
@@ -123,7 +123,7 @@ export default function CouchPage() {
           <p className="eyebrow">Free</p>
           <h2>No account. No ads. No tracking.</h2>
           <p>
-            Couch talks only to the TVs on your Wi-Fi. Nothing you press or
+            Armrest talks only to the TVs on your Wi-Fi. Nothing you press or
             type goes to us or to anyone else.
           </p>
         </div>
@@ -134,16 +134,16 @@ export default function CouchPage() {
             <br />
             It was the phone.
           </span>
-          <Image src="/apps/couch/icon.png" alt="" width={110} height={110} />
+          <Image src="/apps/armrest/icon.png" alt="" width={110} height={110} />
         </div>
       </section>
       <section className="support-strip">
         <h2>Here when you need a hand.</h2>
         <div className="link-row">
-          <Link className="text-link" href="/couch/support">
+          <Link className="text-link" href="/armrest/support">
             Get support <Arrow diagonal />
           </Link>
-          <Link className="text-link" href="/couch/privacy">
+          <Link className="text-link" href="/armrest/privacy">
             Read the privacy policy <Arrow diagonal />
           </Link>
         </div>

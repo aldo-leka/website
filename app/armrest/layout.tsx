@@ -1,13 +1,13 @@
 import { AppNavigation } from "@/components/AppNavigation";
 
-export default function CouchLayout({
+export default function ArmrestLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <>
-      <AppNavigation app="couch" />
+      <AppNavigation app="armrest" />
       {children}
     </>
   );

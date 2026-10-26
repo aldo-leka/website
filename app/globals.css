@@ -340,7 +340,7 @@ svg {
 }
 .jobalbum-product-visual,
 .night-show-product-visual,
-.couch-product-visual {
+.armrest-product-visual {
   min-height: 520px;
   flex-direction: column;
   align-items: center;
@@ -348,7 +348,7 @@ svg {
 }
 .jobalbum-product-visual > img,
 .night-show-product-visual > img,
-.couch-product-visual > img {
+.armrest-product-visual > img {
   width: min(80%, 310px);
   height: auto;
   border-radius: 23%;
@@ -357,7 +357,7 @@ svg {
 }
 .jobalbum-product-visual .handwritten,
 .night-show-product-visual .handwritten,
-.couch-product-visual .handwritten {
+.armrest-product-visual .handwritten {
   font-size: 34px;
   line-height: 1.15;
   text-align: center;

@@ -17,9 +17,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/night-show",
     "/night-show/privacy",
     "/night-show/support",
-    "/couch",
-    "/couch/privacy",
-    "/couch/support",
+    "/armrest",
+    "/armrest/privacy",
+    "/armrest/support",
   ].map((path) => ({
     url: `https://aldoleka.com${path}`,
     changeFrequency: "monthly",
