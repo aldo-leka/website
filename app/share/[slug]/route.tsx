@@ -30,6 +30,9 @@ const labels: Record<PageKey, [string, string]> = {
   "night-show": ["Night Show", "Party Games · For iPhone"],
   "night-show-privacy": ["Privacy", "Night Show"],
   "night-show-support": ["Support", "Night Show"],
+  couch: ["Couch", "TV Remote · For iPhone and iPad"],
+  "couch-privacy": ["Privacy", "Couch"],
+  "couch-support": ["Support", "Couch"],
 };
 
 export async function GET(
@@ -52,7 +55,9 @@ export async function GET(
         ? "jobalbum"
         : key.startsWith("night-show")
           ? "night-show"
-          : null;
+          : key.startsWith("couch")
+            ? "couch"
+            : null;
   const appIcon = appFolder
     ? `data:image/png;base64,${(await readFile(join(process.cwd(), `public/apps/${appFolder}/icon.png`))).toString("base64")}`
     : null;

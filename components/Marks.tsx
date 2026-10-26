@@ -66,7 +66,20 @@ export function LekasoftIcon() {
 export function FeatureIcon({
   type,
 }: {
-  type: "notebook" | "chart" | "cloud" | "timer" | "bell" | "routines" | "tv" | "board" | "pencil";
+  type:
+    | "notebook"
+    | "chart"
+    | "cloud"
+    | "timer"
+    | "bell"
+    | "routines"
+    | "tv"
+    | "board"
+    | "pencil"
+    | "remote"
+    | "wifi"
+    | "keyboard"
+    | "apps";
 }) {
   return (
     <svg
@@ -121,6 +134,30 @@ export function FeatureIcon({
             <>
               <path d="M33 6l9 9-25 25-11 3 3-11Z" />
               <path d="M28 11l9 9M6 48h36" />
+            </>
+          )}
+          {type === "remote" && (
+            <>
+              <rect x="14" y="3" width="20" height="46" rx="10" />
+              <circle cx="24" cy="17" r="6" />
+              <path d="M19 32h.01M29 32h.01M19 40h.01M29 40h.01" />
+            </>
+          )}
+          {type === "wifi" && (
+            <path d="M4 20a28 28 0 0 1 40 0M10 27a19 19 0 0 1 28 0M16 34a10 10 0 0 1 16 0M24 41h.01" />
+          )}
+          {type === "keyboard" && (
+            <>
+              <rect x="3" y="13" width="42" height="27" rx="5" />
+              <path d="M10 21h.01M17 21h.01M24 21h.01M31 21h.01M38 21h.01M10 27h.01M38 27h.01M16 33h16" />
+            </>
+          )}
+          {type === "apps" && (
+            <>
+              <rect x="5" y="7" width="16" height="16" rx="4" />
+              <rect x="27" y="7" width="16" height="16" rx="4" />
+              <rect x="5" y="29" width="16" height="16" rx="4" />
+              <rect x="27" y="29" width="16" height="16" rx="4" />
             </>
           )}
           {type === "routines" && (

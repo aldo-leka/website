@@ -141,6 +141,33 @@ export const sitePages = {
     eyebrow: "Night Show · Support",
     color: "#ffe4d9",
   },
+  couch: {
+    path: "/couch",
+    title: "Couch: TV Remote",
+    headline: "Any TV.\nRight from your couch.",
+    description:
+      "A friendly TV remote for iPhone and iPad. Couch finds the TV on your Wi-Fi and pairs in a tap: LG, Samsung, Sony, Philips, Roku, Fire TV, Google TV and more.",
+    eyebrow: "Couch · TV Remote",
+    color: "#ffe4d9",
+  },
+  "couch-privacy": {
+    path: "/couch/privacy",
+    title: "Couch Privacy Policy",
+    headline: "Between you\nand your TV.",
+    description:
+      "Couch talks only to the TVs on your Wi-Fi. No account, no analytics, no ads, and nothing sent to us.",
+    eyebrow: "Couch · Privacy",
+    color: "#dfe7d5",
+  },
+  "couch-support": {
+    path: "/couch/support",
+    title: "Couch Support",
+    headline: "A hand with\nyour remote.",
+    description:
+      "Help with finding and pairing TVs, turning them on, typing, apps, Control Center and Siri.",
+    eyebrow: "Couch · Support",
+    color: "#fff0bd",
+  },
 } as const;
 export type PageKey = keyof typeof sitePages;
 

@@ -6,7 +6,7 @@ import { apps } from "@/lib/apps";
 export function AppNavigation({
   app = "countMyShift",
 }: {
-  app?: "countMyShift" | "steadyRounds" | "jobAlbum" | "nightShow";
+  app?: "countMyShift" | "steadyRounds" | "jobAlbum" | "nightShow" | "couch";
 }) {
   const pathname = usePathname();
   const { name, path } = apps[app];

@@ -339,14 +339,16 @@ svg {
   filter: drop-shadow(0 16px 14px #4a360a26);
 }
 .jobalbum-product-visual,
-.night-show-product-visual {
+.night-show-product-visual,
+.couch-product-visual {
   min-height: 520px;
   flex-direction: column;
   align-items: center;
   gap: 34px;
 }
 .jobalbum-product-visual > img,
-.night-show-product-visual > img {
+.night-show-product-visual > img,
+.couch-product-visual > img {
   width: min(80%, 310px);
   height: auto;
   border-radius: 23%;
@@ -354,7 +356,8 @@ svg {
   transform: rotate(-5deg);
 }
 .jobalbum-product-visual .handwritten,
-.night-show-product-visual .handwritten {
+.night-show-product-visual .handwritten,
+.couch-product-visual .handwritten {
   font-size: 34px;
   line-height: 1.15;
   text-align: center;

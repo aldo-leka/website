@@ -23,6 +23,12 @@ export const apps = {
     path: "/night-show",
     storeUrl: null,
   },
+  couch: {
+    name: "Couch",
+    subtitle: "TV Remote",
+    path: "/couch",
+    storeUrl: null,
+  },
   dineMio: { name: "DineMio", websiteUrl: "https://dinemio.com" },
   lekasoft: { name: "Lekasoft", websiteUrl: "https://lekasoft.nl" },
   rogersDeepValue: {
